@@ -1,16 +1,17 @@
 {
   "title": "DevFest Berlin 2026",
-  "description": "Berlin's flagship community-driven developer festival organized by local Google Developer Groups. Coming in 2026.",
+  "description": "Berlin's flagship community-driven developer festival organized by local Google Developer Groups. Coming to SRH Berlin on November 14, 2026.",
   "url": "https://2026.devfest.berlin",
   "accentColor": "#1a73e8",
   "coverImage": "/assets/images/devfest-cover.svg",
-  "status": "Stay Tuned",
-  "navigation": [
-    { "label": "Home", "url": "/" },
-    { "label": "About", "url": "#about" },
-    { "label": "Organizers", "url": "#organizers" },
-    { "label": "Updates", "url": "#subscribe" }
-  ],
+  "status": "Nov 14, 2026 • SRH Berlin",
+  "date": "November 14, 2026",
+  "venue": {
+    "name": "SRH Berlin University of Applied Sciences",
+    "shortName": "SRH Berlin",
+    "city": "Berlin, Germany"
+  },
+  "navigation": [],
   "footerNavigation": [
     { "label": "DevFest 2025 Archive", "url": "https://2025.devfest.berlin/home" }
   ],
@@ -60,7 +61,7 @@
     "action": "https://docs.google.com/forms/d/e/1FAIpQLSfJYZ1P-QigUq4ce4GokypPLO1-5Ck-qZeumneCEkZ6eZrQrQ/formResponse",
     "emailFieldName": "entry.464015783",
     "title": "Stay tuned for DevFest Berlin 2026",
-    "description": "Be the first to hear when Early Bird tickets drop, Call for Papers (CFP) opens, and keynote speakers are announced.",
+    "description": "Be the first to hear when Early Bird tickets drop, Call for Papers (CFP) opens, and keynote speakers are announced for November 14th at SRH Berlin.",
     "buttonText": "Notify Me"
   }
 }

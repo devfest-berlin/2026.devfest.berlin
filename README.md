@@ -2,6 +2,9 @@
 
 DevFest Berlin 2026 website built with [Eleventy 3.x](https://11ty.dev/) and styled with the [Ghost Casper](https://github.com/TryGhost/Casper) theme design.
 
+- **Date**: Saturday, November 14, 2026
+- **Venue**: SRH Berlin University of Applied Sciences, Berlin, Germany
+
 ## Features
 
 - **Casper Aesthetic**: Hero cover header, clean typography, responsive layout, and automatic dark mode support.
