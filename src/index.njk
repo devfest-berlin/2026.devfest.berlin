@@ -17,9 +17,7 @@ bodyClass: "home-template is-head-left-logo has-cover"
 
     <div class="site-header-inner inner">
         {% if site.status %}
-        <div class="status-pill">
-            <span class="status-dot"></span> {{ site.status }}
-        </div>
+        <div class="status-pill">{{ site.status }}</div>
         {% endif %}
         <h1 class="site-title">{{ site.title }}</h1>
         {% if site.description %}
@@ -57,10 +55,29 @@ bodyClass: "home-template is-head-left-logo has-cover"
         <div class="inner about-content">
             <h2 class="section-title">What is DevFest?</h2>
             <p class="about-text">
-                DevFests are community-led developer events hosted by Google Developer Groups worldwide. 
-                DevFest Berlin brings together engineers, designers, and tech leaders for talks, workshops, 
+                DevFests are community-led developer events hosted by Google Developer Groups worldwide.
+                DevFest Berlin brings together engineers, designers, and tech leaders for talks, workshops,
                 and networking across Android, Web, Cloud, AI, and more.
             </p>
+        </div>
+    </section>
+
+    <!-- Date & Venue Section -->
+    <section id="venue" class="outer venue-section">
+        <div class="inner">
+            <div class="venue-card">
+                <div class="venue-item">
+                    <span class="venue-badge">Confirmed Date</span>
+                    <h3 class="venue-title">Saturday, November 14, 2026</h3>
+                    <p class="venue-subtitle">Full-day conference with keynote talks, sessions & workshops</p>
+                </div>
+                <div class="venue-divider"></div>
+                <div class="venue-item">
+                    <span class="venue-badge">Host Venue</span>
+                    <h3 class="venue-title">SRH Berlin</h3>
+                    <p class="venue-subtitle">SRH Berlin University of Applied Sciences &bull; Berlin, Germany</p>
+                </div>
+            </div>
         </div>
     </section>
 

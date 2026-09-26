@@ -10,13 +10,21 @@
     const root = document.documentElement;
     let scrollPosition = 0;
 
-    function closeMenu() {
+    function closeMenu(targetHash) {
         if (!navigation.classList.contains('gh-head-open')) return;
 
         navigation.classList.remove('gh-head-open');
         burger.setAttribute('aria-expanded', 'false');
         root.classList.remove('gh-navigation-open');
         root.style.removeProperty('--gh-navigation-scroll-top');
+
+        if (targetHash) {
+            const target = document.querySelector(targetHash);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+                return;
+            }
+        }
         window.scrollTo({top: scrollPosition, behavior: 'instant'});
     }
 
@@ -32,6 +40,29 @@
         } else {
             closeMenu();
         }
+    });
+
+    // Close mobile drawer when clicking navigation links
+    const menuLinks = document.querySelectorAll('.gh-head-menu a, .gh-head-actions a');
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            const href = link.getAttribute('href');
+            if (href === '/') {
+                if (window.location.pathname === '/' || window.location.pathname.endsWith('/index.html') || window.location.pathname.endsWith('2026.devfest.berlin/')) {
+                    e.preventDefault();
+                    closeMenu();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    closeMenu();
+                }
+            } else if (href && href.startsWith('#')) {
+                e.preventDefault();
+                closeMenu(href);
+                history.pushState(null, '', href);
+            } else {
+                closeMenu();
+            }
+        });
     });
 
     mobile.addEventListener('change', function () {
