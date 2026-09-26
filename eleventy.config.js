@@ -1,6 +1,8 @@
 import esbuild from "esbuild";
+import { HtmlBasePlugin } from "@11ty/eleventy";
 
 export default function(eleventyConfig) {
+  eleventyConfig.addPlugin(HtmlBasePlugin);
   // Pass-through copies
   eleventyConfig.addPassthroughCopy("src/assets/images");
   eleventyConfig.addPassthroughCopy("src/assets/js");
