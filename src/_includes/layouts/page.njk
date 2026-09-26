@@ -1,0 +1,25 @@
+---
+layout: base.njk
+bodyClass: "page-template"
+---
+
+<main id="site-main" class="site-main">
+    <article class="article outer" style="padding: 60px 0;">
+        <div class="inner" style="max-width: 840px; margin: 0 auto;">
+            <header class="article-header" style="text-align: center; margin-bottom: 40px;">
+                <h1 class="article-title" style="font-size: clamp(3rem, 5vw, 4.4rem); font-weight: 800; margin: 0 0 16px;">
+                    {{ title }}
+                </h1>
+                {% if description %}
+                <p class="article-excerpt" style="font-size: 1.8rem; color: var(--color-secondary-text); margin: 0;">
+                    {{ description }}
+                </p>
+                {% endif %}
+            </header>
+
+            <section class="gh-content" style="font-size: 1.8rem; line-height: 1.7;">
+                {{ content | safe }}
+            </section>
+        </div>
+    </article>
+</main>

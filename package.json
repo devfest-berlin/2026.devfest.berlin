@@ -1,0 +1,18 @@
+{
+  "name": "devfest-berlin-2026-website",
+  "version": "1.0.0",
+  "description": "DevFest Berlin 2026 Website",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "eleventy",
+    "dev": "eleventy --serve"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.6"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  }
+}
+

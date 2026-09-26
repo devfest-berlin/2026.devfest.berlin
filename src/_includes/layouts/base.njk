@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" class="auto-color">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title or site.title }}</title>
+    <meta name="description" content="{{ description or site.description }}">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/assets/css/screen.css">
+
+    <style>
+        :root {
+            --ghost-accent-color: {{ site.accentColor or '#1a73e8' }};
+        }
+    </style>
+
+    <!-- Open Graph / Social Cards -->
+    <meta property="og:site_name" content="{{ site.title }}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ title or site.title }}">
+    <meta property="og:description" content="{{ description or site.description }}">
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    {% if site.coverImage %}
+    <meta property="og:image" content="{{ site.url }}{{ site.coverImage }}">
+    {% endif %}
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ title or site.title }}">
+    <meta name="twitter:description" content="{{ description or site.description }}">
+    {% if site.coverImage %}
+    <meta name="twitter:image" content="{{ site.url }}{{ site.coverImage }}">
+    {% endif %}
+</head>
+<body class="{% if bodyClass %}{{ bodyClass }}{% else %}home-template is-head-left-logo has-cover{% endif %}">
+<div class="viewport">
+
+    <header id="gh-head" class="gh-head outer">
+        <div class="gh-head-inner inner">
+            <div class="gh-head-brand">
+                <a class="gh-head-logo no-image" href="/">
+                    {{ site.title }}
+                </a>
+                <button class="gh-burger" aria-label="Main Menu"></button>
+            </div>
+
+            <nav class="gh-head-menu">
+                <ul class="nav">
+                    {% for item in site.navigation %}
+                    <li><a href="{{ item.url }}">{{ item.label }}</a></li>
+                    {% endfor %}
+                </ul>
+            </nav>
+
+            <div class="gh-head-actions">
+                <a class="gh-head-button" href="#subscribe">Stay Tuned</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="site-content">
+        {{ content | safe }}
+    </div>
+
+    <footer class="site-footer outer">
+        <div class="inner">
+            <section class="copyright">
+                <a href="/">{{ site.title }}</a> &copy; {% year %}
+            </section>
+
+            <div class="site-footer-center">
+                <nav class="site-footer-nav">
+                    <ul class="nav">
+                        {% for item in site.footerNavigation %}
+                        <li><a href="{{ item.url }}" target="_blank" rel="noopener">{{ item.label }}</a></li>
+                        {% endfor %}
+                        <li><a href="https://github.com/TryGhost/Casper" target="_blank" rel="noopener">Design adopted from Casper by Ghost</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="gh-powered-by">
+                <span>Organized by BDG e. V.</span>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+<script src="/assets/js/main.js" defer></script>
+</body>
+</html>

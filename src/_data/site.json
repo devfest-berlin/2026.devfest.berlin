@@ -1,0 +1,66 @@
+{
+  "title": "DevFest Berlin 2026",
+  "description": "Berlin's flagship community-driven developer festival organized by local Google Developer Groups. Coming in 2026.",
+  "url": "https://2026.devfest.berlin",
+  "accentColor": "#1a73e8",
+  "coverImage": "/assets/images/devfest-cover.svg",
+  "status": "Stay Tuned",
+  "navigation": [
+    { "label": "Home", "url": "/" },
+    { "label": "About", "url": "#about" },
+    { "label": "Organizers", "url": "#organizers" },
+    { "label": "Updates", "url": "#subscribe" }
+  ],
+  "footerNavigation": [
+    { "label": "DevFest 2025 Archive", "url": "https://2025.devfest.berlin/home" }
+  ],
+  "socialLinks": [
+    { "name": "Meetup", "url": "https://www.meetup.com/gdg-berlin/" },
+    { "name": "LinkedIn", "url": "https://www.linkedin.com/company/gdg-berlin/" },
+    { "name": "X", "url": "https://x.com/gdgberlin" }
+  ],
+  "organizers": [
+    {
+      "name": "GDG Berlin",
+      "description": "The flagship Google Developer Group in Berlin covering modern web, AI, cloud, and open developer technologies.",
+      "url": "https://gdg.community.dev/gdg-berlin/"
+    },
+    {
+      "name": "Berlindroid",
+      "description": "Berlin's vibrant Android developer community hosting regular monthly technical talks, networking, and discussions.",
+      "url": "https://www.meetup.com/berlindroid/"
+    },
+    {
+      "name": "GDG Berlin Cloud",
+      "description": "Dedicated to Google Cloud Platform, distributed systems, Kubernetes, DevOps, and cloud-native architectures.",
+      "url": "https://gdg.community.dev/gdg-cloud-berlin/"
+    },
+    {
+      "name": "GDG Berlin Golang",
+      "description": "The Berlin community for the Go programming language, backend systems engineering, and high-concurrency tooling.",
+      "url": "https://gdg.community.dev/gdg-berlin-golang/"
+    },
+    {
+      "name": "WTM Berlin",
+      "description": "Women Techmakers Berlin provides visibility, community support, mentorship, and resources for women in tech.",
+      "url": "https://www.meetup.com/women-techmakers-berlin/"
+    },
+    {
+      "name": "GDG on Campus SRH Berlin",
+      "description": "Student-led developer community at SRH Berlin University of Applied Sciences learning and building real-world projects.",
+      "url": "https://gdg.community.dev/gdg-on-campus-srh-berlin-university-of-applied-sciences-berlin-germany/"
+    },
+    {
+      "name": "Flutter Berlin",
+      "description": "Berlin's meetup for multi-platform development using Flutter and Dart across mobile, web, and desktop.",
+      "url": "https://www.meetup.com/flutter-berlin/"
+    }
+  ],
+  "newsletter": {
+    "action": "https://docs.google.com/forms/d/e/1FAIpQLSfJYZ1P-QigUq4ce4GokypPLO1-5Ck-qZeumneCEkZ6eZrQrQ/formResponse",
+    "emailFieldName": "entry.464015783",
+    "title": "Stay tuned for DevFest Berlin 2026",
+    "description": "Be the first to hear when Early Bird tickets drop, Call for Papers (CFP) opens, and keynote speakers are announced.",
+    "buttonText": "Notify Me"
+  }
+}

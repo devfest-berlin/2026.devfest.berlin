@@ -1,0 +1,105 @@
+---
+layout: base.njk
+bodyClass: "home-template is-head-left-logo has-cover"
+---
+
+<!-- Casper Hero Header -->
+<div class="site-header-content outer">
+    {% if site.coverImage %}
+    <img class="site-header-cover"
+        src="{{ site.coverImage }}"
+        alt="{{ site.title }}"
+        fetchpriority="high"
+        loading="eager"
+    />
+    {% endif %}
+
+    <div class="site-header-inner inner">
+        {% if site.status %}
+        <div class="status-pill">
+            <span class="status-dot"></span> {{ site.status }}
+        </div>
+        {% endif %}
+        <h1 class="site-title">{{ site.title }}</h1>
+        {% if site.description %}
+        <p class="site-description">{{ site.description }}</p>
+        {% endif %}
+    </div>
+</div>
+
+<main id="site-main" class="site-main">
+
+    <!-- Newsletter / Subscribe Call to Action -->
+    <section id="subscribe" class="footer-cta outer subscribe-section">
+        <div class="inner">
+            <h2 class="footer-cta-title">{{ site.newsletter.title }}</h2>
+            <p style="max-width: 600px; margin: 0 auto 28px; font-size: 1.7rem; color: var(--color-secondary-text);">
+                {{ site.newsletter.description }}
+            </p>
+
+            <form id="subscribe-form" class="footer-cta-form" action="{{ site.newsletter.action }}" method="POST">
+                <input
+                    type="email"
+                    name="{{ site.newsletter.emailFieldName }}"
+                    placeholder="Enter your email address"
+                    aria-label="Email address"
+                    required
+                />
+                <button type="submit">{{ site.newsletter.buttonText }}</button>
+            </form>
+            <div id="subscribe-feedback" class="subscribe-feedback" role="status" aria-live="polite"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="outer about-section">
+        <div class="inner about-content">
+            <h2 class="section-title">What is DevFest?</h2>
+            <p class="about-text">
+                DevFests are community-led developer events hosted by Google Developer Groups worldwide. 
+                DevFest Berlin brings together engineers, designers, and tech leaders for talks, workshops, 
+                and networking across Android, Web, Cloud, AI, and more.
+            </p>
+        </div>
+    </section>
+
+    <!-- Organizers Section -->
+    <section id="organizers" class="outer organizers-section">
+        <div class="inner">
+            <div class="section-header">
+                <h2 class="section-title">Community Organizers</h2>
+                <p class="section-subtitle">
+                    DevFest Berlin is collaboratively organized by local tech communities.
+                </p>
+            </div>
+
+            <div class="organizers-grid">
+                {% for org in site.organizers %}
+                <div class="organizer-card">
+                    <div>
+                        <h3>{{ org.name }}</h3>
+                        <p>{{ org.description }}</p>
+                    </div>
+                    <div>
+                        <a class="card-link" href="{{ org.url }}" target="_blank" rel="noopener">
+                            Join Community &rarr;
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!--
+    ====================================================================
+    FUTURE EXPANSION SECTIONS:
+    When ready, drop in:
+    1. Ticketing / Eventbrite CTA
+    2. Sessionize Agenda Embed (e.g. <script src="https://sessionize.com/api/v2/..."></script>)
+    3. Venue & Location Details
+    4. FAQ Accordion
+    ====================================================================
+    -->
+
+</main>

@@ -1,0 +1,343 @@
+/* DevFest Berlin 2026 Custom Enhancements (harmonized with Casper design) */
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Hero Header Tuning */
+.site-header-content {
+    min-height: 480px;
+    padding-top: calc(10vmin + 48px);
+    padding-bottom: 10vmin;
+}
+
+/* Status Pill in Hero */
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    margin-bottom: 16px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 999px;
+    backdrop-filter: blur(8px);
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #34A853;
+    box-shadow: 0 0 10px #34A853;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.95); opacity: 0.8; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+/* Email Subscription Section */
+.subscribe-section {
+    padding: 64px 0;
+    background: var(--color-bg);
+}
+
+.footer-cta-form {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 520px;
+    padding: 5px 5px 5px 16px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    transition: border-color .2s, box-shadow .2s;
+}
+
+.footer-cta-form:focus-within {
+    border-color: var(--ghost-accent-color, #1a73e8);
+    box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.2);
+}
+
+.footer-cta-form input[type="email"] {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 1.6rem;
+    color: var(--color-darkgrey);
+    background: transparent;
+    padding: 8px 0;
+    min-width: 0;
+}
+
+.footer-cta-form button[type="submit"] {
+    display: inline-block;
+    padding: 11px 22px;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -.005em;
+    background: var(--ghost-accent-color, #1a73e8);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: opacity .2s, transform .1s;
+    white-space: nowrap;
+}
+
+.footer-cta-form button[type="submit"]:hover {
+    opacity: 0.92;
+}
+
+.footer-cta-form button[type="submit"]:active {
+    transform: scale(0.98);
+}
+
+.subscribe-feedback {
+    margin-top: 14px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    min-height: 20px;
+}
+
+.feedback-success {
+    color: #1e8e3e;
+}
+
+.feedback-error {
+    color: #d93025;
+}
+
+/* About Section */
+.about-section {
+    padding: 64px 0;
+}
+
+.about-content {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-text {
+    font-size: 1.8rem;
+    line-height: 1.6;
+    color: var(--color-secondary-text);
+    margin-top: 16px;
+}
+
+/* Organizers Section */
+.organizers-section {
+    padding: 64px 0;
+    border-top: 1px solid var(--color-border);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title {
+    font-size: clamp(2.4rem, 4vw, 3.2rem);
+    font-weight: 800;
+    margin-bottom: 8px;
+    color: var(--color-darkgrey);
+}
+
+.section-subtitle {
+    font-size: 1.7rem;
+    color: var(--color-secondary-text);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* 3 columns on desktop, clean 1 column below 900px */
+.organizers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.organizer-card {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 26px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.organizer-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+}
+
+.organizer-card h3 {
+    margin: 0 0 10px;
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: var(--color-darkgrey);
+    line-height: 1.3;
+}
+
+.organizer-card p {
+    font-size: 1.5rem;
+    line-height: 1.55;
+    color: var(--color-secondary-text);
+    margin: 0 0 16px;
+    flex: 1;
+}
+
+.organizer-card a.card-link {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--ghost-accent-color, #1a73e8);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+}
+
+.organizer-card a.card-link:hover {
+    text-decoration: underline;
+}
+
+/* Tablet & Mobile Reflow (direct transition from 3 cols to 1 col) */
+@media (max-width: 899px) {
+    .organizers-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+
+/* Mobile Screens (<= 767px) */
+@media (max-width: 767px) {
+    .site-header-content {
+        min-height: 360px;
+        padding-top: 76px;
+        padding-bottom: 36px;
+    }
+
+    .site-title {
+        font-size: 3.4rem !important;
+        line-height: 1.15;
+    }
+
+    .site-description {
+        font-size: 1.6rem !important;
+        line-height: 1.45;
+        margin-top: 10px;
+    }
+
+    .status-pill {
+        margin-bottom: 12px;
+        font-size: 1.2rem;
+        padding: 4px 12px;
+    }
+
+    .subscribe-section,
+    .about-section,
+    .organizers-section {
+        padding: 40px 0;
+    }
+
+    .section-header {
+        margin-bottom: 28px;
+    }
+
+    .about-text {
+        font-size: 1.6rem;
+    }
+
+    .organizer-card {
+        padding: 20px;
+    }
+}
+
+/* Small Mobile Screens (<= 560px) */
+@media (max-width: 560px) {
+    .footer-cta-form {
+        flex-direction: column;
+        gap: 10px;
+        padding: 0;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    .footer-cta-form input[type="email"] {
+        width: 100%;
+        padding: 13px 16px;
+        background: #fff;
+        border: 1px solid var(--color-border);
+        border-radius: 8px;
+        font-size: 1.6rem;
+        box-sizing: border-box;
+    }
+
+    .footer-cta-form button[type="submit"] {
+        width: 100%;
+        padding: 13px 20px;
+        font-size: 1.6rem;
+        border-radius: 8px;
+    }
+}
+
+/* Dark Mode Adjustments */
+@media (prefers-color-scheme: dark) {
+    html.auto-color .footer-cta-form {
+        background: #1e2227;
+        border-color: #2e333a;
+        box-shadow: none;
+    }
+
+    html.auto-color .footer-cta-form input[type="email"] {
+        color: #fff;
+        background: #1e2227;
+        border-color: #2e333a;
+    }
+
+    html.auto-color .organizer-card {
+        background: #191c20;
+        border-color: #2b3038;
+    }
+
+    html.auto-color .organizer-card h3,
+    html.auto-color .section-title {
+        color: #fff;
+    }
+
+    html.auto-color .organizer-card p,
+    html.auto-color .section-subtitle,
+    html.auto-color .about-text {
+        color: rgba(255, 255, 255, 0.7);
+    }
+}
+
+/* Footer Powered-By & Attribution */
+.gh-powered-by {
+    font-size: 1.3rem;
+    line-height: 1.5;
+    text-align: right;
+}
+
+@media (max-width: 767px) {
+    .gh-powered-by {
+        text-align: center;
+        margin-top: 12px;
+    }
+}
