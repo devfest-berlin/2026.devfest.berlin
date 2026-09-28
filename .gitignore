@@ -5,3 +5,4 @@ dist/
 *.log
 .env*
 .cache/
+PRIVATE.md
