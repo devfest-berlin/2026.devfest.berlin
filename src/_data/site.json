@@ -11,7 +11,11 @@
     "shortName": "SRH Berlin",
     "city": "Berlin, Germany"
   },
-  "navigation": [],
+  "navigation": [
+    { "label": "About", "url": "/#about" },
+    { "label": "Venue", "url": "/#venue" },
+    { "label": "Organizers", "url": "/#organizers" }
+  ],
   "footerNavigation": [
     { "label": "DevFest 2025 Archive", "url": "https://2025.devfest.berlin/home" }
   ],

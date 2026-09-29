@@ -447,3 +447,22 @@ html {
         margin-top: 12px;
     }
 }
+
+/* Casper ships no focus-visible rule; keyboard users need one on the header controls */
+.gh-head-menu .nav a:focus-visible,
+.gh-head-button:focus-visible,
+.gh-burger:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+}
+
+/* Casper cancels the grid gap on the home page, so the menu touches the logo; keep the 40px gap */
+.is-head-left-logo.home-template .gh-head:not(.is-header-hidden) .gh-head-menu {
+    margin-left: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}

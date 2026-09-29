@@ -41,10 +41,10 @@
                 <a class="gh-head-logo no-image" href="/">
                     {{ site.title }}
                 </a>
-                <!--<button class="gh-burger" aria-label="Main Menu"></button>-->
+                <button class="gh-burger" aria-label="Main Menu" aria-expanded="false" aria-controls="gh-head-menu"></button>
             </div>
 
-            <!--<nav class="gh-head-menu">
+            <nav class="gh-head-menu" id="gh-head-menu" aria-label="Main navigation">
                 <ul class="nav">
                     {% for item in site.navigation %}
                     <li><a href="{{ item.url }}">{{ item.label }}</a></li>
@@ -53,8 +53,8 @@
             </nav>
 
             <div class="gh-head-actions">
-                <a class="gh-head-button" href="#subscribe">Stay Tuned</a>
-            </div>-->
+                <a class="gh-head-button" href="/#subscribe">Stay Tuned</a>
+            </div>
         </div>
     </header>
 
@@ -69,10 +69,13 @@
             </section>
 
             <div class="site-footer-center">
-                <nav class="site-footer-nav">
+                <nav class="site-footer-nav" aria-label="Footer">
                     <ul class="nav">
                         {% for item in site.footerNavigation %}
                         <li><a href="{{ item.url }}" target="_blank" rel="noopener">{{ item.label }}</a></li>
+                        {% endfor %}
+                        {% for item in site.socialLinks %}
+                        <li><a href="{{ item.url }}" target="_blank" rel="noopener">{{ item.name }}</a></li>
                         {% endfor %}
                         <li><a href="https://github.com/TryGhost/Casper" target="_blank" rel="noopener">Design adopted from Casper by Ghost</a></li>
                     </ul>
