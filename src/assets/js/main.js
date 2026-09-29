@@ -10,6 +10,10 @@
     const root = document.documentElement;
     let scrollPosition = 0;
 
+    function scrollBehavior() {
+        return window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+    }
+
     function closeMenu(targetHash) {
         if (!navigation.classList.contains('gh-head-open')) return;
 
@@ -21,7 +25,7 @@
         if (targetHash) {
             const target = document.querySelector(targetHash);
             if (target) {
-                target.scrollIntoView({ behavior: 'smooth' });
+                target.scrollIntoView({ behavior: scrollBehavior() });
                 return;
             }
         }
@@ -48,14 +52,16 @@
         link.addEventListener('click', function (e) {
             const href = link.getAttribute('href');
             if (href === '/') {
-                if (window.location.pathname === '/' || window.location.pathname.endsWith('/index.html') || window.location.pathname.endsWith('2026.devfest.berlin/')) {
+                if (window.location.pathname === '/' || window.location.pathname.endsWith('/index.html')) {
                     e.preventDefault();
                     closeMenu();
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    window.scrollTo({ top: 0, behavior: scrollBehavior() });
                 } else {
                     closeMenu();
                 }
             } else if (href && href.startsWith('#')) {
+                // Drawer closed (desktop): let the browser do the native anchor jump
+                if (!navigation.classList.contains('gh-head-open')) return;
                 e.preventDefault();
                 closeMenu(href);
                 history.pushState(null, '', href);
