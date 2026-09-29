@@ -4,6 +4,9 @@
   "url": "https://2026.devfest.berlin",
   "accentColor": "#1a73e8",
   "coverImage": "/assets/images/devfest-cover.svg",
+  "ogImage": "/assets/images/devfest-cover-og.png",
+  "ogImageWidth": 1200,
+  "ogImageHeight": 630,
   "status": "Nov 14, 2026 • SRH Berlin",
   "date": "November 14, 2026",
   "venue": {
