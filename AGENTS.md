@@ -88,6 +88,9 @@ When Sessionize is set up for DevFest Berlin 2026:
   ```
 - Or place an embedded ticketing widget in a new `src/tickets.njk` page using `layout: page.njk`.
 
+### Search and sharing metadata
+`base.njk` builds the canonical link from `site.url`, sets the theme colour from `site.accentColor`, and adds Event structured data on the home page from `site.eventDate`, `site.venue` and `site.organizerName`. `sitemap.xml` lists every page in `collections.all` and `robots.txt` points to it, so a new page appears in the sitemap without extra work. If the canonical domain changes, update `site.url` only.
+
 ### Option D: Adding an FAQ Accordion
 - Add an FAQ section to `src/index.njk` or a dedicated `src/faq.md`.
 - HTML `<details>` and `<summary>` elements work out of the box with zero JavaScript and look clean in Casper's `.gh-content` container.
