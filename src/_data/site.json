@@ -14,6 +14,18 @@
     "shortName": "SRH Berlin",
     "city": "Berlin, Germany"
   },
+  "cfp": {
+    "status": "soon",
+    "label": "Call for Speakers",
+    "buttonText": "Submit a Talk",
+    "url": "",
+    "deadline": ""
+  },
+  "tickets": {
+    "status": "soon",
+    "buttonText": "Get Tickets",
+    "url": ""
+  },
   "navigation": [
     { "label": "About", "url": "/#about" },
     { "label": "Venue", "url": "/#venue" },

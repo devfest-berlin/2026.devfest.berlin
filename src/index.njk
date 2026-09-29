@@ -23,6 +23,23 @@ bodyClass: "home-template is-head-left-logo has-cover"
         {% if site.description %}
         <p class="site-description">{{ site.description }}</p>
         {% endif %}
+        {% set cfpOpen = site.cfp.status == "open" and site.cfp.url %}
+        {% set ticketsOpen = site.tickets.status == "open" and site.tickets.url %}
+        {% if cfpOpen or ticketsOpen %}
+        <div class="hero-actions">
+            {% if ticketsOpen %}
+            <a class="hero-button" href="{{ site.tickets.url }}" target="_blank" rel="noopener">{{ site.tickets.buttonText }}</a>
+            {% endif %}
+            {% if cfpOpen %}
+            <a class="hero-button{% if ticketsOpen %} is-secondary{% endif %}" href="{{ site.cfp.url }}" target="_blank" rel="noopener">{{ site.cfp.buttonText }}</a>
+            {% endif %}
+        </div>
+        {% if cfpOpen and site.cfp.deadline %}
+        <p class="hero-note">{{ site.cfp.label }} open until {{ site.cfp.deadline }}</p>
+        {% endif %}
+        {% elif site.cfp.status == "closed" %}
+        <p class="hero-note">{{ site.cfp.label }} is closed. Thank you to everyone who submitted.</p>
+        {% endif %}
     </div>
 </div>
 
