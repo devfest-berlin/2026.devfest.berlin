@@ -1,0 +1,15 @@
+{#- Logo wall for site.sponsors; the caller only includes it when the list has entries. -#}
+<ul class="sponsor-wall" role="list">
+    {% for sponsor in site.sponsors %}
+    <li class="sponsor-item">
+        {% if sponsor.url %}<a href="{{ sponsor.url }}" target="_blank" rel="noopener">{% endif %}
+            {% if sponsor.logo %}
+            <img src="{{ sponsor.logo }}" alt="{{ sponsor.name }}" loading="lazy">
+            {% else %}
+            <span class="sponsor-name">{{ sponsor.name }}</span>
+            {% endif %}
+        {% if sponsor.url %}</a>{% endif %}
+        {% if sponsor.role %}<span class="sponsor-role">{{ sponsor.role }}</span>{% endif %}
+    </li>
+    {% endfor %}
+</ul>

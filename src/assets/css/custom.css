@@ -25,14 +25,14 @@ html {
     padding: 0;
 }
 
-.gh-head-menu .nav a {
+.home-template .gh-head-menu .nav a {
     color: rgba(255, 255, 255, 0.85);
     font-weight: 600;
     font-size: 1.5rem;
     transition: color 0.2s ease, opacity 0.2s ease;
 }
 
-.gh-head-menu .nav a:hover {
+.home-template .gh-head-menu .nav a:hover {
     color: #fff;
     opacity: 1;
 }
@@ -335,6 +335,203 @@ html {
     text-decoration: underline;
 }
 
+/* Subpage header: the home page sizes its logo and links under .home-template, so give subpages the same */
+body:not(.home-template) .gh-head .gh-head-logo {
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+body:not(.home-template) .gh-head-menu .nav a {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* Four menu items plus 28px gaps overflow the menu column just above the burger breakpoint */
+@media (min-width: 768px) and (max-width: 899px) {
+    .gh-head-menu .nav {
+        gap: 20px;
+    }
+}
+
+/* Sponsors: home band and /sponsors/ page */
+.sponsors-section {
+    padding: 64px 0;
+    border-top: 1px solid var(--color-border);
+}
+
+.sponsors-action {
+    margin: 0;
+    text-align: center;
+}
+
+.gh-content a.sponsor-button,
+.sponsor-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 24px;
+    font-family: var(--font-sans);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    background: var(--ghost-accent-color);
+    border-radius: 999px;
+    transition: opacity 0.2s ease;
+}
+
+.sponsor-button:hover {
+    opacity: 0.9;
+}
+
+.sponsor-button:focus-visible {
+    outline: 2px solid var(--ghost-accent-color);
+    outline-offset: 3px;
+}
+
+.sponsor-wall {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px 40px;
+    margin-bottom: 36px;
+    padding: 0;
+    list-style: none;
+}
+
+.sponsor-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+}
+
+.sponsor-item a {
+    display: block;
+}
+
+.sponsor-item img {
+    width: auto;
+    height: 56px;
+    max-width: 180px;
+    object-fit: contain;
+}
+
+.sponsor-name {
+    display: flex;
+    align-items: center;
+    height: 56px;
+    font-family: var(--font-sans);
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.sponsor-role {
+    font-family: var(--font-sans);
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(21, 23, 26, 0.72);
+}
+
+.gh-content > ul.sponsor-stats,
+.sponsor-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    padding: 0;
+    list-style: none;
+}
+
+.sponsor-stats li {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 20px;
+    font-family: var(--font-sans);
+    text-align: center;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+}
+
+.sponsor-stats strong {
+    font-size: 3.2rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--ghost-accent-color);
+}
+
+.sponsor-stats span {
+    font-size: 1.4rem;
+    color: rgba(21, 23, 26, 0.72);
+}
+
+.sponsor-needs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.sponsor-need {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 0;
+    padding: 22px;
+    font-family: var(--font-sans);
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+}
+
+.gh-content .sponsor-need h3 {
+    margin: 0;
+    font-size: 1.9rem;
+}
+
+.gh-content .sponsor-need p {
+    margin: 0;
+    font-size: 1.5rem;
+    line-height: 1.55;
+    color: rgba(21, 23, 26, 0.72);
+}
+
+.sponsor-cta {
+    margin-top: 48px;
+    padding: 32px;
+    text-align: center;
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+}
+
+.gh-content .sponsor-cta h2 {
+    margin-top: 0;
+}
+
+.gh-content .sponsor-cta .sponsor-email {
+    margin-top: 12px;
+    font-family: var(--font-sans);
+    font-size: 1.4rem;
+    color: rgba(21, 23, 26, 0.72);
+    word-break: break-word;
+}
+
+@media (max-width: 767px) {
+    .sponsor-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sponsor-needs {
+        grid-template-columns: 1fr;
+    }
+
+    .sponsor-cta {
+        padding: 24px 16px;
+    }
+}
+
 /* Tablet & Mobile Reflow (direct transition from 3 cols to 1 col) */
 @media (max-width: 899px) {
     .organizers-grid {
@@ -371,7 +568,8 @@ html {
     .subscribe-section,
     .about-section,
     .venue-section,
-    .organizers-section {
+    .organizers-section,
+    .sponsors-section {
         padding: 36px 0;
     }
 
@@ -430,6 +628,28 @@ html {
 
 /* Dark Mode Adjustments */
 @media (prefers-color-scheme: dark) {
+    html.auto-color .sponsor-stats li,
+    html.auto-color .sponsor-need {
+        background: #191c20;
+        border-color: #2b3038;
+    }
+
+    html.auto-color .sponsor-cta {
+        border-color: #2b3038;
+    }
+
+    html.auto-color .sponsor-stats span,
+    html.auto-color .gh-content .sponsor-need p,
+    html.auto-color .gh-content .sponsor-cta .sponsor-email,
+    html.auto-color .sponsor-role {
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* The accent blue is 3.8:1 on dark cards; a lighter blue keeps small badges readable */
+    html.auto-color .venue-badge {
+        color: #8ab4f8;
+    }
+
     html.auto-color .footer-cta-form {
         background: #1e2227;
         border-color: #2e333a;

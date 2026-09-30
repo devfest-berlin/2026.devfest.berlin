@@ -29,7 +29,8 @@ This guide provides instructions for future human contributors and AI agents wor
 │   │   ├── layouts/
 │   │   │   ├── base.njk         # Outer wrapper: head, Casper navbar, burger menu, footer
 │   │   │   └── page.njk         # Generic layout for standalone pages (Agenda, Venue, FAQ, etc.)
-│   │   └── partials/            # Reusable partials (if needed)
+│   │   └── partials/
+│   │       └── sponsor-wall.njk # Sponsor logo wall, shared by the home page and /sponsors/
 │   ├── assets/
 │   │   ├── css/
 │   │   │   ├── casper.css       # Core Ghost Casper stylesheet
@@ -40,7 +41,8 @@ This guide provides instructions for future human contributors and AI agents wor
 │   │   └── images/
 │   │       └── devfest-cover.svg # Hero background vector banner
 │   ├── favicon.svg              # DevFest-style code brackets favicon
-│   └── index.njk                # Home page template
+│   ├── index.njk                # Home page template
+│   └── sponsors.njk             # /sponsors/ page
 ├── eleventy.config.js           # 11ty 3 configuration and esbuild CSS build script
 ├── package.json
 └── README.md
@@ -91,7 +93,7 @@ When Sessionize is set up for DevFest Berlin 2026:
 
 #### Search and sharing metadata
 `base.njk` builds the canonical link from `site.url`, sets the theme colour from `site.accentColor`, and adds Event structured data on the home page from `site.eventDate`, `site.venue` and `site.organizerName`. `sitemap.xml` lists every page in `collections.all` and `robots.txt` points to it, so a new page appears in the sitemap without extra work. If the canonical domain changes, update `site.url` only.
-=======
+
 ### Opening the CFP or ticket sales (no template edits)
 `site.json` carries a `cfp` and a `tickets` block. Each starts at `"status": "soon"`, which renders nothing new.
 - **CFP opens:** set `cfp.status` to `"open"`, `cfp.url` to the submission page and optionally `cfp.deadline` (for example `"October 18, 2026"`). A "Call for Speakers" menu link, a "Submit a Talk" header and hero button, and an "open until" line appear.
@@ -99,6 +101,9 @@ When Sessionize is set up for DevFest Berlin 2026:
 - **Tickets on sale** (for example the Bevy page): set `tickets.status` to `"open"` and `tickets.url`. "Get Tickets" takes over the header button and leads the hero buttons.
 A block only switches on when its `url` is set, so a half-filled change cannot publish a dead button.
 
+
+### Sponsors
+The home page's sponsors band and `/sponsors/` read `sponsorship` (pitch, stats, what we need, contact email) and `sponsors` in `site.json`. The logo wall appears only once `sponsors` has entries. To add one, append `{ "name": "…", "url": "https://…", "logo": "/assets/images/sponsors/<name>.svg", "role": "Venue partner" }` and put the logo file in `src/assets/images/sponsors/`. `logo` and `role` are optional; without a logo the name shows as text. Keep prices out of the site; they belong in the sponsorship deck.
 
 ### Option D: Adding an FAQ Accordion
 - Add an FAQ section to `src/index.njk` or a dedicated `src/faq.md`.

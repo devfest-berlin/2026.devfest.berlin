@@ -1,0 +1,59 @@
+---
+layout: page.njk
+title: "Partner with DevFest Berlin"
+description: "Support Berlin's community-run developer festival on November 14, 2026, and meet the people who build with technology here."
+permalink: /sponsors/
+---
+{% set sponsorship = site.sponsorship %}
+{% set mailto = "mailto:" + sponsorship.email + "?subject=" + (sponsorship.emailSubject | urlencode) %}
+
+<p>{{ sponsorship.pitch }}</p>
+<p>
+    DevFest Berlin is part of the worldwide DevFest season of the Google Developer Groups. It is organized by the
+    local communities, not by Google, so partner support goes straight into the event.
+</p>
+
+<h2>{{ sponsorship.statsTitle }}</h2>
+<ul class="sponsor-stats" role="list">
+    {% for stat in sponsorship.stats %}
+    <li><strong>{{ stat.value }}</strong> <span>{{ stat.label }}</span></li>
+    {% endfor %}
+</ul>
+
+<h2>Who you will meet</h2>
+<ul>
+    <li>Engineers, designers and tech leads, from students to senior professionals</li>
+    <li>Members of Berlin's developer communities, from Android and Flutter to Cloud, Go and Web</li>
+    <li>Speakers and Google Developer Experts from the organizing communities</li>
+</ul>
+
+<h2>Where you can help</h2>
+<div class="sponsor-needs">
+    {% for need in sponsorship.needs %}
+    <div class="sponsor-need">
+        <span class="venue-badge">{{ need.priority }}</span>
+        <h3>{{ need.title }}</h3>
+        <p>{{ need.text }}</p>
+    </div>
+    {% endfor %}
+</div>
+<p>Have another idea, like hosting a workshop or covering speaker travel? We would love to hear it.</p>
+
+<h2>What you get</h2>
+<ul>
+    <li>Meet developers who could be your next colleagues</li>
+    <li>Show what makes your team and your product stand out</li>
+    <li>Talk to experts who may help solve problems in your organization</li>
+</ul>
+
+{% if site.sponsors.length %}
+<h2>Our partners</h2>
+{% include "partials/sponsor-wall.njk" %}
+{% endif %}
+
+<div class="sponsor-cta">
+    <h2>Let's talk</h2>
+    <p>Write to us and we will send you our sponsorship deck and find a way to work together that fits you.</p>
+    <a class="sponsor-button" href="{{ mailto }}">Email us</a>
+    <p class="sponsor-email">{{ sponsorship.email }}</p>
+</div>
