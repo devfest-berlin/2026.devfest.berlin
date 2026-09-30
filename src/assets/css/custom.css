@@ -62,6 +62,49 @@ html {
     backdrop-filter: blur(8px);
 }
 
+/* Hero calls to action, shown only when site.json opens the CFP or ticket sales */
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.hero-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 24px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #fff;
+    background: var(--ghost-accent-color);
+    border: 1px solid var(--ghost-accent-color);
+    border-radius: 999px;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.hero-button:hover {
+    opacity: 0.9;
+}
+
+.hero-button.is-secondary {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+.hero-button:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+}
+
+.hero-note {
+    margin-top: 14px;
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
 @keyframes pulse {
     0% { transform: scale(0.95); opacity: 0.8; }
     50% { transform: scale(1.2); opacity: 1; }

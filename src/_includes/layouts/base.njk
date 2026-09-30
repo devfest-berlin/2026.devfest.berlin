@@ -77,11 +77,20 @@
                     {% for item in site.navigation %}
                     <li><a href="{{ item.url }}">{{ item.label }}</a></li>
                     {% endfor %}
+                    {% if site.cfp.status == "open" and site.cfp.url %}
+                    <li><a href="{{ site.cfp.url }}" target="_blank" rel="noopener">{{ site.cfp.label }}</a></li>
+                    {% endif %}
                 </ul>
             </nav>
 
             <div class="gh-head-actions">
+                {% if site.tickets.status == "open" and site.tickets.url %}
+                <a class="gh-head-button" href="{{ site.tickets.url }}" target="_blank" rel="noopener">{{ site.tickets.buttonText }}</a>
+                {% elif site.cfp.status == "open" and site.cfp.url %}
+                <a class="gh-head-button" href="{{ site.cfp.url }}" target="_blank" rel="noopener">{{ site.cfp.buttonText }}</a>
+                {% else %}
                 <a class="gh-head-button" href="/#subscribe">Stay Tuned</a>
+                {% endif %}
             </div>
         </div>
     </header>
