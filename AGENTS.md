@@ -99,6 +99,10 @@ When Sessionize is set up for DevFest Berlin 2026:
 - **Tickets on sale** (for example the Bevy page): set `tickets.status` to `"open"` and `tickets.url`. "Get Tickets" takes over the header button and leads the hero buttons.
 A block only switches on when its `url` is set, so a half-filled change cannot publish a dead button.
 
+### Legal pages: Impressum, Datenschutz, Code of Conduct
+`src/impressum.njk`, `src/datenschutz.njk` and `src/code-of-conduct.njk` read the organizer's details from `site.json`: `contactEmail` and the `legal` block (address, board members, Vereinsregister court and number, optional VAT ID, person responsible for content). Any empty field renders as a yellow "to be added" marker, so a missing detail is visible on the page rather than silently blank. Fill the fields in `site.json`; never hard-code them in the templates. The footer links come from `legalNavigation`. When the site starts processing new data (a Sessionize or ticket embed, analytics, a new form, external fonts), rewrite the "In short" list in `datenschutz.njk`, add a section for that provider and update the "Last updated" date. The deploy workflow refuses to publish while any "to be added" marker is left in the built site.
+
+`src/404.njk` builds `/404.html`, which GitHub Pages serves for unknown URLs. It sets `noindex` and stays out of the sitemap.
 
 ### Option D: Adding an FAQ Accordion
 - Add an FAQ section to `src/index.njk` or a dedicated `src/faq.md`.

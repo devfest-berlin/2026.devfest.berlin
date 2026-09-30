@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title or site.title }}</title>
     <meta name="description" content="{{ description or site.description }}">
+    {% if noindex %}
+    <meta name="robots" content="noindex">
+    {% else %}
     <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+    {% endif %}
     <meta name="theme-color" content="{{ site.accentColor or '#1a73e8' }}">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="stylesheet" href="/assets/css/screen.css">
@@ -108,6 +112,9 @@
             <div class="site-footer-center">
                 <nav class="site-footer-nav" aria-label="Footer">
                     <ul class="nav">
+                        {% for item in site.legalNavigation %}
+                        <li><a href="{{ item.url }}">{{ item.label }}</a></li>
+                        {% endfor %}
                         {% for item in site.footerNavigation %}
                         <li><a href="{{ item.url }}" target="_blank" rel="noopener">{{ item.label }}</a></li>
                         {% endfor %}

@@ -11,6 +11,20 @@
   "date": "November 14, 2026",
   "eventDate": "2026-11-14",
   "organizerName": "BDG e. V.",
+  "contactEmail": "",
+  "legal": {
+    "entityName": "BDG e. V.",
+    "street": "",
+    "postalCode": "",
+    "city": "Berlin",
+    "country": "Germany",
+    "phone": "",
+    "representedBy": "",
+    "registerCourt": "",
+    "registerNumber": "",
+    "vatId": "",
+    "contentResponsible": ""
+  },
   "venue": {
     "name": "SRH Berlin University of Applied Sciences",
     "shortName": "SRH Berlin",
@@ -35,6 +49,11 @@
   ],
   "footerNavigation": [
     { "label": "DevFest 2025 Archive", "url": "https://2025.devfest.berlin/home" }
+  ],
+  "legalNavigation": [
+    { "label": "Code of Conduct", "url": "/code-of-conduct/" },
+    { "label": "Impressum", "url": "/impressum/" },
+    { "label": "Datenschutz", "url": "/datenschutz/" }
   ],
   "socialLinks": [
     { "name": "Meetup", "url": "https://www.meetup.com/gdg-berlin/" },
@@ -83,6 +102,7 @@
     "emailFieldName": "entry.464015783",
     "title": "Stay tuned for DevFest Berlin 2026",
     "description": "Be the first to hear when Early Bird tickets drop, Call for Papers (CFP) opens, and keynote speakers are announced for November 14th at SRH Berlin.",
-    "buttonText": "Notify Me"
+    "buttonText": "Notify Me",
+    "privacyNote": "We only email you about DevFest Berlin. Your address is stored with Google Forms, and you can unsubscribe at any time."
   }
 }

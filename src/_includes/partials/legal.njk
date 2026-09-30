@@ -1,0 +1,8 @@
+{#- Renders a site.json value, or a visible marker while the organizers have not filled it in yet. -#}
+{% macro filled(value, what) -%}
+{%- if value -%}{{ value }}{%- else -%}<mark class="todo-field">{{ what }} to be added</mark>{%- endif -%}
+{%- endmacro %}
+
+{% macro contactLink(email) -%}
+{%- if email -%}<a href="mailto:{{ email }}">{{ email }}</a>{%- else -%}<mark class="todo-field">contact email to be added</mark>{%- endif -%}
+{%- endmacro %}
