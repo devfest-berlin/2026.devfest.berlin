@@ -64,6 +64,11 @@ bodyClass: "home-template is-head-left-logo has-cover"
                 <button type="submit">{{ site.newsletter.buttonText }}</button>
             </form>
             <div id="subscribe-feedback" class="subscribe-feedback" role="status" aria-live="polite"></div>
+            {% if site.newsletter.privacyNote %}
+            <p class="subscribe-privacy">
+                {{ site.newsletter.privacyNote }} <a href="/datenschutz/#newsletter">Privacy details</a>
+            </p>
+            {% endif %}
         </div>
     </section>
 

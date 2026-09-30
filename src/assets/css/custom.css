@@ -187,6 +187,56 @@ html {
     color: #d93025;
 }
 
+.subscribe-privacy {
+    max-width: 600px;
+    margin: 12px auto 0;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    color: rgba(21, 23, 26, 0.72);
+}
+
+.subscribe-privacy a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+/* Legal pages: fields the organizers still have to fill in stay visible until they do */
+.todo-field {
+    padding: 0 4px;
+    color: #5f4b00;
+    background: #fdf1c4;
+    border-radius: 3px;
+}
+
+.page-updated {
+    margin-top: 40px;
+    font-size: 1.4rem;
+    color: var(--color-secondary-text);
+}
+
+.not-found {
+    text-align: center;
+}
+
+.not-found-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 16px 24px;
+}
+
+.not-found-button {
+    display: inline-block;
+    padding: 12px 22px;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    color: #fff !important;
+    text-decoration: none !important;
+    background: var(--ghost-accent-color);
+    border-radius: 6px;
+}
+
 /* About Section */
 .about-section {
     padding: 64px 0 32px;
@@ -694,6 +744,10 @@ body:not(.home-template) .gh-head-menu .nav a {
     html.auto-color .section-subtitle,
     html.auto-color .about-text {
         color: rgba(255, 255, 255, 0.7);
+    }
+
+    html.auto-color .subscribe-privacy {
+        color: rgba(255, 255, 255, 0.75);
     }
 }
 

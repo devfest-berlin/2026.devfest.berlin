@@ -1,0 +1,59 @@
+---
+layout: page.njk
+title: "Impressum"
+description: "Legal notice for the DevFest Berlin 2026 website."
+permalink: /impressum/
+---
+{% from "partials/legal.njk" import filled, contactLink %}
+{% set legal = site.legal %}
+
+<h2>Provider</h2>
+<p>
+    Information according to § 5 DDG (Digitale-Dienste-Gesetz):
+</p>
+<p>
+    {{ filled(legal.entityName, "Association name") }}<br>
+    {{ filled(legal.street, "Street and number") }}<br>
+    {{ filled(legal.postalCode, "Postal code") }} {{ filled(legal.city, "City") }}<br>
+    {{ filled(legal.country, "Country") }}
+</p>
+
+<h2>Represented by</h2>
+<p>{{ filled(legal.representedBy, "Board members (Vorstand)") }}</p>
+
+<h2>Contact</h2>
+<p>
+    Email: {{ contactLink(site.contactEmail) }}<br>
+    Phone: {{ filled(legal.phone, "Phone number") }}
+</p>
+
+<h2>Register entry</h2>
+<p>
+    Vereinsregister, {{ filled(legal.registerCourt, "Register court") }}<br>
+    Register number: {{ filled(legal.registerNumber, "Register number") }}
+</p>
+
+{% if legal.vatId %}
+<h2>VAT ID</h2>
+<p>VAT identification number according to § 27a UStG: {{ legal.vatId }}</p>
+{% endif %}
+
+<h2>Responsible for the content</h2>
+<p>
+    According to § 18 (2) MStV:<br>
+    {{ filled(legal.contentResponsible, "Name") }}, address as above
+</p>
+
+<h2>About this event</h2>
+<p>
+    DevFest Berlin 2026 is organized by volunteers from Berlin's developer communities.
+    It is a community event and is not organized by Google.
+</p>
+
+<h2>Links to other websites</h2>
+<p>
+    This site links to external websites such as Meetup, LinkedIn, X, Google Forms and the ticket and
+    speaker platforms. Their operators are responsible for their content. We checked the linked pages
+    when we added the links and found nothing unlawful. If you notice a problem with a link, please tell us
+    and we will remove it.
+</p>

@@ -43,6 +43,14 @@ jobs:
       - name: Build Static Site
         run: npm run build
 
+      # The legal pages must not go live with organizer details missing (see AGENTS.md, Legal pages)
+      - name: Check Legal Pages Are Filled In
+        run: |
+          if grep -rl --include='*.html' 'class="todo-field"' _site; then
+            echo "The pages above still show 'to be added' fields. Fill them in src/_data/site.json."
+            exit 1
+          fi
+
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v5
         with:
