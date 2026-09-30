@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title or site.title }}</title>
     <meta name="description" content="{{ description or site.description }}">
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+    <meta name="theme-color" content="{{ site.accentColor or '#1a73e8' }}">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="stylesheet" href="/assets/css/screen.css">
 
@@ -34,6 +36,28 @@
     <meta name="twitter:description" content="{{ description or site.description }}">
     {% if site.ogImage or site.coverImage %}
     <meta name="twitter:image" content="{{ site.url }}{{ site.ogImage or site.coverImage }}">
+    {% endif %}
+    {% if page.url == "/" %}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": {{ site.title | dump | safe }},
+        "description": {{ site.description | dump | safe }},
+        "startDate": {{ site.eventDate | dump | safe }},
+        "endDate": {{ site.eventDate | dump | safe }},
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "url": {{ site.url | dump | safe }},
+        "image": {{ (site.url + (site.ogImage or site.coverImage)) | dump | safe }},
+        "location": {
+            "@type": "Place",
+            "name": {{ site.venue.name | dump | safe }},
+            "address": { "@type": "PostalAddress", "addressLocality": "Berlin", "addressCountry": "DE" }
+        },
+        "organizer": { "@type": "Organization", "name": {{ site.organizerName | dump | safe }}, "url": {{ site.url | dump | safe }} }
+    }
+    </script>
     {% endif %}
 </head>
 <body class="{% if bodyClass %}{{ bodyClass }}{% else %}home-template is-head-left-logo has-cover{% endif %}">
