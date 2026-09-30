@@ -31,7 +31,8 @@
   "navigation": [
     { "label": "About", "url": "/#about" },
     { "label": "Venue", "url": "/#venue" },
-    { "label": "Organizers", "url": "/#organizers" }
+    { "label": "Organizers", "url": "/#organizers" },
+    { "label": "Sponsors", "url": "/sponsors/" }
   ],
   "footerNavigation": [
     { "label": "DevFest 2025 Archive", "url": "https://2025.devfest.berlin/home" }
@@ -78,6 +79,25 @@
       "url": "https://www.meetup.com/flutter-berlin/"
     }
   ],
+  "sponsorship": {
+    "email": "gdg-berlin@googlegroups.com",
+    "emailSubject": "DevFest Berlin 2026 sponsorship",
+    "title": "Partner with DevFest Berlin",
+    "pitch": "DevFest Berlin is run by volunteers from Berlin's developer communities. Partners make it possible, and meet more than 200 developers, designers and tech leads in one day.",
+    "statsTitle": "DevFest Berlin 2025 in numbers",
+    "stats": [
+      { "value": "224", "label": "attendees" },
+      { "value": "38", "label": "speakers" },
+      { "value": "4", "label": "talk tracks" },
+      { "value": "1", "label": "workshop track" }
+    ],
+    "needs": [
+      { "title": "Food & catering", "priority": "Must have", "text": "Lunch, snacks and drinks for everyone through the day, or funds to book a caterer." },
+      { "title": "Swag & supplies", "priority": "Nice to have", "text": "Lanyards, speaker and volunteer gifts, printed signage, decorations, coffee and tea." },
+      { "title": "Marketing & branding", "priority": "Nice to have", "text": "Printed materials, social media promotion, a photo booth or a mascot appearance." }
+    ]
+  },
+  "sponsors": [],
   "newsletter": {
     "action": "https://docs.google.com/forms/d/e/1FAIpQLSfJYZ1P-QigUq4ce4GokypPLO1-5Ck-qZeumneCEkZ6eZrQrQ/formResponse",
     "emailFieldName": "entry.464015783",

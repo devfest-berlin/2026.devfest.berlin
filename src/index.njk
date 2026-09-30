@@ -126,6 +126,22 @@ bodyClass: "home-template is-head-left-logo has-cover"
         </div>
     </section>
 
+    <!-- Sponsors Section -->
+    <section id="sponsors" class="outer sponsors-section">
+        <div class="inner">
+            <div class="section-header">
+                <h2 class="section-title">{{ site.sponsorship.title }}</h2>
+                <p class="section-subtitle">{{ site.sponsorship.pitch }}</p>
+            </div>
+            {% if site.sponsors.length %}
+            {% include "partials/sponsor-wall.njk" %}
+            {% endif %}
+            <p class="sponsors-action">
+                <a class="sponsor-button" href="/sponsors/">Become a sponsor</a>
+            </p>
+        </div>
+    </section>
+
     <!--
     ====================================================================
     FUTURE EXPANSION SECTIONS:
