@@ -11,19 +11,19 @@
   "date": "November 14, 2026",
   "eventDate": "2026-11-14",
   "organizerName": "BDG e. V.",
-  "contactEmail": "",
+  "contactEmail": "devfest-berlin-2026@googlegroups.com",
   "legal": {
     "entityName": "BDG e. V.",
     "street": "",
     "postalCode": "",
     "city": "Berlin",
     "country": "Germany",
-    "phone": "",
-    "representedBy": "",
-    "registerCourt": "",
-    "registerNumber": "",
+    "phone": "+49 177 3299620",
+    "representedBy": "the board: Tsz Ho Tsai (chair), Aleksandr Mir (deputy chair), Elmira Jamaljamaliannezhad (secretary)",
+    "registerCourt": "Amtsgericht Charlottenburg",
+    "registerNumber": "VR 42836 B",
     "vatId": "",
-    "contentResponsible": ""
+    "contentResponsible": "Tsz Ho Tsai"
   },
   "venue": {
     "name": "SRH Berlin University of Applied Sciences",
