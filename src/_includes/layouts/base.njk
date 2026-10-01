@@ -79,7 +79,7 @@
             <nav class="gh-head-menu" id="gh-head-menu" aria-label="Main navigation">
                 <ul class="nav">
                     {% for item in site.navigation %}
-                    <li><a href="{{ item.url }}">{{ item.label }}</a></li>
+                    <li><a href="{{ item.url }}"{% if item.url.slice(0, 4) == "http" %} target="_blank" rel="noopener"{% endif %}>{{ item.label }}</a></li>
                     {% endfor %}
                     {% if site.cfp.status == "open" and site.cfp.url %}
                     <li><a href="{{ site.cfp.url }}" target="_blank" rel="noopener">{{ site.cfp.label }}</a></li>

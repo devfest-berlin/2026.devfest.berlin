@@ -4,6 +4,12 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Ensure content sections with .outer always retain horizontal window padding */
+.outer {
+    padding-left: calc(max(4vmin, 20px));
+    padding-right: calc(max(4vmin, 20px));
+}
+
 /* Header & Desktop Navigation */
 .is-head-left-logo.home-template .gh-head .gh-head-logo {
     display: inline-block !important;
@@ -113,7 +119,8 @@ html {
 
 /* Email Subscription Section */
 .subscribe-section {
-    padding: 64px 0;
+    padding-top: 64px;
+    padding-bottom: 64px;
     background: var(--color-bg);
 }
 
@@ -239,7 +246,8 @@ html {
 
 /* About Section */
 .about-section {
-    padding: 64px 0 32px;
+    padding-top: 64px;
+    padding-bottom: 32px;
 }
 
 .about-content {
@@ -257,7 +265,8 @@ html {
 
 /* Date & Venue Section */
 .venue-section {
-    padding: 32px 0 64px;
+    padding-top: 32px;
+    padding-bottom: 64px;
 }
 
 .venue-card {
@@ -309,7 +318,8 @@ html {
 
 /* Organizers Section */
 .organizers-section {
-    padding: 64px 0;
+    padding-top: 64px;
+    padding-bottom: 64px;
     border-top: 1px solid var(--color-border);
 }
 
@@ -396,16 +406,37 @@ body:not(.home-template) .gh-head-menu .nav a {
     font-weight: 600;
 }
 
-/* Four menu items plus 28px gaps overflow the menu column just above the burger breakpoint */
-@media (min-width: 768px) and (max-width: 899px) {
+/* Five menu items: tighten gaps and margins between 768px and 1080px so they remain on one row */
+@media (min-width: 768px) and (max-width: 991px) {
+    .gh-head-inner {
+        column-gap: 20px;
+    }
+    .gh-head-menu .nav {
+        gap: 16px;
+    }
+    .home-template .gh-head-menu .nav a,
+    body:not(.home-template) .gh-head-menu .nav a {
+        font-size: 1.4rem;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1080px) {
+    .gh-head-inner {
+        column-gap: 24px;
+    }
     .gh-head-menu .nav {
         gap: 20px;
+    }
+    .is-head-left-logo .gh-head-menu {
+        margin-right: 24px;
+        margin-left: 12px;
     }
 }
 
 /* Sponsors: home band and /sponsors/ page */
 .sponsors-section {
-    padding: 64px 0;
+    padding-top: 64px;
+    padding-bottom: 64px;
     border-top: 1px solid var(--color-border);
 }
 
@@ -620,7 +651,8 @@ body:not(.home-template) .gh-head-menu .nav a {
     .venue-section,
     .organizers-section,
     .sponsors-section {
-        padding: 36px 0;
+        padding-top: 36px;
+        padding-bottom: 36px;
     }
 
     .venue-card {

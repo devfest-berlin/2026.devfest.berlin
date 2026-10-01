@@ -14,8 +14,8 @@
   "contactEmail": "devfest-berlin-2026@googlegroups.com",
   "legal": {
     "entityName": "BDG e. V.",
-    "street": "",
-    "postalCode": "",
+    "street": "Voltairestraße 11",
+    "postalCode": "10179",
     "city": "Berlin",
     "country": "Germany",
     "phone": "+49 177 3299620",
@@ -46,21 +46,17 @@
     { "label": "About", "url": "/#about" },
     { "label": "Venue", "url": "/#venue" },
     { "label": "Organizers", "url": "/#organizers" },
-    { "label": "Sponsors", "url": "/sponsors/" }
+    { "label": "Sponsors", "url": "/sponsors/" },
+    { "label": "Code of Conduct", "url": "https://berlincodeofconduct.org/en" }
   ],
   "footerNavigation": [
     { "label": "DevFest 2025 Archive", "url": "https://2025.devfest.berlin/home" }
   ],
   "legalNavigation": [
-    { "label": "Code of Conduct", "url": "/code-of-conduct/" },
     { "label": "Impressum", "url": "/impressum/" },
     { "label": "Datenschutz", "url": "/datenschutz/" }
   ],
-  "socialLinks": [
-    { "name": "Meetup", "url": "https://www.meetup.com/gdg-berlin/" },
-    { "name": "LinkedIn", "url": "https://www.linkedin.com/company/gdg-berlin/" },
-    { "name": "X", "url": "https://x.com/gdgberlin" }
-  ],
+  "socialLinks": [],
   "organizers": [
     {
       "name": "GDG Berlin",
