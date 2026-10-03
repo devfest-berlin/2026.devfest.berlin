@@ -84,6 +84,97 @@ bodyClass: "home-template is-head-left-logo has-cover"
         </div>
     </section>
 
+    <!-- Tracks & Topics Section -->
+    <section id="tracks" class="outer tracks-section">
+        <div class="inner">
+            <div class="section-header">
+                <h2 class="section-title">Tracks & Topics</h2>
+                <p class="section-subtitle">
+                    Explore talks, panels, and deep technical dives across five curated themes for DevFest Berlin 2026.
+                </p>
+            </div>
+
+            <div class="tracks-grid">
+                <div class="track-card">
+                    <div class="track-icon">🤖</div>
+                    <h3 class="track-title">AI & Machine Learning</h3>
+                    <p class="track-description">
+                        Applications, ethics, dev tools, model management, and practical agentic workflows with modern AI.
+                    </p>
+                    <ul class="track-tags">
+                        <li>LLMs & Gemini</li>
+                        <li>Agents & RAG</li>
+                        <li>MLOps</li>
+                        <li>AI Ethics</li>
+                    </ul>
+                </div>
+
+                <div class="track-card">
+                    <div class="track-icon">☁️</div>
+                    <h3 class="track-title">Cloud & Security</h3>
+                    <p class="track-description">
+                        GCP, multi-cloud architectures, cybersecurity, DevSecOps, and robust infrastructure threat defense.
+                    </p>
+                    <ul class="track-tags">
+                        <li>Google Cloud</li>
+                        <li>Kubernetes</li>
+                        <li>Cybersecurity</li>
+                        <li>Infrastructure</li>
+                    </ul>
+                </div>
+
+                <div class="track-card">
+                    <div class="track-icon">📱</div>
+                    <h3 class="track-title">Languages & Mobile</h3>
+                    <p class="track-description">
+                        Building performant applications with Go, Kotlin, Dart, Flutter, React Native, Android, and iOS.
+                    </p>
+                    <ul class="track-tags">
+                        <li>Flutter & Dart</li>
+                        <li>Android & Kotlin</li>
+                        <li>Go</li>
+                        <li>iOS & Swift</li>
+                    </ul>
+                </div>
+
+                <div class="track-card">
+                    <div class="track-icon">🎯</div>
+                    <h3 class="track-title">Career & Practices</h3>
+                    <p class="track-description">
+                        Engineering leadership, Management vs. IC tracks, technical interviewing, UX design, and project rituals.
+                    </p>
+                    <ul class="track-tags">
+                        <li>Engineering Culture</li>
+                        <li>UX / Product</li>
+                        <li>Leadership</li>
+                        <li>Tech Career</li>
+                    </ul>
+                </div>
+
+                <div class="track-card">
+                    <div class="track-icon">⚡</div>
+                    <h3 class="track-title">Robotics & Hardware</h3>
+                    <p class="track-description">
+                        IoT ecosystems, edge computing, hardware integration, and physical computing with connected devices.
+                    </p>
+                    <ul class="track-tags">
+                        <li>IoT</li>
+                        <li>Edge AI</li>
+                        <li>Hardware</li>
+                        <li>Embedded Systems</li>
+                    </ul>
+                </div>
+            </div>
+
+            {% if site.cfp.status == "open" and site.cfp.url %}
+            <div class="tracks-cta">
+                <p>Have an insight, case study, or deep dive to share?</p>
+                <a class="track-cta-button" href="{{ site.cfp.url }}" target="_blank" rel="noopener">Submit Your Talk on Sessionize</a>
+            </div>
+            {% endif %}
+        </div>
+    </section>
+
     <!-- Date & Venue Section -->
     <section id="venue" class="outer venue-section">
         <div class="inner">
@@ -97,8 +188,79 @@ bodyClass: "home-template is-head-left-logo has-cover"
                 <div class="venue-item">
                     <span class="venue-badge">Host Venue</span>
                     <h3 class="venue-title">SRH Berlin</h3>
-                    <p class="venue-subtitle">SRH Berlin University of Applied Sciences &bull; Berlin, Germany</p>
+                    <p class="venue-subtitle">Sonnenallee 221, 12059 Berlin (Neukölln)</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="outer faq-section">
+        <div class="inner">
+            <div class="section-header">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">
+                    Everything you need to know about DevFest Berlin 2026.
+                </p>
+            </div>
+
+            <div class="faq-accordion">
+                <details class="faq-item">
+                    <summary>Where is the venue and how do I get there?</summary>
+                    <div class="faq-answer">
+                        <p>
+                            DevFest Berlin 2026 takes place at <strong>SRH Berlin University of Applied Sciences</strong>,
+                            located at <strong>Sonnenallee 221, 12059 Berlin</strong> (Neukölln).
+                        </p>
+                        <p>
+                            <strong>Public Transit:</strong><br>
+                            &bull; <strong>S-Bahn:</strong> S41, S42 (Ringbahn), S45, S46, S47 (Station <em>S Sonnenallee</em> or <em>S Köllnische Heide</em>, ~5–8 min walk).<br>
+                            &bull; <strong>Bus:</strong> M41 (direct connection from Berlin Hauptbahnhof, Potsdamer Platz, and Hermannplatz).
+                        </p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>When does the Call for Speakers (CFP) close?</summary>
+                    <div class="faq-answer">
+                        <p>
+                            The Call for Speakers is open through <strong>November 1, 2026 at 11:59 PM CET</strong>.
+                            You can submit talk proposals directly on <a href="{{ site.cfp.url }}" target="_blank" rel="noopener">Sessionize</a>.
+                            Speaker selections and schedule announcements will follow in early November.
+                        </p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Who can submit a talk proposal?</summary>
+                    <div class="faq-answer">
+                        <p>
+                            We warmly encourage speakers of all backgrounds, genders, and experience levels—including first-time speakers.
+                            Whether you are presenting a beginner-friendly introduction or a deep technical dive, our community welcomes your perspective.
+                        </p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>When will ticket sales go live?</summary>
+                    <div class="faq-answer">
+                        <p>
+                            Ticket registration will open soon. Sign up via the <a href="/#subscribe">newsletter above</a> to be notified the moment Early Bird tickets go on sale.
+                        </p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>What is the Code of Conduct?</summary>
+                    <div class="faq-answer">
+                        <p>
+                            DevFest Berlin is dedicated to providing a harassment-free and inclusive conference experience for everyone.
+                            All attendees, speakers, sponsors, and organizers are required to adhere to the
+                            <a href="https://berlincodeofconduct.org/en" target="_blank" rel="noopener">Berlin Code of Conduct</a>
+                            and Google Event Community Guidelines throughout the event.
+                        </p>
+                    </div>
+                </details>
             </div>
         </div>
     </section>
