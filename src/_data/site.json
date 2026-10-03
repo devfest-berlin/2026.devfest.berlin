@@ -28,6 +28,9 @@
   "venue": {
     "name": "SRH Berlin University of Applied Sciences",
     "shortName": "SRH Berlin",
+    "streetAddress": "Sonnenallee 221",
+    "postalCode": "12059",
+    "neighborhood": "Neukölln",
     "city": "Berlin, Germany"
   },
   "cfp": {
@@ -126,7 +129,7 @@
     "action": "https://docs.google.com/forms/d/e/1FAIpQLSfJYZ1P-QigUq4ce4GokypPLO1-5Ck-qZeumneCEkZ6eZrQrQ/formResponse",
     "emailFieldName": "entry.464015783",
     "title": "Stay tuned for DevFest Berlin 2026",
-    "description": "Be the first to hear when Early Bird tickets drop, Call for Papers (CFP) opens, and keynote speakers are announced for November 14th at SRH Berlin.",
+    "description": "Be the first to hear when ticket registration opens, speaker lineups are revealed, and full schedule details go live for November 14th at SRH Berlin.",
     "buttonText": "Notify Me",
     "privacyNote": "We only email you about DevFest Berlin. Your address is stored with Google Forms, and you can unsubscribe at any time."
   }
