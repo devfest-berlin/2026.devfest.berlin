@@ -280,3 +280,36 @@
         });
     }
 })();
+
+// Copy Venue Address Handler
+(function () {
+    const copyBtn = document.querySelector('#copy-venue-address');
+    if (!copyBtn) return;
+
+    const copyLabel = copyBtn.querySelector('.copy-label');
+    const address = copyBtn.getAttribute('data-address');
+
+    copyBtn.addEventListener('click', async function () {
+        if (!address) return;
+        try {
+            await navigator.clipboard.writeText(address);
+            if (copyLabel) copyLabel.textContent = 'Copied!';
+            copyBtn.classList.add('is-copied');
+            setTimeout(() => {
+                if (copyLabel) copyLabel.textContent = 'Copy';
+                copyBtn.classList.remove('is-copied');
+            }, 2000);
+        } catch (err) {
+            const textarea = document.createElement('textarea');
+            textarea.value = address;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            if (copyLabel) copyLabel.textContent = 'Copied!';
+            setTimeout(() => {
+                if (copyLabel) copyLabel.textContent = 'Copy';
+            }, 2000);
+        }
+    });
+})();
