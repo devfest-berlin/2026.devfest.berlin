@@ -51,24 +51,31 @@
     menuLinks.forEach(link => {
         link.addEventListener('click', function (e) {
             const href = link.getAttribute('href');
+            const isHomePage = window.location.pathname === '/' || window.location.pathname.endsWith('/index.html');
             if (href === '/') {
-                if (window.location.pathname === '/' || window.location.pathname.endsWith('/index.html')) {
+                if (isHomePage) {
                     e.preventDefault();
                     closeMenu();
                     window.scrollTo({ top: 0, behavior: scrollBehavior() });
                 } else {
                     closeMenu();
                 }
-            } else if (href && href.startsWith('#')) {
-                // Drawer closed (desktop): let the browser do the native anchor jump
+            } else if (href && (href.startsWith('#') || (href.startsWith('/#') && isHomePage))) {
+                const targetHash = href.startsWith('/#') ? href.substring(1) : href;
                 if (!navigation.classList.contains('gh-head-open')) return;
                 e.preventDefault();
-                closeMenu(href);
-                history.pushState(null, '', href);
+                closeMenu(targetHash);
+                history.pushState(null, '', targetHash);
             } else {
                 closeMenu();
             }
         });
+    });
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && navigation.classList.contains('gh-head-open')) {
+            closeMenu();
+        }
     });
 
     mobile.addEventListener('change', function () {
