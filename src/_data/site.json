@@ -44,17 +44,19 @@
   },
   "navigation": [
     { "label": "About", "url": "/#about" },
+    { "label": "Tracks", "url": "/#tracks" },
     { "label": "Venue", "url": "/#venue" },
+    { "label": "FAQ", "url": "/#faq" },
     { "label": "Organizers", "url": "/#organizers" },
-    { "label": "Sponsors", "url": "/sponsors/" },
-    { "label": "Code of Conduct", "url": "https://berlincodeofconduct.org/en" }
+    { "label": "Sponsors", "url": "/sponsors/" }
   ],
   "footerNavigation": [
     { "label": "DevFest 2025 Archive", "url": "https://2025.devfest.berlin/home" }
   ],
   "legalNavigation": [
     { "label": "Impressum", "url": "/impressum/" },
-    { "label": "Datenschutz", "url": "/datenschutz/" }
+    { "label": "Datenschutz", "url": "/datenschutz/" },
+    { "label": "Code of Conduct", "url": "https://berlincodeofconduct.org/en" }
   ],
   "socialLinks": [],
   "organizers": [
