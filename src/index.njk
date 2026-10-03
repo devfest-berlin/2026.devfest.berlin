@@ -370,6 +370,11 @@ bodyClass: "home-template is-head-left-logo has-cover"
                             <span>Secure Bike Racks</span>
                         </div>
                     </div>
+
+                    <button type="button" class="venue-map-trigger-btn" id="open-venue-map-modal" aria-haspopup="dialog" aria-controls="venue-map-modal">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
+                        <span>Explore Campus &amp; Transit Map</span>
+                    </button>
                 </div>
 
                 <!-- Right: Location Details & Smart Transit Hub -->
@@ -600,5 +605,50 @@ bodyClass: "home-template is-head-left-logo has-cover"
                 Zero spam. You will only receive official DevFest Berlin announcements. <a href="/datenschutz/#newsletter" target="_blank" rel="noopener">Privacy Policy</a>
             </p>
         </form>
+    </div>
+</dialog>
+
+<!-- Interactive Venue & Neukölln Map Dialog Modal -->
+<dialog id="venue-map-modal" class="venue-map-dialog" aria-labelledby="venue-map-modal-title">
+    <div class="venue-map-dialog-card">
+        <div class="venue-map-dialog-header">
+            <div>
+                <span class="venue-map-badge">Host Campus • Neukölln</span>
+                <h2 id="venue-map-modal-title" class="venue-map-dialog-title">{{ site.venue.name }}</h2>
+                <p class="venue-map-dialog-address">{{ site.venue.streetAddress }}, {{ site.venue.postalCode }} Berlin</p>
+            </div>
+            <button type="button" class="venue-map-dialog-close" id="close-venue-map-modal" aria-label="Close map dialog">&times;</button>
+        </div>
+
+        <div class="venue-map-frame-wrapper">
+            <iframe
+                id="venue-map-iframe"
+                title="SRH Berlin Google Maps Location"
+                src="https://maps.google.com/maps?q=SRH+Berlin+University+of+Applied+Sciences,+Sonnenallee+221,+12059+Berlin&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="380"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+        </div>
+
+        <div class="venue-map-dialog-footer">
+            <div class="venue-map-quick-transit">
+                <span>🚇 <strong>S-Bahn:</strong> S41, S42, S45, S46, S47 (S Sonnenallee)</span>
+                <span>🚌 <strong>Bus:</strong> M41 (Direct from Berlin Hbf)</span>
+            </div>
+            <div class="venue-map-footer-actions">
+                <a class="venue-btn is-maps" href="{{ site.venue.mapsUrl }}" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+                    <span>Full Google Maps</span>
+                </a>
+                <a class="venue-btn is-bvg" href="{{ site.venue.transitUrl }}" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="16" rx="2"/><circle cx="8" cy="15" r="1"/><circle cx="16" cy="15" r="1"/><line x1="4" y1="11" x2="20" y2="11"/></svg>
+                    <span>BVG Planner</span>
+                </a>
+            </div>
+        </div>
     </div>
 </dialog>

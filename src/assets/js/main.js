@@ -313,3 +313,41 @@
         }
     });
 })();
+
+// Venue Map Modal Handler
+(function () {
+    const openBtn = document.querySelector('#open-venue-map-modal');
+    const dialog = document.querySelector('#venue-map-modal');
+    if (!openBtn || !dialog) return;
+
+    const closeBtn = document.querySelector('#close-venue-map-modal');
+
+    function openModal() {
+        if (typeof dialog.showModal === 'function') {
+            dialog.showModal();
+        } else {
+            dialog.setAttribute('open', '');
+        }
+    }
+
+    function closeModal() {
+        if (typeof dialog.close === 'function') {
+            dialog.close();
+        } else {
+            dialog.removeAttribute('open');
+        }
+        if (openBtn) openBtn.focus();
+    }
+
+    openBtn.addEventListener('click', openModal);
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+    // Close when clicking dialog backdrop
+    dialog.addEventListener('click', function (e) {
+        const card = dialog.querySelector('.venue-map-dialog-card');
+        if (!card) return;
+        const rect = card.getBoundingClientRect();
+        const isInCard = rect.top <= e.clientY && e.clientY <= rect.bottom && rect.left <= e.clientX && e.clientX <= rect.right;
+        if (!isInCard) closeModal();
+    });
+})();
