@@ -23,12 +23,40 @@ bodyClass: "home-template is-head-left-logo has-cover"
         {% if site.description %}
         <p class="site-description">{{ site.description }}</p>
         {% endif %}
+
+        <!-- Live Event Countdown -->
+        <div class="hero-countdown" id="event-countdown" data-target="{{ site.eventDate }}T09:00:00+01:00" role="timer" aria-label="Countdown to DevFest Berlin 2026">
+            <div class="countdown-unit">
+                <div class="countdown-value" id="countdown-days">--</div>
+                <div class="countdown-title">Days</div>
+            </div>
+            <div class="countdown-separator" aria-hidden="true">:</div>
+            <div class="countdown-unit">
+                <div class="countdown-value" id="countdown-hours">--</div>
+                <div class="countdown-title">Hours</div>
+            </div>
+            <div class="countdown-separator" aria-hidden="true">:</div>
+            <div class="countdown-unit">
+                <div class="countdown-value" id="countdown-minutes">--</div>
+                <div class="countdown-title">Minutes</div>
+            </div>
+            <div class="countdown-separator" aria-hidden="true">:</div>
+            <div class="countdown-unit">
+                <div class="countdown-value" id="countdown-seconds">--</div>
+                <div class="countdown-title">Seconds</div>
+            </div>
+        </div>
+
         {% set cfpOpen = site.cfp.status == "open" and site.cfp.url %}
         {% set ticketsOpen = site.tickets.status == "open" and site.tickets.url %}
-        {% if cfpOpen or ticketsOpen %}
         <div class="hero-actions">
             {% if ticketsOpen %}
             <a class="hero-button" href="{{ site.tickets.url }}" target="_blank" rel="noopener">{{ site.tickets.buttonText }}</a>
+            {% else %}
+            <button type="button" class="hero-button is-earlybird" id="open-earlybird-modal" aria-haspopup="dialog" aria-controls="earlybird-modal">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                <span>Early Bird Alert</span>
+            </button>
             {% endif %}
             {% if cfpOpen %}
             <a class="hero-button{% if ticketsOpen %} is-secondary{% endif %}" href="{{ site.cfp.url }}" target="_blank" rel="noopener">{{ site.cfp.buttonText }}</a>
@@ -42,9 +70,6 @@ bodyClass: "home-template is-head-left-logo has-cover"
         </div>
         {% if cfpOpen and site.cfp.deadline %}
         <p class="hero-note">{{ site.cfp.label }} open until {{ site.cfp.deadline }}</p>
-        {% endif %}
-        {% elif site.cfp.status == "closed" %}
-        <p class="hero-note">{{ site.cfp.label }} is closed. Thank you to everyone who submitted.</p>
         {% endif %}
     </div>
 </div>
@@ -481,3 +506,35 @@ bodyClass: "home-template is-head-left-logo has-cover"
     -->
 
 </main>
+
+<!-- Early Bird Notification Modal Dialog -->
+<dialog id="earlybird-modal" class="earlybird-dialog" aria-labelledby="earlybird-modal-title">
+    <div class="earlybird-dialog-card">
+        <button type="button" class="earlybird-dialog-close" id="close-earlybird-modal" aria-label="Close dialog">&times;</button>
+        <div class="earlybird-badge">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <span>Priority Access</span>
+        </div>
+        <h2 id="earlybird-modal-title" class="earlybird-dialog-title">Get Early Bird Ticket Alerts</h2>
+        <p class="earlybird-dialog-text">
+            Ticket sales will open soon with limited heavily-discounted Early Bird passes. Leave your email to receive private priority booking before public release.
+        </p>
+        <form id="earlybird-form" class="earlybird-dialog-form" action="{{ site.newsletter.action }}" method="POST">
+            <div class="earlybird-input-group">
+                <input
+                    type="email"
+                    name="{{ site.newsletter.emailFieldName }}"
+                    id="earlybird-email-input"
+                    placeholder="developer@example.com"
+                    aria-label="Email address for ticket alert"
+                    required
+                />
+                <button type="submit" class="earlybird-submit-btn">Notify Me</button>
+            </div>
+            <div id="earlybird-feedback" class="subscribe-feedback" role="status" aria-live="polite"></div>
+            <p class="earlybird-note">
+                Zero spam. You will only receive official DevFest Berlin announcements. <a href="/datenschutz/#newsletter" target="_blank" rel="noopener">Privacy Policy</a>
+            </p>
+        </form>
+    </div>
+</dialog>

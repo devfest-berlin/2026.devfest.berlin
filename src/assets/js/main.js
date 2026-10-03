@@ -142,3 +142,141 @@
         }
     });
 })();
+
+// Live Event Countdown Timer
+(function () {
+    const countdownEl = document.querySelector('#event-countdown');
+    if (!countdownEl) return;
+
+    const targetAttr = countdownEl.getAttribute('data-target');
+    if (!targetAttr) return;
+
+    const targetDate = new Date(targetAttr).getTime();
+    if (isNaN(targetDate)) return;
+
+    const daysEl = document.querySelector('#countdown-days');
+    const hoursEl = document.querySelector('#countdown-hours');
+    const minutesEl = document.querySelector('#countdown-minutes');
+    const secondsEl = document.querySelector('#countdown-seconds');
+
+    function updateCountdown() {
+        const now = Date.now();
+        const diff = targetDate - now;
+
+        if (diff <= 0) {
+            if (daysEl) daysEl.textContent = '00';
+            if (hoursEl) hoursEl.textContent = '00';
+            if (minutesEl) minutesEl.textContent = '00';
+            if (secondsEl) secondsEl.textContent = '00';
+            return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+
+        if (daysEl) daysEl.textContent = String(days).padStart(2, '0');
+        if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
+        if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
+        if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+})();
+
+// Early Bird Modal Handler
+(function () {
+    const openBtn = document.querySelector('#open-earlybird-modal');
+    const dialog = document.querySelector('#earlybird-modal');
+    if (!openBtn || !dialog) return;
+
+    const closeBtn = document.querySelector('#close-earlybird-modal');
+    const form = document.querySelector('#earlybird-form');
+    const feedback = document.querySelector('#earlybird-feedback');
+    const input = document.querySelector('#earlybird-email-input');
+
+    function openModal() {
+        if (typeof dialog.showModal === 'function') {
+            dialog.showModal();
+        } else {
+            dialog.setAttribute('open', '');
+        }
+        if (input) input.focus();
+    }
+
+    function closeModal() {
+        if (typeof dialog.close === 'function') {
+            dialog.close();
+        } else {
+            dialog.removeAttribute('open');
+        }
+        if (openBtn) openBtn.focus();
+    }
+
+    openBtn.addEventListener('click', openModal);
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+    // Close when clicking dialog backdrop
+    dialog.addEventListener('click', function (e) {
+        const card = dialog.querySelector('.earlybird-dialog-card');
+        if (!card) return;
+        const rect = card.getBoundingClientRect();
+        const isInCard = rect.top <= e.clientY && e.clientY <= rect.bottom && rect.left <= e.clientX && e.clientX <= rect.right;
+        if (!isInCard) closeModal();
+    });
+
+    // Form submission
+    if (form) {
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const action = form.getAttribute('action');
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn ? submitBtn.textContent : '';
+
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Saving...';
+            }
+
+            const formData = new FormData(form);
+            const searchParams = new URLSearchParams(formData);
+
+            try {
+                if (action && action !== '#') {
+                    await fetch(action, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: searchParams
+                    });
+                }
+                form.reset();
+                if (feedback) {
+                    feedback.textContent = "You're on the priority Early Bird list! We'll notify you first.";
+                    feedback.classList.remove('feedback-error');
+                    feedback.classList.add('feedback-success');
+                }
+                setTimeout(() => {
+                    closeModal();
+                    if (feedback) {
+                        feedback.textContent = '';
+                        feedback.classList.remove('feedback-success');
+                    }
+                }, 2200);
+            } catch (err) {
+                if (feedback) {
+                    feedback.textContent = "Something went wrong. Please try again.";
+                    feedback.classList.add('feedback-error');
+                    feedback.classList.remove('feedback-success');
+                }
+            } finally {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalText;
+                }
+            }
+        });
+    }
+})();

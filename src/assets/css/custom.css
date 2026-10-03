@@ -1590,4 +1590,285 @@ body:not(.home-template) .gh-head-menu .nav a {
     }
 }
 
+/* ==========================================================================
+   Hero Live Countdown Timer
+   ========================================================================== */
+.hero-countdown {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 22px auto 0;
+    padding: 10px 18px;
+    background: rgba(15, 23, 42, 0.62);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 16px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.28);
+}
+
+.countdown-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 52px;
+}
+
+.countdown-value {
+    font-size: 2.8rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: #fff;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 12px rgba(66, 133, 244, 0.5);
+}
+
+.countdown-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.75);
+    margin-top: 3px;
+}
+
+.countdown-separator {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.45);
+    margin-top: -12px;
+    animation: countdownBlink 1s infinite;
+}
+
+@keyframes countdownBlink {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 0.25; }
+}
+
+@media (max-width: 480px) {
+    .hero-countdown {
+        gap: 4px;
+        padding: 8px 12px;
+        margin-top: 16px;
+    }
+
+    .countdown-unit {
+        min-width: 42px;
+    }
+
+    .countdown-value {
+        font-size: 2.2rem;
+    }
+
+    .countdown-title {
+        font-size: 0.95rem;
+    }
+
+    .countdown-separator {
+        font-size: 1.8rem;
+        margin-top: -10px;
+    }
+}
+
+/* ==========================================================================
+   Hero Early Bird Notification CTA Button
+   ========================================================================== */
+.hero-button.is-earlybird {
+    background: linear-gradient(135deg, #1a73e8 0%, #1557b0 100%);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 4px 16px rgba(26, 115, 232, 0.35);
+    cursor: pointer;
+    gap: 8px;
+}
+
+.hero-button.is-earlybird:hover {
+    background: linear-gradient(135deg, #1b66ca 0%, #0d47a1 100%);
+    box-shadow: 0 6px 20px rgba(26, 115, 232, 0.5);
+    transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   Early Bird Modal Dialog
+   ========================================================================== */
+.earlybird-dialog {
+    padding: 0;
+    border: none;
+    border-radius: 20px;
+    background: transparent;
+    max-width: 520px;
+    width: 90vw;
+    margin: auto;
+    overflow: visible;
+}
+
+.earlybird-dialog::backdrop {
+    background: rgba(15, 23, 42, 0.78);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.earlybird-dialog-card {
+    position: relative;
+    padding: 36px 32px 32px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.32);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.earlybird-dialog-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: #f1f3f4;
+    border-radius: 50%;
+    font-size: 2.2rem;
+    line-height: 1;
+    color: #5f6368;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, color 0.2s;
+}
+
+.earlybird-dialog-close:hover {
+    background: #e8eaed;
+    color: #202124;
+}
+
+.earlybird-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 14px;
+    background: #e8f0fe;
+    color: #1a73e8;
+    border-radius: 999px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.earlybird-dialog-title {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #202124;
+    line-height: 1.25;
+    margin: 0 0 12px;
+}
+
+.earlybird-dialog-text {
+    font-size: 1.5rem;
+    color: #5f6368;
+    line-height: 1.55;
+    margin: 0 0 24px;
+}
+
+.earlybird-dialog-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.earlybird-input-group {
+    display: flex;
+    gap: 8px;
+    background: #fff;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 4px 4px 4px 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.earlybird-input-group:focus-within {
+    border-color: #1a73e8;
+    box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.2);
+}
+
+.earlybird-input-group input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 1.5rem;
+    color: #202124;
+    background: transparent;
+    min-width: 0;
+}
+
+.earlybird-submit-btn {
+    padding: 12px 20px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    background: #1a73e8;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s;
+}
+
+.earlybird-submit-btn:hover {
+    background: #1557b0;
+}
+
+.earlybird-note {
+    font-size: 1.2rem;
+    color: #80868b;
+    margin: 8px 0 0;
+    line-height: 1.4;
+}
+
+.earlybird-note a {
+    color: #1a73e8;
+    text-decoration: underline;
+}
+
+/* Dark Mode support for Early Bird Dialog */
+@media (prefers-color-scheme: dark) {
+    html.auto-color .earlybird-dialog-card {
+        background: #1e2430;
+        box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    html.auto-color .earlybird-dialog-title {
+        color: #f1f3f4;
+    }
+
+    html.auto-color .earlybird-dialog-text {
+        color: #9aa0a6;
+    }
+
+    html.auto-color .earlybird-dialog-close {
+        background: rgba(255, 255, 255, 0.08);
+        color: #e8eaed;
+    }
+
+    html.auto-color .earlybird-dialog-close:hover {
+        background: rgba(255, 255, 255, 0.16);
+    }
+
+    html.auto-color .earlybird-badge {
+        background: rgba(26, 115, 232, 0.2);
+        color: #8ab4f8;
+    }
+
+    html.auto-color .earlybird-input-group {
+        background: #151a22;
+        border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    html.auto-color .earlybird-input-group input {
+        color: #e8eaed;
+    }
+}
+
 
