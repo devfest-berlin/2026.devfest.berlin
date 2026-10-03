@@ -31,8 +31,39 @@
     "streetAddress": "Sonnenallee 221",
     "postalCode": "12059",
     "neighborhood": "Neukölln",
-    "city": "Berlin, Germany"
+    "city": "Berlin, Germany",
+    "mapsUrl": "https://www.google.com/maps/dir/?api=1&destination=SRH+Berlin+University+of+Applied+Sciences+Sonnenallee+221+12059+Berlin",
+    "transitUrl": "https://www.bvg.de/en/connections/connection-search?to=Sonnenallee+221,+12059+Berlin"
   },
+  "calendarUrl": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=DevFest+Berlin+2026&dates=20261114T080000Z/20261114T180000Z&details=DevFest+Berlin+2026+at+SRH+Berlin.+https://2026.devfest-berlin.de&location=SRH+Berlin,+Sonnenallee+221,+12059+Berlin",
+  "stats": [
+    { "value": "250+", "label": "Attendees" },
+    { "value": "38", "label": "Technical Speakers" },
+    { "value": "5", "label": "Curated Tracks" },
+    { "value": "7", "label": "Local Communities" }
+  ],
+  "speakerPerks": [
+    {
+      "icon": "pass",
+      "title": "Full Conference Pass",
+      "description": "Complimentary all-day access to all keynote sessions, workshops, catering, and social events."
+    },
+    {
+      "icon": "mixer",
+      "title": "Speaker Dinner & Mixer",
+      "description": "Exclusive pre-conference dinner connecting international speakers, Google Developer Experts, and organizers."
+    },
+    {
+      "icon": "video",
+      "title": "Talk Recording & Exposure",
+      "description": "High-definition session recording published to community channels to share your expertise globally."
+    },
+    {
+      "icon": "mentor",
+      "title": "Support for First-Time Speakers",
+      "description": "Slide coaching, dry-run feedback, and dedicated speaker buddies for new and underrepresented voices."
+    }
+  ],
   "cfp": {
     "status": "open",
     "label": "Call for Speakers",
