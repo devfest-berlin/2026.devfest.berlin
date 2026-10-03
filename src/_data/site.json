@@ -77,7 +77,8 @@
     { "label": "Venue", "url": "/#venue" },
     { "label": "FAQ", "url": "/#faq" },
     { "label": "Organizers", "url": "/#organizers" },
-    { "label": "Sponsors", "url": "/sponsors/" }
+    { "label": "Sponsors", "url": "/sponsors/" },
+    { "label": "Gallery", "url": "/gallery/" }
   ],
   "footerNavigation": [
     { "label": "DevFest 2025 Archive", "url": "https://2025.devfest.berlin/home" }

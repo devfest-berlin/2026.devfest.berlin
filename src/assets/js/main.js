@@ -351,3 +351,14 @@
         if (!isInCard) closeModal();
     });
 })();
+
+// Click-to-load embeds (sponsorship deck)
+document.querySelectorAll('[data-deck-src]').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const f = document.createElement('iframe');
+    f.src = btn.dataset.deckSrc;
+    f.title = btn.dataset.deckTitle || '';
+    f.allowFullscreen = true;
+    btn.closest('.deck-embed').replaceChildren(f);
+  });
+});
