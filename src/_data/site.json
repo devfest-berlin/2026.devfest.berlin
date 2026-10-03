@@ -37,22 +37,10 @@
   },
   "calendarUrl": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=DevFest+Berlin+2026&dates=20261114T080000Z/20261114T180000Z&details=DevFest+Berlin+2026+at+SRH+Berlin.+https://2026.devfest-berlin.de&location=SRH+Berlin,+Sonnenallee+221,+12059+Berlin",
   "stats": [
-    {
-      "value": "250+",
-      "label": "Attendees"
-    },
-    {
-      "value": "38",
-      "label": "Technical Speakers"
-    },
-    {
-      "value": "5",
-      "label": "Curated Tracks"
-    },
-    {
-      "value": "7",
-      "label": "Local Communities"
-    }
+    { "value": "250+", "label": "Attendees" },
+    { "value": "38", "label": "Technical Speakers" },
+    { "value": "5", "label": "Curated Tracks" },
+    { "value": "7", "label": "Local Communities" }
   ],
   "speakerPerks": [
     {
@@ -84,54 +72,21 @@
     "url": ""
   },
   "navigation": [
-    {
-      "label": "About",
-      "url": "/#about"
-    },
-    {
-      "label": "Tracks",
-      "url": "/#tracks"
-    },
-    {
-      "label": "Venue",
-      "url": "/#venue"
-    },
-    {
-      "label": "FAQ",
-      "url": "/#faq"
-    },
-    {
-      "label": "Organizers",
-      "url": "/#organizers"
-    },
-    {
-      "label": "Sponsors",
-      "url": "/sponsors/"
-    },
-    {
-      "label": "Gallery",
-      "url": "/gallery/"
-    }
+    { "label": "About", "url": "/#about" },
+    { "label": "Tracks", "url": "/#tracks" },
+    { "label": "Venue", "url": "/#venue" },
+    { "label": "FAQ", "url": "/#faq" },
+    { "label": "Organizers", "url": "/#organizers" },
+    { "label": "Sponsors", "url": "/sponsors/" },
+    { "label": "Gallery", "url": "/gallery/" }
   ],
   "footerNavigation": [
-    {
-      "label": "DevFest 2025 Archive",
-      "url": "https://2025.devfest.berlin/home"
-    }
+    { "label": "DevFest 2025 Archive", "url": "https://2025.devfest.berlin/home" }
   ],
   "legalNavigation": [
-    {
-      "label": "Impressum",
-      "url": "/impressum/"
-    },
-    {
-      "label": "Datenschutz",
-      "url": "/datenschutz/"
-    },
-    {
-      "label": "Code of Conduct",
-      "url": "https://berlincodeofconduct.org/en"
-    }
+    { "label": "Impressum", "url": "/impressum/" },
+    { "label": "Datenschutz", "url": "/datenschutz/" },
+    { "label": "Code of Conduct", "url": "https://berlincodeofconduct.org/en" }
   ],
   "socialLinks": [],
   "organizers": [
@@ -185,39 +140,15 @@
     "pitch": "DevFest Berlin is run by volunteers from Berlin's developer communities. Partners make it possible, and meet more than 200 developers, designers and tech leads in one day.",
     "statsTitle": "DevFest Berlin 2025 in numbers",
     "stats": [
-      {
-        "value": "224",
-        "label": "attendees"
-      },
-      {
-        "value": "38",
-        "label": "speakers"
-      },
-      {
-        "value": "4",
-        "label": "talk tracks"
-      },
-      {
-        "value": "1",
-        "label": "workshop track"
-      }
+      { "value": "224", "label": "attendees" },
+      { "value": "38", "label": "speakers" },
+      { "value": "4", "label": "talk tracks" },
+      { "value": "1", "label": "workshop track" }
     ],
     "needs": [
-      {
-        "title": "Food & catering",
-        "priority": "Must have",
-        "text": "Lunch, snacks and drinks for everyone through the day, or funds to book a caterer."
-      },
-      {
-        "title": "Swag & supplies",
-        "priority": "Nice to have",
-        "text": "Lanyards, speaker and volunteer gifts, printed signage, decorations, coffee and tea."
-      },
-      {
-        "title": "Marketing & branding",
-        "priority": "Nice to have",
-        "text": "Printed materials, social media promotion, a photo booth or a mascot appearance."
-      }
+      { "title": "Food & catering", "priority": "Must have", "text": "Lunch, snacks and drinks for everyone through the day, or funds to book a caterer." },
+      { "title": "Swag & supplies", "priority": "Nice to have", "text": "Lanyards, speaker and volunteer gifts, printed signage, decorations, coffee and tea." },
+      { "title": "Marketing & branding", "priority": "Nice to have", "text": "Printed materials, social media promotion, a photo booth or a mascot appearance." }
     ]
   },
   "sponsors": [],
