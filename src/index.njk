@@ -292,8 +292,6 @@ bodyClass: "home-template is-head-left-logo has-cover"
                         <div class="perk-icon-wrap">
                             {% if perk.icon == "pass" %}
                             <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><line x1="13" y1="5" x2="13" y2="19" stroke-dasharray="2"/></svg>
-                            {% elif perk.icon == "mixer" %}
-                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                             {% elif perk.icon == "video" %}
                             <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
                             {% elif perk.icon == "mentor" %}
@@ -324,44 +322,110 @@ bodyClass: "home-template is-head-left-logo has-cover"
         <div class="inner">
             <div class="section-header">
                 <h2 class="section-title">Date & Location</h2>
-                <p class="section-subtitle">Join us in Neukölln for Berlin's flagship community developer festival.</p>
+                <p class="section-subtitle">Join us at the cutting-edge SRH Berlin campus in Neukölln for DevFest Berlin 2026.</p>
             </div>
 
-            <div class="venue-card-interactive">
-                <div class="venue-interactive-main">
-                    <div class="venue-header-row">
-                        <div class="venue-icon-badge">
-                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div class="venue-showcase-container">
+                <!-- Left: Venue Visual & Facilities Card -->
+                <div class="venue-visual-card">
+                    <div class="venue-visual-header">
+                        <div class="venue-visual-badge">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+                            <span>Neukölln, Berlin</span>
                         </div>
-                        <div>
-                            <span class="venue-badge">Host Campus</span>
-                            <h3 class="venue-title">{{ site.venue.name }}</h3>
-                            <p class="venue-address">{{ site.venue.streetAddress }}, {{ site.venue.postalCode }} Berlin ({{ site.venue.neighborhood }})</p>
+                        <span class="venue-date-pill">Nov 14, 2026</span>
+                    </div>
+
+                    <div class="venue-graphic-art">
+                        <div class="venue-building-icon">
+                            <svg viewBox="0 0 64 64" width="60" height="60" fill="none">
+                                <rect x="8" y="18" width="48" height="40" rx="4" fill="rgba(66, 133, 244, 0.12)" stroke="#1a73e8" stroke-width="2.5"/>
+                                <path d="M8 28h48M24 18v40M40 18v40" stroke="#1a73e8" stroke-width="1.5" stroke-dasharray="3 3"/>
+                                <path d="M4 18l28-11 28 11" stroke="#ea4335" stroke-width="3" stroke-linecap="round"/>
+                                <rect x="27" y="42" width="10" height="16" rx="2" fill="#34a853"/>
+                            </svg>
+                        </div>
+                        <div class="venue-campus-meta">
+                            <h3 class="venue-campus-name">SRH Berlin Campus</h3>
+                            <p class="venue-campus-tagline">Modern academic tech campus equipped with spacious keynote auditoriums, collaborative rooms, and open courtyards.</p>
                         </div>
                     </div>
 
-                    <div class="venue-transit-info">
-                        <div class="transit-item">
-                            <span class="transit-badge s-bahn">S-Bahn</span>
-                            <span><strong>S41, S42 (Ringbahn), S45, S46, S47</strong> &mdash; S Sonnenallee or S Köllnische Heide (5&ndash;8 min walk)</span>
+                    <!-- Campus Facilities Grid -->
+                    <div class="venue-facilities-grid">
+                        <div class="facility-item">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#1a73e8" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                            <span>Keynote Auditoriums</span>
                         </div>
-                        <div class="transit-item">
-                            <span class="transit-badge bus">Bus M41</span>
-                            <span>Direct connection from <strong>Berlin Hbf, Potsdamer Platz &amp; Hermannplatz</strong> to Sonnenallee</span>
+                        <div class="facility-item">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#34a853" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+                            <span>100% Barrier-Free</span>
+                        </div>
+                        <div class="facility-item">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#ea8600" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><circle cx="12" cy="20" r="1" fill="#ea8600"/></svg>
+                            <span>Gigabit Campus WiFi</span>
+                        </div>
+                        <div class="facility-item">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#673ab7" stroke-width="2"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M15 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-3 11.5L8.5 7.5l4-2.5 3 4.5h3"/></svg>
+                            <span>Secure Bike Racks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Location Details & Smart Transit Hub -->
+                <div class="venue-details-card">
+                    <div class="venue-header-block">
+                        <span class="venue-label-chip">Host Campus</span>
+                        <h3 class="venue-name-heading">{{ site.venue.name }}</h3>
+                        <div class="venue-address-row">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <span>{{ site.venue.streetAddress }}, {{ site.venue.postalCode }} Berlin ({{ site.venue.neighborhood }})</span>
+                            <button type="button" class="copy-address-btn" id="copy-venue-address" data-address="{{ site.venue.streetAddress }}, {{ site.venue.postalCode }} Berlin" title="Copy Address">
+                                <svg class="copy-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                                <span class="copy-label">Copy</span>
+                            </button>
                         </div>
                     </div>
 
-                    <div class="venue-action-buttons">
-                        <a class="venue-action-btn primary" href="{{ site.venue.mapsUrl }}" target="_blank" rel="noopener">
+                    <div class="transit-hub-section">
+                        <h4 class="transit-hub-title">Getting to SRH Berlin</h4>
+
+                        <div class="transit-route-card">
+                            <div class="transit-pill s-bahn">S-Bahn</div>
+                            <div class="transit-route-details">
+                                <div class="transit-route-lines"><strong>S41, S42 (Ringbahn), S45, S46, S47</strong></div>
+                                <div class="transit-route-desc">Exit at <strong>S Sonnenallee</strong> or <strong>S Köllnische Heide</strong> (5&ndash;8 min walk)</div>
+                            </div>
+                        </div>
+
+                        <div class="transit-route-card">
+                            <div class="transit-pill bus">Bus M41</div>
+                            <div class="transit-route-details">
+                                <div class="transit-route-lines"><strong>MetroBus M41</strong> (Direct Connection)</div>
+                                <div class="transit-route-desc">From <strong>Berlin Hauptbahnhof, Potsdamer Platz &amp; Hermannplatz</strong> directly to Sonnenallee</div>
+                            </div>
+                        </div>
+
+                        <div class="transit-route-card">
+                            <div class="transit-pill bike">Car &amp; Bike</div>
+                            <div class="transit-route-details">
+                                <div class="transit-route-lines"><strong>Fast Access via A100 Highway</strong></div>
+                                <div class="transit-route-desc">Sonnenallee exit with ample on-campus bicycle racks and nearby parking</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="venue-action-cluster">
+                        <a class="venue-btn is-maps" href="{{ site.venue.mapsUrl }}" target="_blank" rel="noopener">
                             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
                             <span>Open in Google Maps</span>
                         </a>
-                        <a class="venue-action-btn secondary" href="{{ site.venue.transitUrl }}" target="_blank" rel="noopener">
+                        <a class="venue-btn is-bvg" href="{{ site.venue.transitUrl }}" target="_blank" rel="noopener">
                             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="16" rx="2"/><circle cx="8" cy="15" r="1"/><circle cx="16" cy="15" r="1"/><line x1="4" y1="11" x2="20" y2="11"/></svg>
-                            <span>BVG Transit Route</span>
+                            <span>BVG Route Planner</span>
                         </a>
                         {% if site.calendarUrl %}
-                        <a class="venue-action-btn outline" href="{{ site.calendarUrl }}" target="_blank" rel="noopener">
+                        <a class="venue-btn is-calendar" href="{{ site.calendarUrl }}" target="_blank" rel="noopener" title="Add to Calendar">
                             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                             <span>Add to Calendar</span>
                         </a>
