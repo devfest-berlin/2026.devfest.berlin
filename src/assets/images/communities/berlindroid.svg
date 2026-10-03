@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Android Bugdroid Head with Berlin flair -->
+  <path d="M12 36a20 20 0 0 1 40 0v2H12v-2z" fill="#3DDC84"/>
+  <!-- Left antenna -->
+  <line x1="20" y1="20" x2="15" y2="12" stroke="#3DDC84" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- Right antenna -->
+  <line x1="44" y1="20" x2="49" y2="12" stroke="#3DDC84" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- Eyes -->
+  <circle cx="23" cy="27" r="2.5" fill="#FFFFFF"/>
+  <circle cx="41" cy="27" r="2.5" fill="#FFFFFF"/>
+  <!-- Berlin Bear Crown/Ears accent -->
+  <path d="M17 19c-2-3-4-2-4 1 0 2 2 3 4 2z" fill="#202124"/>
+  <path d="M47 19c2-3 4-2 4 1 0 2-2 3-4 2z" fill="#202124"/>
+  <!-- Body bar -->
+  <rect x="12" y="42" width="40" height="10" rx="4" fill="#3DDC84"/>
+</svg>

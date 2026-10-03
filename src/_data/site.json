@@ -63,37 +63,44 @@
     {
       "name": "GDG Berlin",
       "description": "The flagship Google Developer Group in Berlin covering modern web, AI, cloud, and open developer technologies.",
-      "url": "https://gdg.community.dev/gdg-berlin/"
+      "url": "https://gdg.community.dev/gdg-berlin/",
+      "logo": "/assets/images/communities/gdg-berlin.jpeg"
     },
     {
       "name": "Berlindroid",
       "description": "Berlin's vibrant Android developer community hosting regular monthly technical talks, networking, and discussions.",
-      "url": "https://www.meetup.com/berlindroid/"
+      "url": "https://www.meetup.com/berlindroid/",
+      "logo": "/assets/images/communities/berlindroid.jpeg"
     },
     {
       "name": "GDG Berlin Cloud",
       "description": "Dedicated to Google Cloud Platform, distributed systems, Kubernetes, DevOps, and cloud-native architectures.",
-      "url": "https://gdg.community.dev/gdg-cloud-berlin/"
+      "url": "https://gdg.community.dev/gdg-cloud-berlin/",
+      "logo": "/assets/images/communities/gdg-cloud-berlin.jpeg"
     },
     {
       "name": "GDG Berlin Golang",
       "description": "The Berlin community for the Go programming language, backend systems engineering, and high-concurrency tooling.",
-      "url": "https://gdg.community.dev/gdg-berlin-golang/"
+      "url": "https://gdg.community.dev/gdg-berlin-golang/",
+      "logo": "/assets/images/communities/gdg-golang-berlin.jpeg"
     },
     {
       "name": "WTM Berlin",
       "description": "Women Techmakers Berlin provides visibility, community support, mentorship, and resources for women in tech.",
-      "url": "https://www.meetup.com/women-techmakers-berlin/"
+      "url": "https://www.meetup.com/women-techmakers-berlin/",
+      "logo": "/assets/images/communities/wtm-berlin.jpeg"
     },
     {
       "name": "GDG on Campus SRH Berlin",
       "description": "Student-led developer community at SRH Berlin University of Applied Sciences learning and building real-world projects.",
-      "url": "https://gdg.community.dev/gdg-on-campus-srh-berlin-university-of-applied-sciences-berlin-germany/"
+      "url": "https://gdg.community.dev/gdg-on-campus-srh-berlin-university-of-applied-sciences-berlin-germany/",
+      "logo": "/assets/images/communities/gdg-campus-srh.png"
     },
     {
       "name": "Flutter Berlin",
       "description": "Berlin's meetup for multi-platform development using Flutter and Dart across mobile, web, and desktop.",
-      "url": "https://www.meetup.com/flutter-berlin/"
+      "url": "https://www.meetup.com/flutter-berlin/",
+      "logo": "/assets/images/communities/flutter-berlin.jpeg"
     }
   ],
   "sponsorship": {
