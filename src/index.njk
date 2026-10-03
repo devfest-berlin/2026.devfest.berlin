@@ -33,6 +33,12 @@ bodyClass: "home-template is-head-left-logo has-cover"
             {% if cfpOpen %}
             <a class="hero-button{% if ticketsOpen %} is-secondary{% endif %}" href="{{ site.cfp.url }}" target="_blank" rel="noopener">{{ site.cfp.buttonText }}</a>
             {% endif %}
+            {% if site.calendarUrl %}
+            <a class="hero-button is-calendar" href="{{ site.calendarUrl }}" target="_blank" rel="noopener" title="Add to Calendar">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                <span>Add to Calendar</span>
+            </a>
+            {% endif %}
         </div>
         {% if cfpOpen and site.cfp.deadline %}
         <p class="hero-note">{{ site.cfp.label }} open until {{ site.cfp.deadline }}</p>
@@ -42,6 +48,22 @@ bodyClass: "home-template is-head-left-logo has-cover"
         {% endif %}
     </div>
 </div>
+
+<!-- Conference Impact Statistics (Inspired by DevFest Istanbul) -->
+{% if site.stats.length %}
+<section class="outer stats-section" aria-label="DevFest Berlin by the numbers">
+    <div class="inner">
+        <div class="stats-grid">
+            {% for item in site.stats %}
+            <div class="stat-card">
+                <div class="stat-value">{{ item.value }}</div>
+                <div class="stat-label">{{ item.label }}</div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
 
 <main id="site-main" class="site-main">
 
@@ -177,9 +199,36 @@ bodyClass: "home-template is-head-left-logo has-cover"
             </div>
 
             {% if site.cfp.status == "open" and site.cfp.url %}
+            <div class="speaker-perks-section">
+                <h3 class="perks-heading">Why Speak at DevFest Berlin?</h3>
+                <div class="perks-grid">
+                    {% for perk in site.speakerPerks %}
+                    <div class="perk-card">
+                        <div class="perk-icon-wrap">
+                            {% if perk.icon == "pass" %}
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><line x1="13" y1="5" x2="13" y2="19" stroke-dasharray="2"/></svg>
+                            {% elif perk.icon == "mixer" %}
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            {% elif perk.icon == "video" %}
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                            {% elif perk.icon == "mentor" %}
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                            {% endif %}
+                        </div>
+                        <h4 class="perk-title">{{ perk.title }}</h4>
+                        <p class="perk-text">{{ perk.description }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
             <div class="tracks-cta">
-                <p>Have an insight, case study, or deep dive to share?</p>
-                <a class="track-cta-button" href="{{ site.cfp.url }}" target="_blank" rel="noopener">Submit Your Talk on Sessionize</a>
+                <p>Have an insight, case study, or deep dive to share with Berlin's tech community?</p>
+                <a class="track-cta-button" href="{{ site.cfp.url }}" target="_blank" rel="noopener">
+                    <span>Submit Your Talk on Sessionize</span>
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+                <span class="track-cta-deadline">CFP closes November 1, 2026 at 23:59 CET</span>
             </div>
             {% endif %}
         </div>
@@ -188,17 +237,51 @@ bodyClass: "home-template is-head-left-logo has-cover"
     <!-- Date & Venue Section -->
     <section id="venue" class="outer venue-section">
         <div class="inner">
-            <div class="venue-card">
-                <div class="venue-item">
-                    <span class="venue-badge">Confirmed Date</span>
-                    <h3 class="venue-title">Saturday, November 14, 2026</h3>
-                    <p class="venue-subtitle">Full-day conference with keynote talks, sessions & workshops</p>
-                </div>
-                <div class="venue-divider"></div>
-                <div class="venue-item">
-                    <span class="venue-badge">Host Venue</span>
-                    <h3 class="venue-title">SRH Berlin</h3>
-                    <p class="venue-subtitle">Sonnenallee 221, 12059 Berlin (Neukölln)</p>
+            <div class="section-header">
+                <h2 class="section-title">Date & Location</h2>
+                <p class="section-subtitle">Join us in Neukölln for Berlin's flagship community developer festival.</p>
+            </div>
+
+            <div class="venue-card-interactive">
+                <div class="venue-interactive-main">
+                    <div class="venue-header-row">
+                        <div class="venue-icon-badge">
+                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
+                        <div>
+                            <span class="venue-badge">Host Campus</span>
+                            <h3 class="venue-title">{{ site.venue.name }}</h3>
+                            <p class="venue-address">{{ site.venue.streetAddress }}, {{ site.venue.postalCode }} Berlin ({{ site.venue.neighborhood }})</p>
+                        </div>
+                    </div>
+
+                    <div class="venue-transit-info">
+                        <div class="transit-item">
+                            <span class="transit-badge s-bahn">S-Bahn</span>
+                            <span><strong>S41, S42 (Ringbahn), S45, S46, S47</strong> &mdash; S Sonnenallee or S Köllnische Heide (5&ndash;8 min walk)</span>
+                        </div>
+                        <div class="transit-item">
+                            <span class="transit-badge bus">Bus M41</span>
+                            <span>Direct connection from <strong>Berlin Hbf, Potsdamer Platz &amp; Hermannplatz</strong> to Sonnenallee</span>
+                        </div>
+                    </div>
+
+                    <div class="venue-action-buttons">
+                        <a class="venue-action-btn primary" href="{{ site.venue.mapsUrl }}" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+                            <span>Open in Google Maps</span>
+                        </a>
+                        <a class="venue-action-btn secondary" href="{{ site.venue.transitUrl }}" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="16" rx="2"/><circle cx="8" cy="15" r="1"/><circle cx="16" cy="15" r="1"/><line x1="4" y1="11" x2="20" y2="11"/></svg>
+                            <span>BVG Transit Route</span>
+                        </a>
+                        {% if site.calendarUrl %}
+                        <a class="venue-action-btn outline" href="{{ site.calendarUrl }}" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                            <span>Add to Calendar</span>
+                        </a>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </div>
