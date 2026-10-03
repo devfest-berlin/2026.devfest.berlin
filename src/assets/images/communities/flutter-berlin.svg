@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <path d="M38.5 8L14 32.5l7.5 7.5L46 15.5H38.5z" fill="#02569B"/>
+  <path d="M38.5 32L24.5 46 32 53.5l14-14-7.5-7.5z" fill="#0175C2"/>
+  <path d="M46 53.5h-7.5l-6.5-6.5 7.5-7.5 6.5 6.5v7.5z" fill="#13B9FD"/>
+  <path d="M39.5 39.5L32 47l7.5 7.5L54 40 39.5 39.5z" fill="#29B6F6" opacity="0.8"/>
+</svg>
