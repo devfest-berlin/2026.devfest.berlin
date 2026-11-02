@@ -670,8 +670,12 @@ bodyClass: "home-template is-head-left-logo has-cover"
                     <summary>When does the Call for Speakers (CFP) close?</summary>
                     <div class="faq-answer">
                         <p>
+                            {% if site.cfp.status == "open" and site.cfp.url %}
                             The Call for Speakers is open through <strong>{{ site.cfp.deadline }} at 11:59 PM CET</strong>.
                             You can submit talk proposals directly on <a href="{{ site.cfp.url }}" target="_blank" rel="noopener">Sessionize</a>.
+                            {% else %}
+                            The Call for Speakers closed on <strong>{{ site.cfp.deadline }} at 11:59 PM CET</strong>. Thank you to everyone who submitted a talk.
+                            {% endif %}
                             Speaker selections and schedule announcements will follow in early November on the <a href="/agenda/">Speakers &amp; Agenda</a> page.
                         </p>
                     </div>
