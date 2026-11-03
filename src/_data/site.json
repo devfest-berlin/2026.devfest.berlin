@@ -177,13 +177,13 @@
       "logo": "/assets/images/communities/berlindroid.jpeg"
     },
     {
-      "name": "GDG Berlin Cloud",
+      "name": "GDG Cloud Berlin",
       "description": "Dedicated to Google Cloud Platform, distributed systems, Kubernetes, DevOps, and cloud-native architectures.",
       "url": "https://gdg.community.dev/gdg-cloud-berlin/",
       "logo": "/assets/images/communities/gdg-cloud-berlin.jpeg"
     },
     {
-      "name": "GDG Berlin Golang",
+      "name": "GDG Golang Berlin",
       "description": "The Berlin community for the Go programming language, backend systems engineering, and high-concurrency tooling.",
       "url": "https://gdg.community.dev/gdg-berlin-golang/",
       "logo": "/assets/images/communities/gdg-golang-berlin.jpeg"
