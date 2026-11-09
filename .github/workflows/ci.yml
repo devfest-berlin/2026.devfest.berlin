@@ -28,6 +28,9 @@ jobs:
       - name: Build Static Site
         run: npm run build
 
+      - name: Run Tests
+        run: npm test
+
       # The legal pages must not go live with organizer details missing (see AGENTS.md, Legal pages)
       - name: Check Legal Pages Are Filled In
         run: |
