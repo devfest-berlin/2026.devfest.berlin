@@ -17,11 +17,12 @@ permalink: /agenda/
     </p>
 </div>
 
-{% if ticketsOpen or cfpOpen %}
+{% if ticketsOpen or cfpOpen or scheduleOpen %}
 <div class="agenda-status-banner">
     <div class="agenda-status-content">
-        <span class="venue-badge">{% if ticketsOpen %}Tickets On Sale Now{% else %}Call for Speakers Open{% endif %}</span>
-        <h3>{% if ticketsOpen %}Secure your ticket for November 14 at SRH Berlin{% else %}Speaker lineup &amp; session slots announcing in early November{% endif %}</h3>
+        <span class="venue-badge">{% if ticketsOpen %}Tickets On Sale Now{% elif cfpOpen %}Call for Speakers Open{% else %}Agenda Published{% endif %}</span>
+        <h3>{% if ticketsOpen %}Secure your ticket for November 14 at SRH Berlin{% elif cfpOpen %}Speaker lineup &amp; session slots announcing in early November{% else %}The full schedule for November 14 is on Sessionize{% endif %}</h3>
+        {% if ticketsOpen or cfpOpen %}
         <p>
             {% if ticketsOpen %}
             <strong>Early Bird tickets</strong> are available for 1 week only (best price!), followed by 1 week of Regular tickets.
@@ -30,6 +31,7 @@ permalink: /agenda/
             Our Call for Speakers on Sessionize is open until <strong>{{ site.cfp.deadline }} at 23:59 CET</strong>.
             {% endif %}
         </p>
+        {% endif %}
     </div>
     <div class="agenda-status-actions">
         {% if ticketsOpen %}
@@ -39,7 +41,7 @@ permalink: /agenda/
         <a class="{% if ticketsOpen %}venue-btn is-calendar{% else %}sponsor-button{% endif %}" href="{{ site.cfp.url }}" target="_blank" rel="noopener">{{ site.cfp.buttonText }}</a>
         {% endif %}
         {% if scheduleOpen %}
-        <a class="venue-btn is-calendar" href="{{ site.agenda.schedule.url }}" target="_blank" rel="noopener">{{ site.agenda.schedule.buttonText }}</a>
+        <a class="{% if ticketsOpen or cfpOpen %}venue-btn is-calendar{% else %}sponsor-button{% endif %}" href="{{ site.agenda.schedule.url }}" target="_blank" rel="noopener">{{ site.agenda.schedule.buttonText }}</a>
         {% endif %}
         <a class="venue-btn is-calendar" href="{{ site.calendarUrl }}" target="_blank" rel="noopener">Add Date to Calendar</a>
     </div>
