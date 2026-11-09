@@ -78,26 +78,20 @@
     "vibeLoungeBadgeUrl": "https://goo.gle/devfest26-vibe-lounge",
     "vibeLoungeSlots": [
       {
-        "time": "11:00 - 11:45",
+        "time": "10:55 - 11:45",
         "slot": "Sprint 1",
         "title": "Backyard Barista & Multimodal Prompts",
         "focus": "Design and ship a multimodal coffee or food assistant in Google AI Studio with structured JSON output."
       },
       {
-        "time": "13:15 - 14:00",
+        "time": "13:00 - 14:00",
         "slot": "Sprint 2",
-        "title": "Launch a Multiplayer Game with AI",
-        "focus": "Generate a 2-player browser or Flutter game and deploy it live to a shareable URL in one sprint."
+        "title": "Multiplayer Games & Maps AI",
+        "focus": "Generate a 2-player browser or Flutter game or combine Google Maps Platform with Gemini grounding."
       },
       {
-        "time": "15:00 - 15:45",
+        "time": "14:00 - 15:00",
         "slot": "Sprint 3",
-        "title": "Google Maps & Geolocation AI",
-        "focus": "Combine Google Maps Platform with Gemini grounding to build interactive Berlin discovery tools."
-      },
-      {
-        "time": "16:45 - 17:30",
-        "slot": "Sprint 4",
         "title": "Agentic Workflows & Badge Showcase",
         "focus": "Build an agentic workflow, demo your prototype to on-site mentors, and claim the official Vibe Lounge badge."
       }
