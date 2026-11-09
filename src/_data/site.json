@@ -68,6 +68,11 @@
   },
   "agenda": {
     "status": "preview",
+    "schedule": {
+      "status": "open",
+      "buttonText": "View Agenda",
+      "url": "https://devfest-berlin-2026.sessionize.com"
+    },
     "sessionizeScheduleEmbedUrl": "",
     "sessionizeSpeakersEmbedUrl": "",
     "vibeLoungeBadgeUrl": "https://goo.gle/devfest26-vibe-lounge",

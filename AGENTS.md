@@ -99,6 +99,7 @@ When Sessionize is set up for DevFest Berlin 2026:
 - **CFP opens:** set `cfp.status` to `"open"`, `cfp.url` to the submission page and optionally `cfp.deadline` (for example `"October 18, 2026"`). A "Call for Speakers" menu link, a "Submit a Talk" header and hero button, and an "open until" line appear.
 - **CFP closes:** set `cfp.status` to `"closed"`. The buttons disappear and the hero shows a thank-you line.
 - **Tickets on sale** (for example the Bevy page): set `tickets.status` to `"open"` and `tickets.url`. "Get Tickets" takes over the header button and leads the hero buttons.
+- **Schedule published:** `agenda.schedule` points at the Sessionize schedule. With `status` `"open"` and a `url`, a "View Agenda" button appears in the hero and on `/agenda/` (the "Agenda" menu link stays on `/agenda/`). Set `status` to `"soon"` to hide them.
 A block only switches on when its `url` is set, so a half-filled change cannot publish a dead button.
 
 ### Legal pages: Impressum and Datenschutz

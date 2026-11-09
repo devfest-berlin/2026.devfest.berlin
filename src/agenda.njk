@@ -7,6 +7,7 @@ permalink: /agenda/
 
 {% set cfpOpen = site.cfp.status == "open" and site.cfp.url %}
 {% set ticketsOpen = site.tickets.status == "open" and site.tickets.url %}
+{% set scheduleOpen = site.agenda.schedule.status == "open" and site.agenda.schedule.url %}
 
 <div class="agenda-page-intro">
     <p>
@@ -36,6 +37,9 @@ permalink: /agenda/
         {% endif %}
         {% if cfpOpen %}
         <a class="{% if ticketsOpen %}venue-btn is-calendar{% else %}sponsor-button{% endif %}" href="{{ site.cfp.url }}" target="_blank" rel="noopener">{{ site.cfp.buttonText }}</a>
+        {% endif %}
+        {% if scheduleOpen %}
+        <a class="venue-btn is-calendar" href="{{ site.agenda.schedule.url }}" target="_blank" rel="noopener">{{ site.agenda.schedule.buttonText }}</a>
         {% endif %}
         <a class="venue-btn is-calendar" href="{{ site.calendarUrl }}" target="_blank" rel="noopener">Add Date to Calendar</a>
     </div>
