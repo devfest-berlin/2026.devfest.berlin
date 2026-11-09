@@ -35,7 +35,7 @@
     "mapsUrl": "https://www.google.com/maps/dir/?api=1&destination=SRH+Berlin+University+of+Applied+Sciences+Sonnenallee+221+12059+Berlin",
     "transitUrl": "https://www.bvg.de/en/connections/connection-search?to=Sonnenallee+221,+12059+Berlin"
   },
-  "calendarUrl": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=DevFest+Berlin+2026&dates=20261114T080000Z/20261114T180000Z&details=DevFest+Berlin+2026+at+SRH+Berlin.+https://2026.devfest-berlin.de&location=SRH+Berlin,+Sonnenallee+221,+12059+Berlin",
+  "calendarUrl": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=DevFest+Berlin+2026&dates=20261114T070000Z/20261114T161500Z&details=DevFest+Berlin+2026+at+SRH+Berlin.+https://2026.devfest-berlin.de&location=SRH+Berlin,+Sonnenallee+221,+12059+Berlin",
   "stats": [
     { "value": "250+", "label": "Attendees" },
     { "value": "38", "label": "Technical Speakers" },
@@ -104,39 +104,39 @@
     ],
     "dayTimeline": [
       {
-        "time": "09:00",
-        "title": "Doors Open, Badge Pickup & Morning Coffee",
-        "track": "Main Foyer · SRH Berlin"
+        "time": "08:00",
+        "title": "Registration & Breakfast",
+        "track": "Main Stage"
+      },
+      {
+        "time": "08:55",
+        "title": "Keynote",
+        "track": "Main Stage"
       },
       {
         "time": "10:00",
-        "title": "Welcome Keynote & Berlin Community Opening",
-        "track": "Keynote Auditorium"
+        "title": "Morning Talks",
+        "track": "Main Stage, Rooms 2 to 5 and Extra Room 1.6"
       },
       {
-        "time": "11:00",
-        "title": "Morning Talk Tracks, Workshops & Vibe Lounge Sprint 1",
-        "track": "5 Parallel Tracks + Vibe Lounge + Hackathon"
+        "time": "10:55",
+        "title": "Hackathon and Vibe Lounge Open (until 15:00)",
+        "track": "Hackathon Room + Vibe Lounge"
       },
       {
-        "time": "12:30",
-        "title": "Lunch Break & Community Networking",
-        "track": "Campus Courtyard & Foyer"
+        "time": "11:45",
+        "title": "Lunch Break (until 13:00)",
+        "track": "SRH Berlin"
       },
       {
-        "time": "13:30",
-        "title": "Afternoon Talk Tracks, Deep-Dive Workshops & Vibe Lounge Sprints 2-3",
-        "track": "5 Parallel Tracks + Vibe Lounge + Hackathon"
+        "time": "13:00",
+        "title": "Afternoon Talks & Workshop",
+        "track": "Main Stage, Rooms 2 to 5 and Extra Room 1.6"
       },
       {
-        "time": "16:30",
-        "title": "Hackathon Demos, Vibe Lounge Sprint 4 & Closing Keynote",
-        "track": "Keynote Auditorium"
-      },
-      {
-        "time": "17:30",
-        "title": "Evening Networking & Community Social",
-        "track": "SRH Berlin Campus"
+        "time": "16:45",
+        "title": "Closing Ceremony (until 17:15)",
+        "track": "Main Stage"
       }
     ]
   },
