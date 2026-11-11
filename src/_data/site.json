@@ -75,7 +75,48 @@
     },
     "sessionizeScheduleEmbedUrl": "",
     "sessionizeSpeakersEmbedUrl": "",
-    "vibeLoungeBadgeUrl": "https://goo.gle/devfest26-vibe-lounge",
+    "vibeLounge": {
+      "host": {
+        "name": "Esra Kadah",
+        "role": "Google Developer Expert for Flutter & Dart",
+        "url": "https://github.com/esrakadah"
+      },
+      "repoUrl": "https://github.com/esrakadah/devfest-berlin-2026-vibe-lounge",
+      "challenges": [
+        {
+          "title": "The Backyard Barista",
+          "summary": "Build a specialty coffee companion in Google AI Studio: a Gemini barista that picks beans, roasts and milk for your taste, then add a brew timer, a shopping list and a Firebase recipe journal.",
+          "url": "https://docs.google.com/document/d/12Vvc5VPJkHvRzgMgcHdvMFDzxsWtfBZzzoo0Y9HM_8M/edit?tab=t.0",
+          "linkLabel": "Open the challenge guide",
+          "tag": "Start here",
+          "note": ""
+        },
+        {
+          "title": "Launch your portfolio website with AI",
+          "summary": "Describe yourself, let Google AI Studio build a personal portfolio site, then publish it to Cloud Run.",
+          "url": "https://codelabs.developers.google.com/codelabs/cloud-run/launch-your-portfolio-website-with-ai",
+          "linkLabel": "Open the codelab",
+          "tag": "Beginner friendly",
+          "note": ""
+        },
+        {
+          "title": "Launch a multiplayer game with AI",
+          "summary": "Build a turn-based browser game with Firestore and Google Sign-In, set up for you by AI Studio, and deploy it to Cloud Run.",
+          "url": "https://codelabs.developers.google.com/codelabs/cloud-run/launch-your-web-based-video-game-with-ai",
+          "linkLabel": "Open the codelab",
+          "tag": "Firebase",
+          "note": ""
+        },
+        {
+          "title": "Build with Google Maps Platform and AI",
+          "summary": "Build a map explorer with geocoding, Gemini-generated local facts and Maps grounding, then deploy it to Cloud Run.",
+          "url": "https://codelabs.developers.google.com/codelabs/cloud-run/build-with-google-maps-platform-and-ai",
+          "linkLabel": "Open the codelab",
+          "tag": "Advanced",
+          "note": "Not recommended as your first challenge: the Maps APIs can ask for a payment method or extra API enabling. Pick it if you have used Maps Platform before, or after you finish one of the other challenges."
+        }
+      ]
+    },
     "vibeLoungeSlots": [
       {
         "time": "10:55 - 11:45",
@@ -147,7 +188,7 @@
     { "label": "About", "url": "/#about" },
     { "label": "Tracks", "url": "/#tracks" },
     { "label": "Agenda", "url": "/agenda/" },
-    { "label": "Vibe Lounge", "url": "/#vibe-lounge" },
+    { "label": "Vibe Lounge", "url": "/vibe-lounge/" },
     { "label": "Venue", "url": "/#venue" },
     { "label": "FAQ", "url": "/#faq" },
     { "label": "Sponsors", "url": "/sponsors/" },
