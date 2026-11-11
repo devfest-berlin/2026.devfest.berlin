@@ -155,10 +155,12 @@ describe("vibe lounge page", () => {
     assert.match(home, /href="\/vibe-lounge\/"/);
   });
 
-  test("never links the badge claim URL before the event", () => {
+  test("never links the badge or Cloud credit claim URLs", () => {
     const { home, agenda, lounge } = buildSite(() => {});
     for (const page of [home, agenda, lounge]) {
       assert.doesNotMatch(page, /devfest26-vibe-lounge/);
+      assert.doesNotMatch(page, /goo\.gle\//);
+      assert.doesNotMatch(page, /me\.developers\.google\.com/);
     }
   });
 

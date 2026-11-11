@@ -1,7 +1,7 @@
 ---
 layout: page.njk
 title: "Vibe Lounge"
-description: "Build a working app with Gemini in under an hour. Guided sprints at DevFest Berlin 2026, Saturday 14 November, 11:00 to 15:00."
+description: "Build a working app with Gemini in one guided sprint. DevFest Berlin 2026 at SRH Berlin, Saturday 14 November, 11:00 to 15:00."
 permalink: /vibe-lounge/
 ---
 
@@ -9,21 +9,27 @@ permalink: /vibe-lounge/
 
 <img class="vibe-page-banner" src="/assets/images/vibe-lounge-banner.png" alt="DevFest 2026 Vibe Lounge" width="1600" height="893" fetchpriority="high">
 
-<p><strong>In short:</strong> bring a laptop and a personal Google account, come at the start of a sprint, and pick a challenge below.</p>
+<div class="vibe-page-lead">
+    <p>Come build an app with Gemini! <span aria-hidden="true">🚀</span></p>
+    <p>Saturday 14 November, 11:00 to 15:00, at {{ site.venue.name }}. <span aria-hidden="true">📍</span></p>
+    <p>Bring your laptop, pick a challenge, and leave with an app you can share. <span aria-hidden="true">✨</span></p>
+</div>
 
-<p>
-    The Vibe Lounge is a relaxed room where you build with Gemini. You pick a challenge, build it in about 40 minutes with
-    Google AI Studio, and leave with a live app. No coding experience needed: every challenge starts simple and gets harder
-    for those who want more.
-</p>
+<div class="vibe-page-lines">
+    <p>The Vibe Lounge is a relaxed room for building with Google AI Studio and Gemini. <span aria-hidden="true">🤍</span></p>
+    <p>No coding experience needed. Every challenge starts simple, and you can keep going if you want more. <span aria-hidden="true">💪</span></p>
+</div>
 
 <p class="vibe-page-host">
-    Led by <a href="{{ lounge.host.url }}" target="_blank" rel="noopener">{{ lounge.host.name }}</a>, {{ lounge.host.role }},
+    Hosted by <a href="{{ lounge.host.url }}" target="_blank" rel="noopener">{{ lounge.host.name }}</a>, {{ lounge.host.role }},
     with community mentors in the room.
 </p>
 
-<h2 id="sprints">Sprints</h2>
-<p>Sprints start at 11:00, 13:00 and 14:00. Come at the start of one so you can finish your build with the room. No lounge over lunch (11:45 to 13:00).</p>
+<h2 id="sprints">When to come</h2>
+<div class="vibe-page-lines">
+    <p>Sprints start at 11:00, 13:00 and 14:00. Come at the start of one, so you build together with the room. <span aria-hidden="true">⏰</span></p>
+    <p>The lounge takes a lunch break from 11:45 to 13:00. <span aria-hidden="true">🥪</span></p>
+</div>
 
 <div class="agenda-vibe-grid">
     {% for sprint in site.agenda.vibeLoungeSlots %}
@@ -33,45 +39,49 @@ permalink: /vibe-lounge/
             <span class="agenda-vibe-time">{{ sprint.time }}</span>
         </div>
         <h3>{{ sprint.title }}</h3>
-        <p>{{ sprint.focus }}</p>
+        <p>{{ sprint.focus }} <span aria-hidden="true">{{ sprint.emoji }}</span></p>
     </div>
     {% endfor %}
 </div>
 
-<h2 id="challenges">Challenges</h2>
-<p>All four run in every sprint, and they are free for every DevFest attendee. Pick whichever you like, or bring your own idea. Each one is sized for a single sprint.</p>
+<h2 id="challenges">Pick a challenge</h2>
+<div class="vibe-page-lines">
+    <p>All four run in every sprint, and they are free for every DevFest attendee. <span aria-hidden="true">🤩</span></p>
+    <p>Pick the one you like, or bring your own idea. Each one is sized for a single sprint. <span aria-hidden="true">😉</span></p>
+</div>
 
 <div class="vibe-challenge-grid">
     {% for challenge in lounge.challenges %}
     <div class="vibe-challenge-card">
         <span class="vibe-pill">{{ challenge.tag }}</span>
         <h3>{{ challenge.title }}</h3>
-        <p>{{ challenge.summary }}</p>
+        <p>{{ challenge.summary }} <span aria-hidden="true">{{ challenge.emoji }}</span></p>
         <a class="vibe-challenge-link" href="{{ challenge.url }}" target="_blank" rel="noopener">{{ challenge.linkLabel }}</a>
     </div>
     {% endfor %}
 </div>
 
 {% if lounge.repoUrl %}
-<p>All challenges and the sprint flow in one place: <a href="{{ lounge.repoUrl }}" target="_blank" rel="noopener">{{ lounge.repoUrl | replace("https://", "") }}</a></p>
+<p class="vibe-page-repo">All challenges and the sprint flow in one place, to bookmark: <a href="{{ lounge.repoUrl }}" target="_blank" rel="noopener">{{ lounge.repoUrl | replace("https://", "") }}</a> <span aria-hidden="true">📦</span></p>
 {% endif %}
 
 <h2 id="bring">What to bring</h2>
 <ul>
-    <li><strong>A personal laptop.</strong> A phone works, but a laptop makes it much easier to switch between the app preview, the code and your prompts. Work laptops often block what AI Studio needs.</li>
-    <li><strong>A personal Google account</strong> (an @gmail.com address). Work and university accounts can block features or deployment.</li>
-    <li><strong>Your charger.</strong></li>
+    <li>Your own laptop. A phone works too, but switching between preview, code and prompts is much easier on a laptop. Work laptops often block what AI Studio needs. <span aria-hidden="true">💻</span></li>
+    <li>A personal Google account (an @gmail.com address). Work and university accounts can block features or deployment. <span aria-hidden="true">🔑</span></li>
+    <li>Your charger. <span aria-hidden="true">🔌</span></li>
 </ul>
 
 <h2 id="flow">How a sprint works</h2>
 <ol>
-    <li><strong>Come in at the start of a sprint.</strong> A volunteer at the door checks you in and points you to a seat.</li>
-    <li><strong>Open your challenge</strong> from this page and sign in at <a href="https://ai.studio/build" target="_blank" rel="noopener">ai.studio/build</a>.</li>
-    <li><strong>Build.</strong> Start from the challenge prompt, then add features one prompt at a time. Mentors in the room help when you get stuck.</li>
-    <li><strong>Publish.</strong> Deploy to Cloud Run from AI Studio, or use Share for a quick public link. With a personal account and no Google Cloud billing history, the free Starter Tier covers up to two Cloud Run projects.</li>
-    <li><strong>Show it and claim your badge.</strong> At the end of the sprint a few people demo their live apps, and everyone can claim the official DevFest 2026 Vibe Lounge badge in the room.</li>
+    <li>Come in at the start of a sprint. A volunteer at the door checks you in and points you to a seat. <span aria-hidden="true">👋</span></li>
+    <li>Open your challenge from this page and sign in at <a href="https://ai.studio/build" target="_blank" rel="noopener">ai.studio/build</a>. <span aria-hidden="true">💻</span></li>
+    <li>Start from the challenge prompt, then add one feature per prompt. Stuck? Mentors are right there to help. <span aria-hidden="true">🤓</span></li>
+    <li>Want to publish it? Deploy to Cloud Run from AI Studio, or use Share for a quick public link. With a personal account and no Google Cloud billing history, the free Starter Tier covers up to two Cloud Run projects. <span aria-hidden="true">🚀</span></li>
+    <li>Show it and claim your badge. At the end of the sprint a few people demo their apps, and everyone can claim the official DevFest 2026 Vibe Lounge badge in the room. <span aria-hidden="true">🥳</span></li>
 </ol>
 
-<p>
-    Share what you built with <strong>#DevFest</strong>. See the full day on the <a href="/agenda/">agenda</a>.
-</p>
+<div class="vibe-page-lines">
+    <p>Share what you built with <strong>#DevFest</strong>, we would love to see it! <span aria-hidden="true">🔥</span></p>
+    <p>The whole day is on the <a href="/agenda/">agenda</a>.</p>
+</div>

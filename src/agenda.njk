@@ -93,9 +93,9 @@ permalink: /agenda/
     {% endfor %}
 </div>
 
-<h2 id="vibe-lounge-schedule">Official DevFest Vibe Lounge Schedule (11:00 to 15:00)</h2>
+<h2 id="vibe-lounge-schedule">Vibe Lounge sprints (11:00 to 15:00)</h2>
 <p>
-    The Vibe Lounge runs three guided hands-on sprints from 11:00 to 15:00 (with a lunch break from 11:45 to 13:00). Drop in with your laptop, build a live AI prototype with Google AI Studio and Gemini alongside community mentors, and claim the official DevFest 2026 Vibe Lounge badge.
+    Three guided sprints with Google AI Studio and Gemini, and a lunch break from 11:45 to 13:00. <span aria-hidden="true">💻</span> Bring your laptop, build an app with community mentors, and claim the DevFest 2026 Vibe Lounge badge in the room at the end of any sprint. <span aria-hidden="true">🥳</span>
 </p>
 
 <div class="agenda-vibe-grid">
@@ -106,7 +106,7 @@ permalink: /agenda/
             <span class="agenda-vibe-time">{{ sprint.time }}</span>
         </div>
         <h3>{{ sprint.title }}</h3>
-        <p>{{ sprint.focus }}</p>
+        <p>{{ sprint.focus }} <span aria-hidden="true">{{ sprint.emoji }}</span></p>
     </div>
     {% endfor %}
 </div>
