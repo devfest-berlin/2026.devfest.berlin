@@ -25,12 +25,22 @@ npm run dev
 
 # Build for production (outputs to _site/)
 npm run build
+
+# Run the build tests (also run in CI)
+npm test
 ```
+
+## Pages
+
+- `/` home: tickets, tracks, Vibe Lounge and hackathon, venue, FAQ, newsletter
+- `/agenda/` day timeline, tracks and Vibe Lounge sprints, links to the Sessionize schedule
+- `/vibe-lounge/` Vibe Lounge challenges, what to bring and how a sprint works
+- `/sponsors/`, `/gallery/`, `/impressum/`, `/datenschutz/`
+
+Content and switches (tickets, CFP, schedule, Vibe Lounge, sponsors) live in [`src/_data/site.json`](src/_data/site.json).
 
 ## Adding Pages & Expanding the Site
 
 See [**AGENTS.md**](AGENTS.md) for detailed guidelines on:
-- Creating standalone pages for **Agenda**, **Venue**, **Ticketing**, and **FAQ** using [`src/_includes/layouts/page.njk`](src/_includes/layouts/page.njk).
-- Embedding **Sessionize** for the speaker schedule.
-- Connecting ticket sales widgets.
+- Creating standalone pages with [`src/_includes/layouts/page.njk`](src/_includes/layouts/page.njk).
 - Casper layout structure, CSS rules, and breakpoints.

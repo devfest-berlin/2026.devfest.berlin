@@ -24,12 +24,14 @@ This guide provides instructions for future human contributors and AI agents wor
 │   └── dependabot.yml           # Weekly dependency update checks
 ├── src/
 │   ├── _data/
-│   │   └── site.json            # Central config: metadata, nav, links, organizers, newsletter
+│   │   └── site.json            # Central config: metadata, nav, status switches, agenda, Vibe Lounge, legal, sponsors, newsletter
 │   ├── _includes/
 │   │   ├── layouts/
 │   │   │   ├── base.njk         # Outer wrapper: head, Casper navbar, burger menu, footer
-│   │   │   └── page.njk         # Generic layout for standalone pages (Agenda, Venue, FAQ, etc.)
+│   │   │   └── page.njk         # Generic layout for standalone pages (agenda, Vibe Lounge, legal pages)
 │   │   └── partials/
+│   │       ├── legal.njk        # Shared helpers for Impressum and Datenschutz
+│   │       ├── sponsor-deck.njk # Click-to-load sponsorship deck embed
 │   │       └── sponsor-wall.njk # Sponsor logo wall, shared by the home page and /sponsors/
 │   ├── assets/
 │   │   ├── css/
@@ -38,11 +40,17 @@ This guide provides instructions for future human contributors and AI agents wor
 │   │   │   └── screen.css       # Entry point for esbuild (imports casper.css + custom.css)
 │   │   ├── js/
 │   │   │   └── main.js          # Mobile burger drawer & URL-encoded AJAX newsletter submit
-│   │   └── images/
-│   │       └── devfest-cover.svg # Hero background vector banner
+│   │   └── images/              # devfest-cover.jpg (hero and share image), communities/, gallery/, Vibe Lounge banner
 │   ├── favicon.svg              # DevFest-style code brackets favicon
-│   ├── index.njk                # Home page template
-│   └── sponsors.njk             # /sponsors/ page
+│   ├── index.njk                # Home page
+│   ├── agenda.njk               # /agenda/ day timeline, tracks, Vibe Lounge sprints
+│   ├── vibe-lounge.njk          # /vibe-lounge/ challenges, what to bring, sprint flow
+│   ├── sponsors.njk             # /sponsors/
+│   ├── gallery.njk              # /gallery/
+│   ├── impressum.njk            # /impressum/
+│   ├── datenschutz.njk          # /datenschutz/
+│   ├── 404.njk, robots.njk, sitemap.njk
+├── test/agenda.test.mjs         # Build tests: status switches, Vibe Lounge page, no badge or credit claim links
 ├── eleventy.config.js           # 11ty 3 configuration and esbuild CSS build script
 ├── package.json
 └── README.md
@@ -72,47 +80,36 @@ To add a new page (e.g., `/agenda/`, `/venue/`, `/faq/`, `/tickets/`):
    { "label": "Agenda", "url": "/agenda/" }
    ```
 
-### Option B: Embedding Sessionize for the Agenda
-When Sessionize is set up for DevFest Berlin 2026:
-- Drop the Sessionize script/iframe directly into `src/agenda.njk` or as a section on `src/index.njk`:
-  ```html
-  <div id="sessionize-wrapper" class="outer">
-    <div class="inner">
-      <script type="text/javascript" src="https://sessionize.com/api/v2/YOUR_ID/view/GridSmart"></script>
-    </div>
-  </div>
-  ```
-
-### Option C: Adding Ticket Sales (Eventbrite / Tito / Pretix)
-- Add a primary CTA button in `src/_includes/layouts/base.njk` inside `.gh-head-actions`:
-  ```html
-  <a class="gh-head-button" href="https://your-ticketing-link" target="_blank" rel="noopener">Get Tickets</a>
-  ```
-- Or place an embedded ticketing widget in a new `src/tickets.njk` page using `layout: page.njk`.
+### Agenda and Vibe Lounge data
+- `agenda.dayTimeline` drives the day timeline on `/agenda/`.
+- `agenda.sessionizeScheduleEmbedUrl` and `agenda.sessionizeSpeakersEmbedUrl` turn on click-to-load Sessionize embeds on `/agenda/`; empty means no embed.
+- `agenda.vibeLoungeSlots` (sprint time, title, focus, emoji) feeds the home page, `/agenda/` and `/vibe-lounge/` at once. `agenda.vibeLounge` holds the host, the repo link and the four challenges.
+- Emoji in Vibe Lounge copy sit at the end of a line in `<span aria-hidden="true">`, never in headings, links, pills or time labels.
+- Never put the Vibe Lounge badge link, QR codes, Cloud credit claim links or Wi-Fi details on the site; `test/agenda.test.mjs` fails on the badge and claim domains.
 
 
 #### Search and sharing metadata
 `base.njk` builds the canonical link from `site.url`, sets the theme colour from `site.accentColor`, and adds Event structured data on the home page from `site.eventDate`, `site.venue` and `site.organizerName`. `sitemap.xml` lists every page in `collections.all` and `robots.txt` points to it, so a new page appears in the sitemap without extra work. If the canonical domain changes, update `site.url` only.
 
 ### Opening the CFP or ticket sales (no template edits)
-`site.json` carries a `cfp` and a `tickets` block. Each starts at `"status": "soon"`, which renders nothing new.
+`site.json` carries a `cfp` and a `tickets` block. `"status": "soon"` renders nothing new (today: `cfp` is `"closed"`, `tickets` is `"open"`).
 - **CFP opens:** set `cfp.status` to `"open"`, `cfp.url` to the submission page and optionally `cfp.deadline` (for example `"October 18, 2026"`). A "Call for Speakers" menu link, a "Submit a Talk" header and hero button, and an "open until" line appear.
 - **CFP closes:** set `cfp.status` to `"closed"`. The buttons disappear and the hero shows a thank-you line.
-- **Tickets on sale** (for example the Bevy page): set `tickets.status` to `"open"` and `tickets.url`. "Get Tickets" takes over the header button and leads the hero buttons.
+- **Tickets on sale** (for example the Bevy page): set `tickets.status` to `"open"` and `tickets.url`. "Get Tickets" takes over the header button and leads the hero buttons. `tickets.image` shows a poster next to the ticket cards; leave it empty when the poster no longer matches the tiers on sale.
 - **Schedule published:** `agenda.schedule` points at the Sessionize schedule. With `status` `"open"` and a `url`, a "View Agenda" button appears in the hero and on `/agenda/` (the "Agenda" menu link stays on `/agenda/`). Set `status` to `"soon"` to hide them.
 A block only switches on when its `url` is set, so a half-filled change cannot publish a dead button.
 
 ### Legal pages: Impressum and Datenschutz
 `src/impressum.njk` and `src/datenschutz.njk` read the organizer's details from `site.json`: `contactEmail` and the `legal` block (address, board members, Vereinsregister court and number, optional VAT ID, person responsible for content). Any empty field renders as a yellow "to be added" marker, so a missing detail is visible on the page rather than silently blank. Fill the fields in `site.json`; never hard-code them in the templates. The footer links come from `legalNavigation`. When the site starts processing new data (a Sessionize or ticket embed, analytics, a new form, external fonts), rewrite the "In short" list in `datenschutz.njk`, add a section for that provider and update the "Last updated" date. The CI and deploy workflows refuse to publish while any "to be added" marker is left in the built site.
 
-The Code of Conduct links directly to the [Berlin Code of Conduct](https://berlincodeofconduct.org/en) in `site.navigation`.
+The Code of Conduct links directly to the [Berlin Code of Conduct](https://berlincodeofconduct.org/en) in `site.legalNavigation`.
 
 `src/404.njk` builds `/404.html`, which GitHub Pages serves for unknown URLs. It sets `noindex` and stays out of the sitemap.
 
 ### Sponsors
 The home page's sponsors band and `/sponsors/` read `sponsorship` (pitch, stats, what we need, contact email) and `sponsors` in `site.json`. The logo wall appears only once `sponsors` has entries. To add one, append `{ "name": "…", "url": "https://…", "logo": "/assets/images/sponsors/<name>.svg", "role": "Venue partner" }` and put the logo file in `src/assets/images/sponsors/`. `logo` and `role` are optional; without a logo the name shows as text. Keep prices out of the site; they belong in the sponsorship deck.
 
-### Option D: Adding an FAQ Accordion
+### Adding an FAQ entry
 - Add an FAQ section to `src/index.njk` or a dedicated `src/faq.md`.
 - HTML `<details>` and `<summary>` elements work out of the box with zero JavaScript and look clean in Casper's `.gh-content` container.
 
@@ -149,5 +146,8 @@ npm run dev
 
 # Build production static site
 npm run build
+
+# Build tests (also run in CI)
+npm test
 ```
-Builds take under 100ms. All assets and pages are compiled into `_site/`.
+All assets and pages are compiled into `_site/`.
