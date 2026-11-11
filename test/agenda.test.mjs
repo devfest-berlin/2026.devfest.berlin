@@ -162,8 +162,10 @@ describe("vibe lounge page", () => {
   });
 
   test("shows the repo link only when repoUrl is set", () => {
-    buildSite(() => {});
-    assert.doesNotMatch(readLounge(), /All challenges, prompts and mentor notes/);
+    buildSite((site) => {
+      site.agenda.vibeLounge.repoUrl = "";
+    });
+    assert.doesNotMatch(readLounge(), /All challenges and the sprint flow/);
     buildSite((site) => {
       site.agenda.vibeLounge.repoUrl = "https://github.com/example/vibe-lounge";
     });
