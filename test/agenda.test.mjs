@@ -136,3 +136,39 @@ describe("agenda schedule switch", () => {
     assert.match(agendaMenuLinks[0], /href="\/agenda\/"/);
   });
 });
+
+describe("vibe lounge page", () => {
+  const readLounge = () => {
+    const workDir = workDirs.at(-1);
+    return readFileSync(join(workDir, "_site", "vibe-lounge", "index.html"), "utf8");
+  };
+
+  test("lists every challenge with its link", () => {
+    const { home } = buildSite(() => {});
+    const lounge = readLounge();
+    assert.match(lounge, /The Backyard Barista/);
+    assert.match(lounge, /launch-your-portfolio-website-with-ai/);
+    assert.match(lounge, /launch-your-web-based-video-game-with-ai/);
+    assert.match(lounge, /build-with-google-maps-platform-and-ai/);
+    assert.doesNotMatch(lounge, /Heads-up:/);
+    assert.match(home, /href="\/vibe-lounge\/"/);
+  });
+
+  test("never links the badge claim URL before the event", () => {
+    const { home, agenda } = buildSite(() => {});
+    for (const page of [home, agenda, readLounge()]) {
+      assert.doesNotMatch(page, /devfest26-vibe-lounge/);
+    }
+  });
+
+  test("shows the repo link only when repoUrl is set", () => {
+    buildSite((site) => {
+      site.agenda.vibeLounge.repoUrl = "";
+    });
+    assert.doesNotMatch(readLounge(), /All challenges and the sprint flow/);
+    buildSite((site) => {
+      site.agenda.vibeLounge.repoUrl = "https://github.com/example/vibe-lounge";
+    });
+    assert.match(readLounge(), /github\.com\/example\/vibe-lounge/);
+  });
+});
