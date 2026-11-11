@@ -115,7 +115,7 @@
     },
     "vibeLoungeSlots": [
       {
-        "time": "10:55 - 11:45",
+        "time": "11:00 - 11:45",
         "slot": "Sprint 1",
         "title": "Open build: pick any challenge",
         "focus": "Choose any of the four challenges, build it with Google AI Studio and Gemini, and deploy it live."
@@ -150,14 +150,19 @@
         "track": "Main Stage, Rooms 2 to 5 and Extra Room 1.6"
       },
       {
-        "time": "10:55",
-        "title": "Hackathon and Vibe Lounge Open (until 15:00)",
-        "track": "Hackathon Room + Vibe Lounge"
+        "time": "11:00",
+        "title": "Vibe Lounge Open (until 15:00)",
+        "track": "Vibe Lounge"
       },
       {
         "time": "11:45",
         "title": "Lunch Break (until 13:00)",
         "track": "SRH Berlin"
+      },
+      {
+        "time": "12:55",
+        "title": "Hackathon (until 17:00, registration from 12:05)",
+        "track": "Hackathon Room"
       },
       {
         "time": "13:00",
