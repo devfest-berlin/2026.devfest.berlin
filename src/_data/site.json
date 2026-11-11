@@ -85,28 +85,32 @@
       "challenges": [
         {
           "title": "The Backyard Barista",
-          "summary": "Build a specialty coffee companion in Google AI Studio: a Gemini barista that picks beans, roasts and milk for your taste, then add a brew timer, a shopping list and a Firebase recipe journal.",
+          "summary": "A Gemini barista that picks beans, roasts and milk for your taste. Then add a brew timer, a shopping list and a Firebase recipe journal. The guide takes about 40 minutes.",
+          "emoji": "☕",
           "url": "https://docs.google.com/document/d/12Vvc5VPJkHvRzgMgcHdvMFDzxsWtfBZzzoo0Y9HM_8M/edit?tab=t.0",
           "linkLabel": "Open the Barista guide",
           "tag": "Coffee + Gemini"
         },
         {
           "title": "Launch your portfolio website with AI",
-          "summary": "Describe yourself, let Google AI Studio build a personal portfolio site, then publish it to Cloud Run.",
+          "summary": "Tell Google AI Studio about yourself, let it build your portfolio site, then publish it to Cloud Run.",
+          "emoji": "✨",
           "url": "https://codelabs.developers.google.com/codelabs/cloud-run/launch-your-portfolio-website-with-ai",
           "linkLabel": "Open the portfolio codelab",
           "tag": "Beginner friendly"
         },
         {
           "title": "Launch a multiplayer game with AI",
-          "summary": "Build a turn-based browser game with Firestore and Google Sign-In, set up for you by AI Studio, and deploy it to Cloud Run.",
+          "summary": "A turn-based browser game with Firestore and Google Sign-In, set up for you by AI Studio. Play it with friends on Cloud Run.",
+          "emoji": "🎮",
           "url": "https://codelabs.developers.google.com/codelabs/cloud-run/launch-your-web-based-video-game-with-ai",
           "linkLabel": "Open the game codelab",
           "tag": "Firebase"
         },
         {
           "title": "Build with Google Maps Platform and AI",
-          "summary": "Build a map explorer with geocoding, Gemini-generated local facts and Maps grounding, then deploy it to Cloud Run.",
+          "summary": "A map explorer with geocoding, local facts from Gemini and Maps grounding, deployed to Cloud Run.",
+          "emoji": "🗺️",
           "url": "https://codelabs.developers.google.com/codelabs/cloud-run/build-with-google-maps-platform-and-ai",
           "linkLabel": "Open the Maps codelab",
           "tag": "Maps + Gemini"
@@ -117,20 +121,23 @@
       {
         "time": "11:00 - 11:45",
         "slot": "Sprint 1",
-        "title": "Open build: pick any challenge",
-        "focus": "Choose any of the four challenges, build it with Google AI Studio and Gemini, and deploy it live."
+        "title": "Morning build",
+        "focus": "Pick any of the four challenges and build it with Google AI Studio and Gemini.",
+        "emoji": "🚀"
       },
       {
         "time": "13:00 - 14:00",
         "slot": "Sprint 2",
-        "title": "Open build: pick any challenge",
-        "focus": "Same four challenges again. Mentors in the room help you get unstuck."
+        "title": "After-lunch build",
+        "focus": "Same four challenges, fresh start. Mentors in the room help you get unstuck.",
+        "emoji": "🙌"
       },
       {
         "time": "14:00 - 15:00",
         "slot": "Sprint 3",
-        "title": "Open build & showcase",
-        "focus": "Build any challenge, demo your live app, and claim the official Vibe Lounge badge."
+        "title": "Build and show",
+        "focus": "Build any challenge, then show your app in the last demo round of the day.",
+        "emoji": "🥳"
       }
     ],
     "dayTimeline": [

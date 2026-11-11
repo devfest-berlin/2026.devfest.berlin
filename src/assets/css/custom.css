@@ -3230,6 +3230,25 @@ body:not(.home-template) .gh-head-menu .nav a {
     color: var(--color-secondary-text);
 }
 
+.gh-content .vibe-page-lead {
+    margin-bottom: 1.6em;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.gh-content .vibe-page-lead p,
+.gh-content .vibe-page-lines p {
+    margin: 0 0 0.4em;
+}
+
+.gh-content .vibe-page-lines {
+    margin-bottom: 1.6em;
+}
+
+.gh-content .vibe-page-repo {
+    overflow-wrap: anywhere;
+}
+
 .vibe-challenge-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
