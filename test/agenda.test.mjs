@@ -143,14 +143,14 @@ describe("vibe lounge page", () => {
     return readFileSync(join(workDir, "_site", "vibe-lounge", "index.html"), "utf8");
   };
 
-  test("lists every challenge with its link and the Maps heads-up", () => {
+  test("lists every challenge with its link", () => {
     const { home } = buildSite(() => {});
     const lounge = readLounge();
     assert.match(lounge, /The Backyard Barista/);
     assert.match(lounge, /launch-your-portfolio-website-with-ai/);
     assert.match(lounge, /launch-your-web-based-video-game-with-ai/);
     assert.match(lounge, /build-with-google-maps-platform-and-ai/);
-    assert.match(lounge, /Heads-up:/);
+    assert.doesNotMatch(lounge, /Heads-up:/);
     assert.match(home, /href="\/vibe-lounge\/"/);
   });
 

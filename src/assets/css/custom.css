@@ -3265,13 +3265,6 @@ body:not(.home-template) .gh-head-menu .nav a {
     color: var(--color-secondary-text);
 }
 
-.gh-content .vibe-challenge-card .vibe-challenge-note {
-    padding: 10px 12px;
-    border-radius: 10px;
-    background: #fef7e0;
-    color: #7a5b00;
-}
-
 .vibe-challenge-link {
     margin-top: auto;
     padding-top: 6px;
@@ -3289,10 +3282,5 @@ body:not(.home-template) .gh-head-menu .nav a {
     html.auto-color .vibe-challenge-card {
         background: #171b22;
         border-color: rgba(255, 255, 255, 0.12);
-    }
-
-    html.auto-color .gh-content .vibe-challenge-card .vibe-challenge-note {
-        background: rgba(251, 188, 4, 0.12);
-        color: #fdd663;
     }
 }

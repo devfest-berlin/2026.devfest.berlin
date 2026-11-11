@@ -37,7 +37,7 @@ permalink: /vibe-lounge/
 </div>
 
 <h2 id="challenges">Challenges</h2>
-<p>Pick one, or bring your own idea. Each one fits in a single sprint.</p>
+<p>All four run in every sprint, and they are free for every DevFest attendee. Pick whichever you like, or bring your own idea. Each one fits in a single sprint.</p>
 
 <div class="vibe-challenge-grid">
     {% for challenge in lounge.challenges %}
@@ -45,9 +45,6 @@ permalink: /vibe-lounge/
         <span class="vibe-pill">{{ challenge.tag }}</span>
         <h3>{{ challenge.title }}</h3>
         <p>{{ challenge.summary }}</p>
-        {% if challenge.note %}
-        <p class="vibe-challenge-note"><strong>Heads-up:</strong> {{ challenge.note }}</p>
-        {% endif %}
         <a class="vibe-challenge-link" href="{{ challenge.url }}" target="_blank" rel="noopener">{{ challenge.linkLabel }}</a>
     </div>
     {% endfor %}
