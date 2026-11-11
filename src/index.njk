@@ -77,7 +77,7 @@ bodyClass: "home-template is-head-left-logo has-cover"
         </div>
         {% if ticketsOpen %}
         <p class="hero-note">
-            <strong>Final week - tickets on sale now:</strong> Secure your Regular ticket for Saturday, November 14 before capacity fills up.{% if cfpOpen and site.cfp.deadline %} &bull; {{ site.cfp.label }} open until {{ site.cfp.deadline }}{% endif %}
+            <strong>Final week:</strong> Late Bird tickets are on sale now for Saturday, November 14. Secure your spot before capacity fills up.{% if cfpOpen and site.cfp.deadline %} &bull; {{ site.cfp.label }} open until {{ site.cfp.deadline }}{% endif %}
         </p>
         {% elif cfpOpen and site.cfp.deadline %}
         <p class="hero-note">{{ site.cfp.label }} open until {{ site.cfp.deadline }}</p>
@@ -107,7 +107,7 @@ bodyClass: "home-template is-head-left-logo has-cover"
     <!-- Ticket Sale Main Call to Action Section -->
     <section id="tickets" class="outer tickets-cta-section" aria-labelledby="tickets-cta-heading">
         <div class="inner">
-            <div class="tickets-cta-showcase">
+            <div class="tickets-cta-showcase{% if not site.tickets.image %} is-single{% endif %}">
                 <div class="tickets-cta-body">
                     <div class="tickets-cta-header">
                         <div class="tickets-devfest-lockup" aria-hidden="true">
@@ -138,18 +138,15 @@ bodyClass: "home-template is-head-left-logo has-cover"
                             <div class="ticket-tier-card is-early-bird">
                                 <div class="ticket-tier-topbar">
                                     <span class="ticket-tier-label is-earlybird-stroke">EARLY BIRD</span>
-                                    <span class="ticket-tier-tag">1 Week Only</span>
+                                    <span class="ticket-tier-tag">Ended</span>
                                 </div>
                                 <div class="ticket-tier-content">
                                     <div class="ticket-window-headline is-blue-ink">
-                                        &bull; Get Best Price
+                                        &bull; All gone
                                     </div>
                                     <p class="ticket-window-subnote">
-                                        Available for <strong>1 week only</strong> at our lowest community rate.
+                                        Thank you to everyone who booked early!
                                     </p>
-                                    <a class="ticket-tier-btn is-green" href="{{ site.tickets.url }}" target="_blank" rel="noopener">
-                                        <span>BUY</span>
-                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -170,15 +167,15 @@ bodyClass: "home-template is-head-left-logo has-cover"
                             </div>
                             <div class="ticket-tier-card is-regular">
                                 <div class="ticket-tier-topbar">
-                                    <span class="ticket-tier-label is-regular-stroke">REGULAR</span>
-                                    <span class="ticket-tier-tag">1 Week After</span>
+                                    <span class="ticket-tier-label is-regular-stroke">LATE BIRD</span>
+                                    <span class="ticket-tier-tag">On sale now</span>
                                 </div>
                                 <div class="ticket-tier-content">
                                     <div class="ticket-window-headline is-green-ink">
-                                        &bull; Don't Wait!
+                                        &bull; Last chance!
                                     </div>
                                     <p class="ticket-window-subnote">
-                                        Available for <strong>1 week only</strong> following Early Bird.
+                                        On sale until <strong>Saturday, November 14</strong>.
                                     </p>
                                     <a class="ticket-tier-btn is-blue" href="{{ site.tickets.url }}" target="_blank" rel="noopener">
                                         <span>BUY</span>
@@ -489,7 +486,7 @@ bodyClass: "home-template is-head-left-logo has-cover"
                         <span class="vibe-pill is-green">Campus Track • 12:55 to 17:00</span>
                         <h3 class="vibe-card-title">DevFest Berlin Hackathon</h3>
                         <p class="vibe-card-desc">
-                            Collaborate with engineers, designers, and students from GDG on Campus SRH Berlin to build practical software prototypes and showcase them before the closing ceremony.
+                            Collaborate with engineers, designers, and students from GDG on Campus SRH Berlin to build practical software prototypes and show them at the end of the day.
                         </p>
                     </div>
 
@@ -678,7 +675,7 @@ bodyClass: "home-template is-head-left-logo has-cover"
                             {% else %}
                             The Call for Speakers closed on <strong>{{ site.cfp.deadline }} at 11:59 PM CET</strong>. Thank you to everyone who submitted a talk.
                             {% endif %}
-                            Explore the confirmed speaker lineup and session slots on the <a href="/agenda/">Speakers &amp; Agenda</a> page{% if scheduleOpen %} and the <a href="{{ site.agenda.schedule.url }}" target="_blank" rel="noopener">full Sessionize schedule</a>{% endif %}.
+                            See the day at a glance on the <a href="/agenda/">agenda</a> page{% if scheduleOpen %} and the <a href="{{ site.agenda.schedule.url }}" target="_blank" rel="noopener">full Sessionize schedule</a>{% endif %}.
                         </p>
                     </div>
                 </details>
@@ -724,15 +721,14 @@ bodyClass: "home-template is-head-left-logo has-cover"
                 </details>
 
                 <details class="faq-item">
-                    <summary>Are tickets on sale now? How do Early Bird and Regular tickets work?</summary>
+                    <summary>Are tickets still on sale?</summary>
                     <div class="faq-answer">
                         <p>
                             Yes! Tickets for DevFest Berlin 2026 are on sale now via our <a href="{{ site.tickets.url }}" target="_blank" rel="noopener">official GDG Berlin event page</a>:
                         </p>
                         <p>
-                            &bull; <strong>Early Bird:</strong> Available for <strong>1 week only</strong> (Best price!).<br>
-                            &bull; <strong>Regular Ticket:</strong> Available for <strong>1 week only</strong> following Early Bird.<br>
-                            Secure your spot today before tickets sell out.
+                            Early Bird has ended, and Late Bird tickets are on sale until Saturday, November 14.
+                            Secure your spot before tickets sell out.
                         </p>
                     </div>
                 </details>
