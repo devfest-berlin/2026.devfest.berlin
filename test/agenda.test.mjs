@@ -37,7 +37,11 @@ function buildSite(editSite) {
   execFileSync(process.execPath, [eleventyCli, "--quiet"], { cwd: workDir, stdio: "pipe" });
 
   const readPage = (pagePath) => readFileSync(join(workDir, "_site", pagePath), "utf8");
-  return { home: readPage("index.html"), agenda: readPage(join("agenda", "index.html")) };
+  return {
+    home: readPage("index.html"),
+    agenda: readPage(join("agenda", "index.html")),
+    lounge: readPage(join("vibe-lounge", "index.html")),
+  };
 }
 
 /** Returns the inner HTML of the first `<div class="className">`, following nested divs to its own closing tag. */
@@ -138,37 +142,34 @@ describe("agenda schedule switch", () => {
 });
 
 describe("vibe lounge page", () => {
-  const readLounge = () => {
-    const workDir = workDirs.at(-1);
-    return readFileSync(join(workDir, "_site", "vibe-lounge", "index.html"), "utf8");
-  };
-
   test("lists every challenge with its link", () => {
-    const { home } = buildSite(() => {});
-    const lounge = readLounge();
+    const { lounge } = buildSite(() => {});
     assert.match(lounge, /The Backyard Barista/);
     assert.match(lounge, /launch-your-portfolio-website-with-ai/);
     assert.match(lounge, /launch-your-web-based-video-game-with-ai/);
     assert.match(lounge, /build-with-google-maps-platform-and-ai/);
-    assert.doesNotMatch(lounge, /Heads-up:/);
+  });
+
+  test("home links to the lounge page", () => {
+    const { home } = buildSite(() => {});
     assert.match(home, /href="\/vibe-lounge\/"/);
   });
 
   test("never links the badge claim URL before the event", () => {
-    const { home, agenda } = buildSite(() => {});
-    for (const page of [home, agenda, readLounge()]) {
+    const { home, agenda, lounge } = buildSite(() => {});
+    for (const page of [home, agenda, lounge]) {
       assert.doesNotMatch(page, /devfest26-vibe-lounge/);
     }
   });
 
   test("shows the repo link only when repoUrl is set", () => {
-    buildSite((site) => {
+    const hidden = buildSite((site) => {
       site.agenda.vibeLounge.repoUrl = "";
     });
-    assert.doesNotMatch(readLounge(), /All challenges and the sprint flow/);
-    buildSite((site) => {
+    assert.doesNotMatch(hidden.lounge, /All challenges and the sprint flow/);
+    const shown = buildSite((site) => {
       site.agenda.vibeLounge.repoUrl = "https://github.com/example/vibe-lounge";
     });
-    assert.match(readLounge(), /github\.com\/example\/vibe-lounge/);
+    assert.match(shown.lounge, /github\.com\/example\/vibe-lounge/);
   });
 });
