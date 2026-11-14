@@ -155,13 +155,31 @@ describe("vibe lounge page", () => {
     assert.match(home, /href="\/vibe-lounge\/"/);
   });
 
-  test("never links the badge or Cloud credit claim URLs", () => {
+  test("links the badge only on the Vibe Lounge page, and never the Cloud credit claim URL", () => {
     const { home, agenda, lounge } = buildSite(() => {});
-    for (const page of [home, agenda, lounge]) {
+    for (const page of [home, agenda]) {
       assert.doesNotMatch(page, /devfest26-vibe-lounge/);
       assert.doesNotMatch(page, /goo\.gle\//);
+    }
+    for (const page of [home, agenda, lounge]) {
       assert.doesNotMatch(page, /me\.developers\.google\.com/);
     }
+    const otherShortLinks = lounge.replaceAll("goo.gle/devfest26-vibe-lounge", "");
+    assert.doesNotMatch(otherShortLinks, /goo\.gle\//);
+  });
+
+  test("shows the badge section only when badgeUrl is set", () => {
+    const hidden = buildSite((site) => {
+      site.agenda.vibeLounge.badgeUrl = "";
+    });
+    assert.doesNotMatch(hidden.lounge, /id="badge"/);
+    assert.doesNotMatch(hidden.lounge, /goo\.gle\//);
+    const shown = buildSite((site) => {
+      site.agenda.vibeLounge.badgeUrl = "https://goo.gle/devfest26-vibe-lounge";
+    });
+    assert.match(shown.lounge, /id="badge"/);
+    assert.match(shown.lounge, /href="https:\/\/goo\.gle\/devfest26-vibe-lounge"/);
+    assert.match(shown.lounge, /vibe-lounge-badge-claim\.png/);
   });
 
   test("shows the repo link only when repoUrl is set", () => {
