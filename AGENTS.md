@@ -50,7 +50,7 @@ This guide provides instructions for future human contributors and AI agents wor
 │   ├── impressum.njk            # /impressum/
 │   ├── datenschutz.njk          # /datenschutz/
 │   ├── 404.njk, robots.njk, sitemap.njk
-├── test/agenda.test.mjs         # Build tests: status switches, Vibe Lounge page, no badge or credit claim links
+├── test/agenda.test.mjs         # Build tests: status switches, Vibe Lounge page, badge link only on /vibe-lounge/, no credit claim links
 ├── eleventy.config.js           # 11ty 3 configuration and esbuild CSS build script
 ├── package.json
 └── README.md
@@ -83,9 +83,9 @@ To add a new page (e.g., `/agenda/`, `/venue/`, `/faq/`, `/tickets/`):
 ### Agenda and Vibe Lounge data
 - `agenda.dayTimeline` drives the day timeline on `/agenda/`.
 - `agenda.sessionizeScheduleEmbedUrl` and `agenda.sessionizeSpeakersEmbedUrl` turn on click-to-load Sessionize embeds on `/agenda/`; empty means no embed.
-- `agenda.vibeLoungeSlots` (sprint time, title, focus, emoji) feeds the home page, `/agenda/` and `/vibe-lounge/` at once. `agenda.vibeLounge` holds the host, the repo link and the four challenges.
+- `agenda.vibeLoungeSlots` (sprint time, title, focus, emoji) feeds the home page, `/agenda/` and `/vibe-lounge/` at once. `agenda.vibeLounge` holds the host, the repo link, the badge link and the four challenges.
 - Emoji in Vibe Lounge copy sit at the end of a line in `<span aria-hidden="true">`, never in headings, links, pills or time labels.
-- Never put the Vibe Lounge badge link, QR codes, Cloud credit claim links or Wi-Fi details on the site; `test/agenda.test.mjs` fails on the badge and claim domains.
+- The Vibe Lounge badge link and its QR slide appear only on `/vibe-lounge/`, switched by `agenda.vibeLounge.badgeUrl` (empty hides the section). Never put Cloud credit claim links or Wi-Fi details on the site; `test/agenda.test.mjs` fails on the claim domain and on badge links outside `/vibe-lounge/`.
 
 
 #### Search and sharing metadata

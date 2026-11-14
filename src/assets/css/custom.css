@@ -3184,6 +3184,19 @@ body:not(.home-template) .gh-head-menu .nav a {
     overflow-wrap: anywhere;
 }
 
+.vibe-badge-claim {
+    display: block;
+    margin: 24px 0 32px;
+}
+
+.vibe-badge-claim img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    border: 1px solid var(--color-border);
+}
+
 .vibe-challenge-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

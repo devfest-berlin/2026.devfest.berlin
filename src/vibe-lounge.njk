@@ -83,6 +83,14 @@ permalink: /vibe-lounge/
     <li>Show it and claim your badge. At the end of the sprint a few people demo their apps, and everyone can claim the official DevFest 2026 Vibe Lounge badge in the room. <span aria-hidden="true">🥳</span></li>
 </ol>
 
+{% if lounge.badgeUrl %}
+<h2 id="badge">Claim your badge</h2>
+<p>Built something in the lounge? Scan the code or open <a href="{{ lounge.badgeUrl }}" target="_blank" rel="noopener">{{ lounge.badgeUrl | replace("https://", "") }}</a> and sign in with your personal Google account. <span aria-hidden="true">🏅</span></p>
+<a class="vibe-badge-claim" href="{{ lounge.badgeUrl }}" target="_blank" rel="noopener">
+    <img src="/assets/images/vibe-lounge-badge-claim.png" alt="Claim the DevFest 2026 Vibe Lounge badge: QR code for {{ lounge.badgeUrl | replace("https://", "") }}" width="1600" height="900" loading="lazy">
+</a>
+{% endif %}
+
 <div class="vibe-page-lines">
     <p>Share what you built with <strong>#DevFest</strong>, we would love to see it! <span aria-hidden="true">🔥</span></p>
     <p>The whole day is on the <a href="/agenda/">agenda</a>.</p>
