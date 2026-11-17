@@ -1,6 +1,6 @@
 {
   "title": "DevFest Berlin 2026",
-  "description": "Berlin's flagship community-driven developer festival organized by local Google Developer Groups. At SRH Berlin on Saturday, November 14, 2026.",
+  "description": "Berlin's flagship community-driven developer festival organized by local Google Developer Groups. Held at SRH Berlin on Saturday, November 14, 2026.",
   "url": "https://2026.devfest-berlin.de",
   "accentColor": "#1a73e8",
   "coverImage": "/assets/images/devfest-cover.jpg",
@@ -33,7 +33,7 @@
     "mapsUrl": "https://www.google.com/maps/dir/?api=1&destination=SRH+Berlin+University+of+Applied+Sciences+Sonnenallee+221+12059+Berlin",
     "transitUrl": "https://www.bvg.de/en/connections/connection-search?to=Sonnenallee+221,+12059+Berlin"
   },
-  "calendarUrl": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=DevFest+Berlin+2026&dates=20261114T070000Z/20261114T161500Z&details=DevFest+Berlin+2026+at+SRH+Berlin.+https://2026.devfest-berlin.de&location=SRH+Berlin,+Sonnenallee+221,+12059+Berlin",
+  "calendarUrl": "",
   "stats": [
     { "value": "250+", "label": "Attendees" },
     { "value": "39", "label": "Technical Speakers" },
@@ -183,14 +183,13 @@
     ]
   },
   "tickets": {
-    "status": "open",
+    "status": "closed",
     "buttonText": "Get Tickets",
     "url": "https://gdg.community.dev/events/details/google-gdg-berlin-presents-devfest-berlin-2026/",
     "image": "",
-    "subtitle": "Join us on 14 November 2026 at SRH Berlin for a full day of technical talks, hands-on workshops, exhibitors, and community networking!"
+    "subtitle": "DevFest Berlin 2026 took place on 14 November 2026 at SRH Berlin for a full day of technical talks, hands-on workshops, exhibitors, and community networking."
   },
   "navigation": [
-    { "label": "Tickets", "url": "/#tickets" },
     { "label": "About", "url": "/#about" },
     { "label": "Tracks", "url": "/#tracks" },
     { "label": "Agenda", "url": "/agenda/" },
@@ -255,7 +254,7 @@
   ],
   "sponsorship": {
     "email": "gdg-berlin@googlegroups.com",
-    "emailSubject": "DevFest Berlin 2026 sponsorship",
+    "emailSubject": "DevFest Berlin sponsorship",
     "title": "Partner with DevFest Berlin",
     "pitch": "DevFest Berlin is run by volunteers from Berlin's developer communities. Partners make it possible, and meet more than 200 developers, designers and tech leads in one day.",
     "statsTitle": "DevFest Berlin 2025 in numbers",
@@ -275,8 +274,8 @@
   "newsletter": {
     "action": "https://docs.google.com/forms/d/e/1FAIpQLSfJYZ1P-QigUq4ce4GokypPLO1-5Ck-qZeumneCEkZ6eZrQrQ/formResponse",
     "emailFieldName": "entry.464015783",
-    "title": "Stay updated on DevFest Berlin 2026",
-    "description": "Tickets are on sale now! Subscribe for event day updates for November 14 at SRH Berlin and news about future DevFest Berlin events.",
+    "title": "Stay updated on DevFest Berlin",
+    "description": "DevFest Berlin 2026 has wrapped! Subscribe for session recordings, community recaps, and news about future DevFest Berlin events.",
     "buttonText": "Notify Me",
     "privacyNote": "We only email you about DevFest Berlin. Your address is stored with Google Forms, and you can unsubscribe at any time."
   }

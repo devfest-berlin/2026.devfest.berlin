@@ -43,7 +43,9 @@ permalink: /agenda/
         {% if scheduleOpen %}
         <a class="{% if ticketsOpen or cfpOpen %}venue-btn is-calendar{% else %}sponsor-button{% endif %}" href="{{ site.agenda.schedule.url }}" target="_blank" rel="noopener">{{ site.agenda.schedule.buttonText }}</a>
         {% endif %}
+        {% if site.calendarUrl %}
         <a class="venue-btn is-calendar" href="{{ site.calendarUrl }}" target="_blank" rel="noopener">Add Date to Calendar</a>
+        {% endif %}
     </div>
 </div>
 {% endif %}

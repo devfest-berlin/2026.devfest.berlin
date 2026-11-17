@@ -193,3 +193,26 @@ describe("vibe lounge page", () => {
     assert.match(shown.lounge, /github\.com\/example\/vibe-lounge/);
   });
 });
+
+describe("post-event cleanup", () => {
+  test("with tickets and CFP closed and no calendarUrl: no ticket sales, early bird alerts, countdown, calendar buttons, or subscribe/stay-tuned CTAs", () => {
+    const { home, agenda } = buildSite(() => {});
+    for (const page of [home, agenda]) {
+      assert.doesNotMatch(page, /Get Tickets/);
+      assert.doesNotMatch(page, /Tickets On Sale/);
+      assert.doesNotMatch(page, /Late Bird/);
+      assert.doesNotMatch(page, /Add (Date )?to Calendar/);
+      assert.doesNotMatch(page, /Stay Tuned/);
+      assert.match(page, /href="\/datenschutz\/"/);
+    }
+    assert.doesNotMatch(home, /Early Bird Alert/);
+    assert.doesNotMatch(home, /id="earlybird-modal"/);
+    assert.doesNotMatch(home, /id="event-countdown"/);
+    assert.doesNotMatch(home, /id="subscribe"/);
+    assert.doesNotMatch(home, /Stay updated on DevFest Berlin/);
+    assert.doesNotMatch(home, /Stay Updated/);
+    assert.doesNotMatch(home, /Are tickets still on sale\?/);
+    assert.doesNotMatch(home, /href="\/#tickets"/);
+    assert.match(home, /Sponsor future events/);
+  });
+});
