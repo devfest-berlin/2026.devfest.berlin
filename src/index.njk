@@ -24,31 +24,9 @@ bodyClass: "home-template is-head-left-logo has-cover"
         <p class="site-description">{{ site.description }}</p>
         {% endif %}
 
-        <!-- Live Event Countdown -->
-        <div class="hero-countdown" id="event-countdown" data-target="{{ site.eventDate }}T08:00:00+01:00" role="timer" aria-label="Countdown to DevFest Berlin 2026">
-            <div class="countdown-unit">
-                <div class="countdown-value" id="countdown-days">--</div>
-                <div class="countdown-title">Days</div>
-            </div>
-            <div class="countdown-separator" aria-hidden="true">:</div>
-            <div class="countdown-unit">
-                <div class="countdown-value" id="countdown-hours">--</div>
-                <div class="countdown-title">Hours</div>
-            </div>
-            <div class="countdown-separator" aria-hidden="true">:</div>
-            <div class="countdown-unit">
-                <div class="countdown-value" id="countdown-minutes">--</div>
-                <div class="countdown-title">Minutes</div>
-            </div>
-            <div class="countdown-separator" aria-hidden="true">:</div>
-            <div class="countdown-unit">
-                <div class="countdown-value" id="countdown-seconds">--</div>
-                <div class="countdown-title">Seconds</div>
-            </div>
-        </div>
-
         {% set cfpOpen = site.cfp.status == "open" and site.cfp.url %}
         {% set ticketsOpen = site.tickets.status == "open" and site.tickets.url %}
+        {% set ticketsSoon = site.tickets.status == "soon" %}
         {% set scheduleOpen = site.agenda.schedule.status == "open" and site.agenda.schedule.url %}
         <div class="hero-actions">
             {% if ticketsOpen %}
@@ -56,23 +34,26 @@ bodyClass: "home-template is-head-left-logo has-cover"
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><line x1="13" y1="5" x2="13" y2="19" stroke-dasharray="2"/></svg>
                 <span>{{ site.tickets.buttonText }}</span>
             </a>
-            {% else %}
+            {% elif ticketsSoon %}
             <button type="button" class="hero-button is-earlybird" id="open-earlybird-modal" aria-haspopup="dialog" aria-controls="earlybird-modal">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
                 <span>Early Bird Alert</span>
             </button>
             {% endif %}
             {% if scheduleOpen %}
-            <a class="hero-button is-secondary" href="{{ site.agenda.schedule.url }}" target="_blank" rel="noopener">{{ site.agenda.schedule.buttonText }}</a>
+            <a class="hero-button{% if ticketsOpen or ticketsSoon %} is-secondary{% endif %}" href="{{ site.agenda.schedule.url }}" target="_blank" rel="noopener">{{ site.agenda.schedule.buttonText }}</a>
             {% endif %}
             {% if cfpOpen %}
-            <a class="hero-button{% if ticketsOpen %} is-secondary{% endif %}" href="{{ site.cfp.url }}" target="_blank" rel="noopener">{{ site.cfp.buttonText }}</a>
+            <a class="hero-button{% if ticketsOpen or ticketsSoon or scheduleOpen %} is-secondary{% endif %}" href="{{ site.cfp.url }}" target="_blank" rel="noopener">{{ site.cfp.buttonText }}</a>
             {% endif %}
             {% if site.calendarUrl %}
             <a class="hero-button is-calendar" href="{{ site.calendarUrl }}" target="_blank" rel="noopener" title="Add to Calendar">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                 <span>Add to Calendar</span>
             </a>
+            {% endif %}
+            {% if not ticketsOpen and not ticketsSoon and not cfpOpen %}
+            <a class="hero-button is-secondary" href="/vibe-lounge/">Vibe Lounge Challenges</a>
             {% endif %}
         </div>
         {% if ticketsOpen %}
@@ -81,6 +62,8 @@ bodyClass: "home-template is-head-left-logo has-cover"
         </p>
         {% elif cfpOpen and site.cfp.deadline %}
         <p class="hero-note">{{ site.cfp.label }} open until {{ site.cfp.deadline }}</p>
+        {% elif not ticketsSoon %}
+        <p class="hero-note">Thank you for joining us at SRH Berlin on November 14, 2026.</p>
         {% endif %}
     </div>
 </div>
@@ -210,33 +193,6 @@ bodyClass: "home-template is-head-left-logo has-cover"
         </div>
     </section>
     {% endif %}
-
-    <!-- Newsletter / Subscribe Call to Action -->
-    <section id="subscribe" class="footer-cta outer subscribe-section">
-        <div class="inner">
-            <h2 class="footer-cta-title">{{ site.newsletter.title }}</h2>
-            <p style="max-width: 600px; margin: 0 auto 28px; font-size: 1.7rem; color: var(--color-secondary-text);">
-                {{ site.newsletter.description }}
-            </p>
-
-            <form id="subscribe-form" class="footer-cta-form" action="{{ site.newsletter.action }}" method="POST">
-                <input
-                    type="email"
-                    name="{{ site.newsletter.emailFieldName }}"
-                    placeholder="Enter your email address"
-                    aria-label="Email address"
-                    required
-                />
-                <button type="submit">{{ site.newsletter.buttonText }}</button>
-            </form>
-            <div id="subscribe-feedback" class="subscribe-feedback" role="status" aria-live="polite"></div>
-            {% if site.newsletter.privacyNote %}
-            <p class="subscribe-privacy">
-                {{ site.newsletter.privacyNote }} <a href="/datenschutz/#newsletter">Privacy details</a>
-            </p>
-            {% endif %}
-        </div>
-    </section>
 
     <!-- About Section -->
     <section id="about" class="outer about-section">
@@ -443,7 +399,7 @@ bodyClass: "home-template is-head-left-logo has-cover"
             <div class="section-header">
                 <h2 class="section-title">Vibe Lounge &amp; Hackathon</h2>
                 <p class="section-subtitle">
-                    Build an app with AI in a guided sprint, or team up for the campus hackathon at SRH Berlin. <span aria-hidden="true">💻</span>
+                    Guided AI app-building sprints and the campus hackathon at SRH Berlin. <span aria-hidden="true">💻</span>
                 </p>
             </div>
 
@@ -453,9 +409,9 @@ bodyClass: "home-template is-head-left-logo has-cover"
                         <span class="vibe-pill">3 sprints • 11:00 to 15:00</span>
                         <h3 class="vibe-card-title">Vibe Lounge</h3>
                         <p class="vibe-card-desc">
-                            Build an app with Google AI Studio and Gemini in one guided sprint. <span aria-hidden="true">🚀</span><br>
-                            Free for every attendee, with mentors in the room. <span aria-hidden="true">🙌</span><br>
-                            Claim the DevFest 2026 Vibe Lounge badge in the room at the end. <span aria-hidden="true">🥳</span>
+                            Attendees built apps with Google AI Studio and Gemini in guided sprints. <span aria-hidden="true">🚀</span><br>
+                            Free for every attendee, with community mentors in the room. <span aria-hidden="true">🙌</span><br>
+                            The four challenges and guides remain open to try anytime. <span aria-hidden="true">🥳</span>
                         </p>
                     </div>
 
@@ -486,7 +442,7 @@ bodyClass: "home-template is-head-left-logo has-cover"
                         <span class="vibe-pill is-green">Campus Track • 12:55 to 17:00</span>
                         <h3 class="vibe-card-title">DevFest Berlin Hackathon</h3>
                         <p class="vibe-card-desc">
-                            Collaborate with engineers, designers, and students from GDG on Campus SRH Berlin to build practical software prototypes and show them at the end of the day.
+                            Engineers, designers, and students from GDG on Campus SRH Berlin teamed up to build practical software prototypes and showcase them at the end of the day.
                         </p>
                     </div>
 
@@ -498,10 +454,10 @@ bodyClass: "home-template is-head-left-logo has-cover"
                             <strong>Mentors from 7 Communities:</strong> Hands-on architecture and code guidance from Google Developer Experts and local chapter leads.
                         </li>
                         <li>
-                            <strong>Beginner &amp; Student Friendly:</strong> Form a team on site (registration from 12:05) or register with friends. Dedicated student ticket allocations available.
+                            <strong>Beginner &amp; Student Friendly:</strong> Attendees formed teams on site or joined with friends, with dedicated student ticket allocations.
                         </li>
                         <li>
-                            <strong>Project Showcase &amp; Closing:</strong> Hacking runs until 17:00, and the Closing Ceremony starts at 16:45 on the Main Stage.
+                            <strong>Project Showcase &amp; Closing:</strong> Hacking wrapped up at 17:00 alongside the Closing Ceremony on the Main Stage.
                         </li>
                     </ul>
 
@@ -520,7 +476,7 @@ bodyClass: "home-template is-head-left-logo has-cover"
         <div class="inner">
             <div class="section-header">
                 <h2 class="section-title">Date &amp; Location</h2>
-                <p class="section-subtitle">Join us at the modern SRH Berlin campus in Neukölln for DevFest Berlin 2026.</p>
+                <p class="section-subtitle">DevFest Berlin 2026 took place at the SRH Berlin campus in Neukölln.</p>
             </div>
 
             <div class="venue-showcase-container">
@@ -701,11 +657,15 @@ bodyClass: "home-template is-head-left-logo has-cover"
                 </details>
 
                 <details class="faq-item">
-                    <summary>Are there student tickets and who can join the Hackathon?</summary>
+                    <summary>{% if ticketsOpen %}Are there student tickets and who can join the Hackathon?{% else %}Who could join the Hackathon?{% endif %}</summary>
                     <div class="faq-answer">
                         <p>
+                            {% if ticketsOpen %}
                             Yes. In partnership with <strong>GDG on Campus SRH Berlin</strong>, we offer dedicated student ticket allocations (bring a valid student ID or university email).
                             The campus Hackathon (registration from 12:05, hacking 12:55 to 17:00) is open to all conference attendees: you can form a team on site or register with friends.
+                            {% else %}
+                            In partnership with <strong>GDG on Campus SRH Berlin</strong>, the campus Hackathon (registration from 12:05, hacking 12:55 to 17:00) was open to all conference attendees, who could form a team on site or register with friends.
+                            {% endif %}
                         </p>
                     </div>
                 </details>
@@ -720,6 +680,7 @@ bodyClass: "home-template is-head-left-logo has-cover"
                     </div>
                 </details>
 
+                {% if ticketsOpen %}
                 <details class="faq-item">
                     <summary>Are tickets still on sale?</summary>
                     <div class="faq-answer">
@@ -732,6 +693,7 @@ bodyClass: "home-template is-head-left-logo has-cover"
                         </p>
                     </div>
                 </details>
+                {% endif %}
 
                 <details class="faq-item">
                     <summary>What is the Code of Conduct?</summary>
@@ -788,13 +750,13 @@ bodyClass: "home-template is-head-left-logo has-cover"
         <div class="inner">
             <div class="section-header">
                 <h2 class="section-title">{{ site.sponsorship.title }}</h2>
-                <p class="section-subtitle">{{ site.sponsorship.pitch }}</p>
+                <p class="section-subtitle">{{ site.sponsorship.pitch }} Interested in partnering for future DevFest Berlin editions?</p>
             </div>
             {% if site.sponsors.length %}
             {% include "partials/sponsor-wall.njk" %}
             {% endif %}
             <p class="sponsors-action">
-                <a class="sponsor-button" href="/sponsors/">Become a sponsor</a>
+                <a class="sponsor-button" href="/sponsors/">Sponsor future events</a>
             </p>
         </div>
     </section>
@@ -812,6 +774,7 @@ bodyClass: "home-template is-head-left-logo has-cover"
 
 </main>
 
+{% if site.tickets.status == "soon" %}
 <!-- Early Bird Notification Modal Dialog -->
 <dialog id="earlybird-modal" class="earlybird-dialog" aria-labelledby="earlybird-modal-title">
     <div class="earlybird-dialog-card">
@@ -843,6 +806,7 @@ bodyClass: "home-template is-head-left-logo has-cover"
         </form>
     </div>
 </dialog>
+{% endif %}
 
 <!-- Interactive Venue & Neukölln Map Dialog Modal -->
 <dialog id="venue-map-modal" class="venue-map-dialog" aria-labelledby="venue-map-modal-title">

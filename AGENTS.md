@@ -92,7 +92,7 @@ To add a new page (e.g., `/agenda/`, `/venue/`, `/faq/`, `/tickets/`):
 `base.njk` builds the canonical link from `site.url`, sets the theme colour from `site.accentColor`, and adds Event structured data on the home page from `site.eventDate`, `site.venue` and `site.organizerName`. `sitemap.xml` lists every page in `collections.all` and `robots.txt` points to it, so a new page appears in the sitemap without extra work. If the canonical domain changes, update `site.url` only.
 
 ### Opening the CFP or ticket sales (no template edits)
-`site.json` carries a `cfp` and a `tickets` block. `"status": "soon"` renders nothing new (today: `cfp` is `"closed"`, `tickets` is `"open"`).
+`site.json` carries a `cfp` and a `tickets` block. `"status": "soon"` shows Early Bird alerts; `"status": "closed"` hides ticket sales and Early Bird alerts (today: `cfp` and `tickets` are `"closed"`).
 - **CFP opens:** set `cfp.status` to `"open"`, `cfp.url` to the submission page and optionally `cfp.deadline` (for example `"October 18, 2026"`). A "Call for Speakers" menu link, a "Submit a Talk" header and hero button, and an "open until" line appear.
 - **CFP closes:** set `cfp.status` to `"closed"`. The buttons disappear and the hero shows a thank-you line.
 - **Tickets on sale** (for example the Bevy page): set `tickets.status` to `"open"` and `tickets.url`. "Get Tickets" takes over the header button and leads the hero buttons. `tickets.image` shows a poster next to the ticket cards; leave it empty when the poster no longer matches the tiers on sale.
