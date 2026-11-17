@@ -40,13 +40,13 @@ This guide provides instructions for future human contributors and AI agents wor
 │   │   │   └── screen.css       # Entry point for esbuild (imports casper.css + custom.css)
 │   │   ├── js/
 │   │   │   └── main.js          # Mobile burger drawer & URL-encoded AJAX newsletter submit
-│   │   └── images/              # devfest-cover.jpg (hero and share image), communities/, gallery/, Vibe Lounge banner
+│   │   └── images/              # devfest-cover.jpg (hero and share image), communities/, Vibe Lounge banner
 │   ├── favicon.svg              # DevFest-style code brackets favicon
 │   ├── index.njk                # Home page
 │   ├── agenda.njk               # /agenda/ day timeline, tracks, Vibe Lounge sprints
 │   ├── vibe-lounge.njk          # /vibe-lounge/ challenges, what to bring, sprint flow
+│   ├── faq.njk                  # /faq/
 │   ├── sponsors.njk             # /sponsors/
-│   ├── gallery.njk              # /gallery/
 │   ├── impressum.njk            # /impressum/
 │   ├── datenschutz.njk          # /datenschutz/
 │   ├── 404.njk, robots.njk, sitemap.njk

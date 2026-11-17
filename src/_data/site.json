@@ -34,6 +34,7 @@
     "transitUrl": "https://www.bvg.de/en/connections/connection-search?to=Sonnenallee+221,+12059+Berlin"
   },
   "calendarUrl": "",
+  "galleryUrl": "https://photos.app.goo.gl/Rg8TCCGKiCeqvaPA9",
   "stats": [
     { "value": "250+", "label": "Attendees" },
     { "value": "39", "label": "Technical Speakers" },
@@ -190,14 +191,11 @@
     "subtitle": "DevFest Berlin 2026 took place on 14 November 2026 at SRH Berlin for a full day of technical talks, hands-on workshops, exhibitors, and community networking."
   },
   "navigation": [
-    { "label": "About", "url": "/#about" },
-    { "label": "Tracks", "url": "/#tracks" },
     { "label": "Agenda", "url": "/agenda/" },
     { "label": "Vibe Lounge", "url": "/vibe-lounge/" },
-    { "label": "Venue", "url": "/#venue" },
-    { "label": "FAQ", "url": "/#faq" },
+    { "label": "FAQ", "url": "/faq/" },
     { "label": "Sponsors", "url": "/sponsors/" },
-    { "label": "Gallery", "url": "/gallery/" }
+    { "label": "Gallery", "url": "https://photos.app.goo.gl/Rg8TCCGKiCeqvaPA9" }
   ],
   "footerNavigation": [
     { "label": "DevFest 2025 Archive", "url": "https://2025.devfest.berlin/home" }

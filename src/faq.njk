@@ -1,0 +1,112 @@
+---
+layout: page.njk
+title: "Frequently Asked Questions"
+description: "Everything you need to know about DevFest Berlin 2026."
+permalink: /faq/
+---
+
+{% set ticketsOpen = site.tickets.status == "open" and site.tickets.url %}
+{% set scheduleOpen = site.agenda.schedule.status == "open" and site.agenda.schedule.url %}
+
+<div class="faq-accordion">
+    <details class="faq-item">
+        <summary>Where is the venue and how do I get there?</summary>
+        <div class="faq-answer">
+            <p>
+                DevFest Berlin 2026 takes place at <strong>SRH Berlin University of Applied Sciences</strong>,
+                located at <strong>Sonnenallee 221, 12059 Berlin</strong> (Neukölln).
+            </p>
+            <p>
+                <strong>Public Transit:</strong><br>
+                &bull; <strong>S-Bahn:</strong> S41, S42 (Ringbahn), S45, S46, S47 (Station <em>S Sonnenallee</em> or <em>S Köllnische Heide</em>, 5 to 8 min walk).<br>
+                &bull; <strong>Bus:</strong> M41 (direct connection from Berlin Hauptbahnhof, Potsdamer Platz, and Hermannplatz).
+            </p>
+        </div>
+    </details>
+
+    <details class="faq-item">
+        <summary>When does the Call for Speakers (CFP) close?</summary>
+        <div class="faq-answer">
+            <p>
+                {% if site.cfp.status == "open" and site.cfp.url %}
+                The Call for Speakers is open through <strong>{{ site.cfp.deadline }} at 11:59 PM CET</strong>.
+                You can submit talk proposals directly on <a href="{{ site.cfp.url }}" target="_blank" rel="noopener">Sessionize</a>.
+                {% else %}
+                The Call for Speakers closed on <strong>{{ site.cfp.deadline }} at 11:59 PM CET</strong>. Thank you to everyone who submitted a talk.
+                {% endif %}
+                See the day at a glance on the <a href="/agenda/">agenda</a> page{% if scheduleOpen %} and the <a href="{{ site.agenda.schedule.url }}" target="_blank" rel="noopener">full Sessionize schedule</a>{% endif %}.
+            </p>
+        </div>
+    </details>
+
+    <details class="faq-item">
+        <summary>Who can submit a talk proposal?</summary>
+        <div class="faq-answer">
+            <p>
+                We warmly encourage speakers of all backgrounds, genders, and experience levels, including first-time speakers.
+                Whether you are presenting a beginner-friendly introduction or a deep technical dive, our community welcomes your perspective.
+            </p>
+        </div>
+    </details>
+
+    <details class="faq-item">
+        <summary>What is the Vibe Lounge and do I need prior coding experience?</summary>
+        <div class="faq-answer">
+            <p>
+                The Vibe Lounge is a relaxed room where you build an app with Google AI Studio and Gemini, in guided sprints between <strong>11:00 and 15:00</strong>. <span aria-hidden="true">💻</span>
+                No coding experience needed. Mentors in the room help you from your first prompt to an app you can share, and everyone can claim the DevFest 2026 Vibe Lounge badge in the room. <span aria-hidden="true">🙌</span> See the <a href="/vibe-lounge/">challenges and what to bring</a>.
+            </p>
+        </div>
+    </details>
+
+    <details class="faq-item">
+        <summary>{% if ticketsOpen %}Are there student tickets and who can join the Hackathon?{% else %}Who could join the Hackathon?{% endif %}</summary>
+        <div class="faq-answer">
+            <p>
+                {% if ticketsOpen %}
+                Yes. In partnership with <strong>GDG on Campus SRH Berlin</strong>, we offer dedicated student ticket allocations (bring a valid student ID or university email).
+                The campus Hackathon (registration from 12:05, hacking 12:55 to 17:00) is open to all conference attendees: you can form a team on site or register with friends.
+                {% else %}
+                In partnership with <strong>GDG on Campus SRH Berlin</strong>, the campus Hackathon (registration from 12:05, hacking 12:55 to 17:00) was open to all conference attendees, who could form a team on site or register with friends.
+                {% endif %}
+            </p>
+        </div>
+    </details>
+
+    <details class="faq-item">
+        <summary>Is the SRH Berlin campus wheelchair accessible?</summary>
+        <div class="faq-answer">
+            <p>
+                Yes. The SRH Berlin campus at Sonnenallee 221 is 100% barrier-free with step-free entrances, elevators to all talk and workshop rooms, and accessible restrooms.
+                If you have specific accessibility or dietary requirements, email us at <a href="mailto:{{ site.contactEmail }}">{{ site.contactEmail }}</a>.
+            </p>
+        </div>
+    </details>
+
+    {% if ticketsOpen %}
+    <details class="faq-item">
+        <summary>Are tickets still on sale?</summary>
+        <div class="faq-answer">
+            <p>
+                Yes! Tickets for DevFest Berlin 2026 are on sale now via our <a href="{{ site.tickets.url }}" target="_blank" rel="noopener">official GDG Berlin event page</a>:
+            </p>
+            <p>
+                Early Bird has ended, and Late Bird tickets are on sale until Saturday, November 14.
+                Secure your spot before tickets sell out.
+            </p>
+        </div>
+    </details>
+    {% endif %}
+
+    <details class="faq-item">
+        <summary>What is the Code of Conduct?</summary>
+        <div class="faq-answer">
+            <p>
+                DevFest Berlin is dedicated to providing a harassment-free and inclusive conference experience for everyone.
+                All attendees, speakers, sponsors, and organizers are required to adhere to the
+                <a href="https://berlincodeofconduct.org/en" target="_blank" rel="noopener">Berlin Code of Conduct</a>
+                and Google Event Community Guidelines throughout the event.
+            </p>
+        </div>
+    </details>
+</div>

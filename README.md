@@ -32,10 +32,10 @@ npm test
 
 ## Pages
 
-- `/` home: tickets, tracks, Vibe Lounge and hackathon, venue, FAQ, newsletter
+- `/` home: tracks, Vibe Lounge and hackathon, venue, organizers, sponsors
 - `/agenda/` day timeline, tracks and Vibe Lounge sprints, links to the Sessionize schedule
 - `/vibe-lounge/` Vibe Lounge challenges, what to bring and how a sprint works
-- `/sponsors/`, `/gallery/`, `/impressum/`, `/datenschutz/`
+- `/faq/`, `/sponsors/`, `/impressum/`, `/datenschutz/`
 
 Content and switches (tickets, CFP, schedule, Vibe Lounge, sponsors) live in [`src/_data/site.json`](src/_data/site.json).
 
