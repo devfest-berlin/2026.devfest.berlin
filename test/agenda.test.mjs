@@ -41,6 +41,7 @@ function buildSite(editSite) {
     home: readPage("index.html"),
     agenda: readPage(join("agenda", "index.html")),
     lounge: readPage(join("vibe-lounge", "index.html")),
+    faq: readPage(join("faq", "index.html")),
   };
 }
 
@@ -79,8 +80,11 @@ function openSchedule(site) {
 }
 
 describe("agenda schedule switch", () => {
-  test("open with a url: View Agenda links to Sessionize in the hero and on /agenda/", () => {
-    const { home, agenda } = buildSite(openSchedule);
+  test("open with a url: View Agenda links to Sessionize on /agenda/, and in the hero when tickets or CFP are open", () => {
+    const { home, agenda } = buildSite((site) => {
+      openSchedule(site);
+      site.tickets.status = "open";
+    });
 
     const heroLinks = anchorsWithText(blockWithClass(home, "hero-actions"), "View Agenda");
     assert.equal(heroLinks.length, 1);
@@ -91,16 +95,18 @@ describe("agenda schedule switch", () => {
     assertSafeExternalLink(agendaLinks[0]);
   });
 
-  test("open with tickets and CFP closed: View Agenda still shows in the hero and on /agenda/", () => {
+  test("open with tickets and CFP closed: View Agenda shows on /agenda/, while hero links to View Photos", () => {
     const { home, agenda } = buildSite((site) => {
       openSchedule(site);
       site.tickets.status = "closed";
       site.cfp.status = "closed";
     });
 
-    const heroLinks = anchorsWithText(blockWithClass(home, "hero-actions"), "View Agenda");
-    assert.equal(heroLinks.length, 1);
-    assertSafeExternalLink(heroLinks[0]);
+    const heroActions = blockWithClass(home, "hero-actions");
+    assert.equal(anchorsWithText(heroActions, "View Agenda").length, 0);
+    const photoLinks = anchorsWithText(heroActions, "View Photos");
+    assert.equal(photoLinks.length, 1);
+    assert.match(photoLinks[0], /href="https:\/\/photos\.app\.goo\.gl\/Rg8TCCGKiCeqvaPA9"/);
 
     const agendaLinks = anchorsWithText(blockWithClass(agenda, "agenda-status-actions"), "View Agenda");
     assert.equal(agendaLinks.length, 1);
@@ -196,8 +202,8 @@ describe("vibe lounge page", () => {
 
 describe("post-event cleanup", () => {
   test("with tickets and CFP closed and no calendarUrl: no ticket sales, early bird alerts, countdown, calendar buttons, or subscribe/stay-tuned CTAs", () => {
-    const { home, agenda } = buildSite(() => {});
-    for (const page of [home, agenda]) {
+    const { home, agenda, faq } = buildSite(() => {});
+    for (const page of [home, agenda, faq]) {
       assert.doesNotMatch(page, /Get Tickets/);
       assert.doesNotMatch(page, /Tickets On Sale/);
       assert.doesNotMatch(page, /Late Bird/);
@@ -211,8 +217,15 @@ describe("post-event cleanup", () => {
     assert.doesNotMatch(home, /id="subscribe"/);
     assert.doesNotMatch(home, /Stay updated on DevFest Berlin/);
     assert.doesNotMatch(home, /Stay Updated/);
-    assert.doesNotMatch(home, /Are tickets still on sale\?/);
+    assert.doesNotMatch(home, /class="hero-note"/);
+    assert.match(home, /class="site-description is-thankyou"/);
+    assert.doesNotMatch(home, /Vibe Lounge Challenges/);
+    assert.doesNotMatch(home, /id="faq"/);
     assert.doesNotMatch(home, /href="\/#tickets"/);
-    assert.match(home, /Sponsor future events/);
+    assert.match(home, /Support future events/);
+    assert.match(home, /href="https:\/\/photos\.app\.goo\.gl\/Rg8TCCGKiCeqvaPA9" target="_blank" rel="noopener"/);
+    assert.match(home, /href="\/faq\/"/);
+    assert.match(faq, /Where is the venue and how do I get there\?/);
+    assert.doesNotMatch(faq, /Are tickets still on sale\?/);
   });
 });
